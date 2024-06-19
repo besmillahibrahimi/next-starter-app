@@ -1,0 +1,38 @@
+.dark {
+  /* info Secondary colors shade */
+  --info: #0c5b84;
+  --info-foreground: #ffffff;
+
+  --info-50: #031d2f;
+  --info-50-foreground: #ffffff;
+
+  --info-100: #042940;
+  --info-100-foreground: #ffffff;
+
+  --info-200: #063551;
+  --info-200-foreground: #ffffff;
+
+  --info-300: #084262;
+  --info-300-foreground: #ffffff;
+
+  --info-400: #0a4e73;
+  --info-400-foreground: #ffffff;
+
+  --info-500: #0c5b84;
+  --info-500-foreground: #ffffff;
+
+  --info-600: #0e6795;
+  --info-600-foreground: #ffffff;
+
+  --info-700: #1082a6;
+  --info-700-foreground: #000000;
+
+  --info-800: #129fb7;
+  --info-800-foreground: #000000;
+
+  --info-900: #14bcca;
+  --info-900-foreground: #000000;
+
+  --info-950: #16d9db;
+  --info-950-foreground: #000000;
+}

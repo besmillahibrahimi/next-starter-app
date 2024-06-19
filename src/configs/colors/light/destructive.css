@@ -1,0 +1,38 @@
+:root {
+  /* destructive colors shade */
+  --destructive: #f0f1f1;
+  --destructive-foreground: #000000;
+
+  --destructive-50: #f0f1f1;
+  --destructive-50-foreground: #000000;
+
+  --destructive-100: #e2e2e3;
+  --destructive-100-foreground: #000000;
+
+  --destructive-200: #d3d4d5;
+  --destructive-200-foreground: #000000;
+
+  --destructive-300: #c5c5c7;
+  --destructive-300-foreground: #000000;
+
+  --destructive-400: #a7a8ab;
+  --destructive-400-foreground: #000000;
+
+  --destructive-500: #8a8b8f;
+  --destructive-500-foreground: #000000;
+
+  --destructive-600: #6d6e73;
+  --destructive-600-foreground: #ffffff;
+
+  --destructive-700: #57585c;
+  --destructive-700-foreground: #ffffff;
+
+  --destructive-800: #414245;
+  --destructive-800-foreground: #ffffff;
+
+  --destructive-900: #2c2c2e;
+  --destructive-900-foreground: #ffffff;
+
+  --destructive-950: #212123;
+  --destructive-950-foreground: #ffffff;
+}

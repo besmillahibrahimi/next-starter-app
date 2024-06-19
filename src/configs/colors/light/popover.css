@@ -1,0 +1,39 @@
+:root {
+  /* Light popover colors shade */
+  /* Background color for popovers such as <DropdownMenu />, <HoverCard />, <Popover /> */
+  --popover: #f0f1f1;
+  --popover-foreground: #000000;
+
+  --popover-50: #f0f1f1;
+  --popover-50-foreground: #000000;
+
+  --popover-100: #e2e2e3;
+  --popover-100-foreground: #000000;
+
+  --popover-200: #d3d4d5;
+  --popover-200-foreground: #000000;
+
+  --popover-300: #c5c5c7;
+  --popover-300-foreground: #000000;
+
+  --popover-400: #a7a8ab;
+  --popover-400-foreground: #000000;
+
+  --popover-500: #8a8b8f;
+  --popover-500-foreground: #000000;
+
+  --popover-600: #6d6e73;
+  --popover-600-foreground: #ffffff;
+
+  --popover-700: #57585c;
+  --popover-700-foreground: #ffffff;
+
+  --popover-800: #414245;
+  --popover-800-foreground: #ffffff;
+
+  --popover-900: #2c2c2e;
+  --popover-900-foreground: #ffffff;
+
+  --popover-950: #212123;
+  --popover-950-foreground: #ffffff;
+}

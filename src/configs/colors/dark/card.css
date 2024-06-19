@@ -1,0 +1,39 @@
+.dark {
+  /* card Secondary colors shade */
+  /* Background color for <Card /> */
+  --card: #f0f1f1;
+  --card-foreground: #000000;
+
+  --card-50: #f0f1f1;
+  --card-50-foreground: #000000;
+
+  --card-100: #e2e2e3;
+  --card-100-foreground: #000000;
+
+  --card-200: #d3d4d5;
+  --card-200-foreground: #000000;
+
+  --card-300: #c5c5c7;
+  --card-300-foreground: #000000;
+
+  --card-400: #a7a8ab;
+  --card-400-foreground: #000000;
+
+  --card-500: #8a8b8f;
+  --card-500-foreground: #ffff;
+
+  --card-600: #6d6e73;
+  --card-600-foreground: #ffff;
+
+  --card-700: #57585c;
+  --card-700-foreground: #ffff;
+
+  --card-800: #414245;
+  --card-800-foreground: #ffff;
+
+  --card-900: #2c2c2e;
+  --card-900-foreground: #ffff;
+
+  --card-950: #212123;
+  --card-950-foreground: #ffff;
+}

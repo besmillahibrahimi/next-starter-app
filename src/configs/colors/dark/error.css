@@ -1,0 +1,38 @@
+.dark {
+  /* Error Dark colors shade */
+  --error: #971111;
+  --error-foreground: #ffffff;
+
+  --error-50: #330202;
+  --error-50-foreground: #ffffff;
+
+  --error-100: #470303;
+  --error-100-foreground: #ffffff;
+
+  --error-200: #5b0505;
+  --error-200-foreground: #ffffff;
+
+  --error-300: #6f0707;
+  --error-300-foreground: #ffffff;
+
+  --error-400: #830909;
+  --error-400-foreground: #ffffff;
+
+  --error-500: #971111;
+  --error-500-foreground: #ffffff;
+
+  --error-600: #ab1a1a;
+  --error-600-foreground: #ffffff;
+
+  --error-700: #bf2323;
+  --error-700-foreground: #ffffff;
+
+  --error-800: #d42c2c;
+  --error-800-foreground: #ffffff;
+
+  --error-900: #e83535;
+  --error-900-foreground: #ffffff;
+
+  --error-950: #fc3e3e;
+  --error-950-foreground: #ffffff;
+}

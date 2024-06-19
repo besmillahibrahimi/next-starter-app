@@ -1,0 +1,38 @@
+.dark {
+  /* Dark success colors shade */
+  --success: #079b53;
+  --success-foreground: #000000;
+
+  --success-50: #022f14;
+  --success-50-foreground: #ffffff;
+
+  --success-100: #034520;
+  --success-100-foreground: #ffffff;
+
+  --success-200: #045a2d;
+  --success-200-foreground: #ffffff;
+
+  --success-300: #05703a;
+  --success-300-foreground: #ffffff;
+
+  --success-400: #068547;
+  --success-400-foreground: #ffffff;
+
+  --success-500: #079b53;
+  --success-500-foreground: #000000;
+
+  --success-600: #08b15f;
+  --success-600-foreground: #000000;
+
+  --success-700: #09c76b;
+  --success-700-foreground: #000000;
+
+  --success-800: #0add78;
+  --success-800-foreground: #000000;
+
+  --success-900: #0cf384;
+  --success-900-foreground: #000000;
+
+  --success-950: #0dff90;
+  --success-950-foreground: #000000;
+}

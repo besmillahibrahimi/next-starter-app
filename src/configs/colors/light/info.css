@@ -1,0 +1,38 @@
+:root {
+  /* info Secondary colors shade */
+  --info: #0ea5e9;
+  --info-foreground: #000000;
+
+  --info-50: #f0f9ff;
+  --info-50-foreground: #000000;
+
+  --info-100: #e0f2fe;
+  --info-100-foreground: #000000;
+
+  --info-200: #bae6fd;
+  --info-200-foreground: #000000;
+
+  --info-300: #7dd3fc;
+  --info-300-foreground: #000000;
+
+  --info-400: #38bdf8;
+  --info-400-foreground: #000000;
+
+  --info-500: #0ea5e9;
+  --info-500-foreground: #000000;
+
+  --info-600: #0284c7;
+  --info-600-foreground: #000000;
+
+  --info-700: #0369a1;
+  --info-700-foreground: #ffffff;
+
+  --info-800: #075985;
+  --info-800-foreground: #ffffff;
+
+  --info-900: #0c4a6e;
+  --info-900-foreground: #ffffff;
+
+  --info-950: #082f49;
+  --info-950-foreground: #ffffff;
+}

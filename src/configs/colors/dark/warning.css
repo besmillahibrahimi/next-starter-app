@@ -1,0 +1,38 @@
+.dark {
+  /* Dark warning colors shade */
+  --warning: #c1990a;
+  --warning-foreground: #000000;
+
+  --warning-50: #3d3204;
+  --warning-50-foreground: #ffffff;
+
+  --warning-100: #554605;
+  --warning-100-foreground: #ffffff;
+
+  --warning-200: #705b06;
+  --warning-200-foreground: #ffffff;
+
+  --warning-300: #8c7007;
+  --warning-300-foreground: #ffffff;
+
+  --warning-400: #a78408;
+  --warning-400-foreground: #000000;
+
+  --warning-500: #c1990a;
+  --warning-500-foreground: #000000;
+
+  --warning-600: #dbad0b;
+  --warning-600-foreground: #000000;
+
+  --warning-700: #f6c20c;
+  --warning-700-foreground: #000000;
+
+  --warning-800: #ffd60d;
+  --warning-800-foreground: #000000;
+
+  --warning-900: #ffe90e;
+  --warning-900-foreground: #000000;
+
+  --warning-950: #fffc0f;
+  --warning-950-foreground: #000000;
+}

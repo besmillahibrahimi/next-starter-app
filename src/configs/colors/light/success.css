@@ -1,0 +1,38 @@
+:root {
+  /* success Secondary colors shade */
+  --success: #22c55e;
+  --success-foreground: #000000;
+
+  --success-50: #f0fdf4;
+  --success-50-foreground: #000000;
+
+  --success-100: #dcfce7;
+  --success-100-foreground: #000000;
+
+  --success-200: #bbf7d0;
+  --success-200-foreground: #000000;
+
+  --success-300: #86efac;
+  --success-300-foreground: #000000;
+
+  --success-400: #4ade80;
+  --success-400-foreground: #000000;
+
+  --success-500: #22c55e;
+  --success-500-foreground: #000000;
+
+  --success-600: #16a34a;
+  --success-600-foreground: #000000;
+
+  --success-700: #15803d;
+  --success-700-foreground: #ffffff;
+
+  --success-800: #166534;
+  --success-800-foreground: #ffffff;
+
+  --success-900: #14532d;
+  --success-900-foreground: #ffffff;
+
+  --success-950: #052e16;
+  --success-950-foreground: #ffffff;
+}

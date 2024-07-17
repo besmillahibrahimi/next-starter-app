@@ -1,6 +1,9 @@
+'use client';
 import ThemeToggler from "@/components/molecules/ThemeToggler";
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "@/configs/i18n";
+import { Input } from "@/components/ui/input";
+import { useTranslation } from "@/configs/i18n/client";
+import Parse from '@/configs/http'
 
 const colors = ["primary", "secondary", "accent", "destructive", "info", "success", "warning", "error"];
 const colorVariants = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
@@ -10,12 +13,37 @@ const buttonVariants = {
   size: ["default", "lg", "sm", "icon"],
 };
 
-export default async function Home() {
-  const { t } = await useTranslation("en");
+function saveGame(){
+
+  console.log("saving game score...")
+  const GameScore = Parse.Object.extend("GameScore");
+  const gameScore = new GameScore();
+
+  gameScore.set("score", 1337);
+  gameScore.set("playerName", "Sean Plott");
+  gameScore.set("cheatMode", false);
+
+  console.log("object to save is", gameScore)
+
+  gameScore.save()
+  .then((gameScore: any) => {
+    // Execute any logic that should take place after the object is saved.
+    alert('New object created with objectId: ' + gameScore.id);
+  }, (error: Error) => {
+    // Execute any logic that should take place if the save fails.
+    // error is a Parse.Error with an error code and message.
+    alert('Failed to create new object, with error code: ' + error.message);
+  });
+}
+
+export default  function Home() {
+  const { t } = useTranslation("error-codes");
+
+
   return (
     <main className="container">
       <div className="py-8">
-        <h1 className="text-center text-3xl">{t("appName")}</h1>
+        <h1 className="text-center text-3xl">{t("202")}</h1>
         <div className="w-full flex justify-end space-x-5">
           <ThemeToggler />
           <ThemeToggler useSwitch={false} />
@@ -42,7 +70,7 @@ export default async function Home() {
 
         <div>
           <h1 className="text-center text-3xl">Components</h1>
-          <div className="flex space-x-8 bg-secondary-500 p-5">
+          <div className="flex space-x-8 bg-secondary-500 p-5 gap-y-6">
             {Object.entries(buttonVariants).map(([key, values], index) => (
               <div key={index}>
                 <h2 className="text-2xl">Button {key}</h2>
@@ -61,6 +89,13 @@ export default async function Home() {
                 </div>
               </div>
             ))}
+
+           
+          </div>
+  
+
+          <div className="flex justify-center mt-8">
+           <Button onClick={saveGame}>Save Game Store</Button>
           </div>
         </div>
       </div>

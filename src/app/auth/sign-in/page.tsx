@@ -3,14 +3,13 @@
 import MyInput from "@/components/atoms/myInput";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useTranslation } from "@/configs/i18n/client";
-import { SignInAPI, SignUpAPI } from "@/lib/http/auth";
+import { SignInAPI } from "@/lib/http/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import locales from '@/locales/en/error-codes.json';
 import _ from 'lodash-es'
+import { useRouter } from "next/navigation";
 
 const t = (key: string): any => _.get(locales, key);
 
@@ -26,6 +25,7 @@ export const formSchema = z
 
   
   export default function SignInPage() {
+    const router = useRouter();
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
@@ -34,14 +34,15 @@ export const formSchema = z
       },
     })
 
+
   
   function onSubmit(values: z.infer<typeof formSchema>) {
-
-console.log('mm 200 - -   ', values)
     SignInAPI(values).then(res => {
-      alert("Success!")
+      alert("Success  .. .. !")
+      router.replace('/')
     }).catch((err) => {
-      alert(t(err.code))
+      console.log('mm 11 - -  err  ,  ', err)
+      alert(err)
     })
   }
  

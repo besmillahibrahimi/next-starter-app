@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTranslation } from "@/configs/i18n/client";
 import Parse from '@/configs/http'
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import {  isAuthenticated, LogOutAPI } from "@/lib/http/auth";
 
 const colors = ["primary", "secondary", "accent", "destructive", "info", "success", "warning", "error"];
 const colorVariants = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
@@ -36,15 +39,30 @@ function saveGame(){
   });
 }
 
-export default  function Home() {
-  const { t } = useTranslation("error-codes");
 
+
+
+export default  function Home() {
+  //const { t } = useTranslation("error-codes");
+const router = useRouter();
+  useEffect(() => {
+    if (!isAuthenticated()) router.replace("/auth/sign-in")
+  }, [router])
+
+  const logOut = () => {
+    LogOutAPI().then(res => 
+      router.replace("/auth/sign-in")
+    ).catch((err =>
+      alert(err)
+    ))
+  }
 
   return (
     <main className="container">
       <div className="py-8">
-        <h1 className="text-center text-3xl">{t("202")}</h1>
+        {/* <h1 className="text-center text-3xl">{t("202")}</h1> */}
         <div className="w-full flex justify-end space-x-5">
+          <h1>user name: {Parse.User.current()?.get('fullName')}</h1>
           <ThemeToggler />
           <ThemeToggler useSwitch={false} />
         </div>
@@ -97,6 +115,11 @@ export default  function Home() {
           <div className="flex justify-center mt-8">
            <Button onClick={saveGame}>Save Game Store</Button>
           </div>
+
+          <div className="flex justify-center mt-8">
+           <Button onClick={logOut}>LogOut</Button>
+          </div>
+
         </div>
       </div>
     </main>

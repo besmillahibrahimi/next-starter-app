@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
+import { GlobalLayout } from "@/contexts/GlobalLayout";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -13,7 +14,8 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: "Next Start App",
-  description: "This started app is created to help you not configure theming, i18n, and others from scratch.",
+  description:
+    "This started app is created to help you not configure theming, i18n, and others from scratch.",
 };
 
 export default function RootLayout({
@@ -21,11 +23,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("global layout");
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-lato antialiased", lato.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+      <body
+        className={cn(
+          "min-h-screen bg-background font-lato antialiased",
+          lato.variable
+        )}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <GlobalLayout>{children}</GlobalLayout>
         </ThemeProvider>
       </body>
     </html>

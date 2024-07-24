@@ -3,8 +3,11 @@
 import { AlertType } from "@/components/molecules/AlertWrapper";
 import { Button } from "@/components/ui/button";
 import { useGlobal } from "@/contexts/GlobalLayout";
-import { MyDialog } from "@/lib/types/dialog";
-import { PromptDialog } from "@/lib/types/PromptDialog";
+import {
+  DialogBase as Modal,
+  PromptDialog as Prompt,
+  TagDialog,
+} from "@/lib/types/dialogs";
 import { useState } from "react";
 
 export default function Dashboard() {
@@ -24,7 +27,7 @@ export default function Dashboard() {
 
   const showMyDialog100 = () => {
     console.log("---------", dialogs);
-    const dialog = new MyDialog({
+    const dialog = new Modal((key) => closeDialog(key), {
       header: {
         title: "first title",
         desc: "sdfj lkasdjf;lk asd;lfkj asdlkf j",
@@ -37,6 +40,8 @@ export default function Dashboard() {
       footer: (
         <div className="flex ">
           <Button onClick={() => onClickHooray()}>new dialog</Button>
+          <Button onClick={() => openPromptDialog()}>Input Value</Button>
+          <Button onClick={() => openTagDialog()}>Logout</Button>
           <Button
             onClick={() => {
               console.log(" mm 20 - - dialog   , ", dialog);
@@ -59,7 +64,27 @@ export default function Dashboard() {
   };
 
   const onClickHooray = () => {
-    showDialog(new PromptDialog("OK", { type: "text", maxLength: 5 }, onClick));
+    // showDialog(new PromptDialog("OK", { type: "text", maxLength: 5 }, onClick));
+  };
+  const openPromptDialog = () => {
+    showDialog(
+      new Prompt((key) => closeDialog(key), "OK", console.log, {
+        type: "text",
+        maxLength: 5,
+      })
+    );
+  };
+  const openTagDialog = () => {
+    showDialog(
+      new TagDialog(
+        (key) => closeDialog(key),
+        "Do want to logout?",
+        <Button className="bg-success-500">"Yes"</Button>,
+        <Button className="bg-error-800">No</Button>,
+        console.log,
+        { className: "flex space-x-3 w-full justify-center" }
+      )
+    );
   };
 
   return (

@@ -1,33 +1,24 @@
 "use client";
-import _ from "lodash-es";
 import AlertWrapper, {
   IAlertOptions,
 } from "@/components/molecules/AlertWrapper";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { DialogBase, IDialog, MyDialog } from "@/lib/types/dialog";
+import { DialogBase as Modal } from "@/lib/types/dialogs";
 import { isEmpty } from "lodash-es";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface ContextData {
   alertData: IAlertOptions[] | [];
   showAlert: (options: IAlertOptions) => void;
-  dialogs: DialogBase[];
-  showDialog: (options: IDialog) => void;
+  dialogs: Record<string, Modal>;
+  showDialog: (options: Modal) => void;
   closeDialog: (key: string) => void;
 }
 
 const defaultValue: ContextData = {
   alertData: [],
   showAlert: (options) => {},
-  dialogs: [],
-  showDialog: (dialog: IDialog) => {},
+  dialogs: {},
+  showDialog: (dialog: Modal) => {},
   closeDialog: (key: string) => {},
 };
 
@@ -37,7 +28,7 @@ export const useGlobal = () => useContext(GlobalContext);
 
 export function GlobalLayout({ children }: { children: React.ReactNode }) {
   const [alertData, setAlertData] = useState<IAlertOptions[] | any[]>([]);
-  const [dialogs, setDialogs] = useState<DialogBase[]>([]); // max 10
+  const [dialogs, setDialogs] = useState<Record<string, Modal>>({}); // max 10
 
   const showAlert = (options: IAlertOptions | null | undefined) => {
     Array.isArray(alertData)
@@ -45,38 +36,40 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
       : setAlertData([]);
   };
 
-  const showDialog = (dialog: IDialog | null | undefined) => {
+  const showDialog = (dialog: Modal | null | undefined) => {
     console.log(" mm 10 - -  dialog - showDialog()  -    ", dialog);
     if (!dialog) return;
 
-    const base = dialog instanceof MyDialog ? dialog : new MyDialog(dialog);
-    setDialogs((m) => [...m, base]);
+    setDialogs((m) => {
+      const base =
+        dialog instanceof Modal
+          ? dialog
+          : new Modal((key) => closeDialog(key), dialog);
+      const n = { ...m, [base.key]: base };
+      return n;
+    });
   };
 
   const closeDialog = (key: string) => {
-    // if (!exists) return;
+    console.log(".. closing dialog", key);
+    // if (!Object.hasOwn(dialogs, key)) return;
 
     setDialogs((m) => {
-      const exists = dialogs.find((d) => d.key === key);
-      console.log(".. closing dialog", key, exists, dialogs, m);
-      const temp = [...m];
-      const dialog = temp.find((d) => d.key === key)!;
+      const temp = { ...m };
+      const dialog = temp[key]!;
       dialog.open = false;
+      temp[key] = dialog;
       setTimeout(() => {
         // this completely clear caches after 3 seconds. Adjust based on your need.
         setDialogs((ma) => {
-          const t = [...ma].filter((d) => d.key !== key);
-
+          const t = { ...ma };
+          delete t[key];
           return t;
         });
       }, 3000);
       return temp;
     });
   };
-
-  useEffect(() => {
-    console.log("after change", dialogs);
-  }, [dialogs]);
 
   useEffect(() => {
     if (alertData) {
@@ -104,27 +97,28 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
       {alertData ? <AlertWrapper alertData={alertData} /> : null}
 
       {!isEmpty(dialogs)
-        ? dialogs.map((value) => (
-            <Dialog
-              key={value.key}
-              open={value.open}
-              onOpenChange={() => closeDialog(value.key!)}
-              //closeDialog(item?.key)
-            >
-              <DialogContent className="sm:max-w-[425px]">
-                {value.header ? (
-                  <DialogHeader>
-                    <DialogTitle>{value.header.title}</DialogTitle>
-                    <DialogDescription>{value.header.desc}</DialogDescription>
-                  </DialogHeader>
-                ) : null}
+        ? Object.entries(dialogs).map(([_, value]) => {
+            return value.render();
+            // <Dialog
+            //   key={key}
+            //   open={value.open}
+            //   onOpenChange={() => closeDialog(value.key!)}
+            //   //closeDialog(item?.key)
+            // >
+            //   <DialogContent className="sm:max-w-[425px]">
+            //     {value.header ? (
+            //       <DialogHeader>
+            //         <DialogTitle>{value.header.title}</DialogTitle>
+            //         <DialogDescription>{value.header.desc}</DialogDescription>
+            //       </DialogHeader>
+            //     ) : null}
 
-                {value.content}
+            //     {value.content}
 
-                <DialogFooter>{value.footer}</DialogFooter>
-              </DialogContent>
-            </Dialog>
-          ))
+            //     <DialogFooter>{value.footer}</DialogFooter>
+            //   </DialogContent>
+            // </Dialog>;
+          })
         : null}
 
       {children}

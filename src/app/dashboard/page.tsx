@@ -9,11 +9,16 @@ import {
   TagDialog,
 } from "@/lib/types/dialogs";
 import { useState } from "react";
+//import { useTranslation } from "react-i18next";
+import { useTranslation } from "@/configs/i18n";
 
 export default function Dashboard() {
   const [countState, setCountState] = useState<number>(1);
 
-  const { showAlert, showDialog, closeDialog, dialogs } = useGlobal();
+  const t = useTranslation("fa");
+
+  const { showAlert, showDialog, closeDialog, dialogs, showLoading } =
+    useGlobal();
 
   const showMyAlert = () => {
     setCountState(countState + 1);
@@ -23,6 +28,10 @@ export default function Dashboard() {
       body: "    ",
       type: AlertType.Success,
     });
+  };
+
+  const showMyLoading = () => {
+    showLoading(true);
   };
 
   const showMyDialog100 = () => {
@@ -89,7 +98,7 @@ export default function Dashboard() {
 
   return (
     <main>
-      <div className="w-[600px] h-[150px] flex justify-center place-items-center bg-blue-950 rounded-2xl hover:shadow-2xl">
+      <div className="w-[600px] h-[150px] flex-wrap justify-center place-items-center bg-blue-950 rounded-2xl hover:shadow-2xl">
         <h1>DASHBOARD </h1>
         <div className="flex justify-end ml-4">
           <Button className="bg-yellow-400 text-blue-950" onClick={showMyAlert}>
@@ -101,6 +110,13 @@ export default function Dashboard() {
             onClick={() => showMyDialog100()}
           >
             Show global Dialog ede
+          </Button>
+
+          <Button
+            className="bg-yellow-400 text-blue-950"
+            onClick={showMyLoading}
+          >
+            Show Loading
           </Button>
         </div>
       </div>

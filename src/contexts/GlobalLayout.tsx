@@ -2,6 +2,7 @@
 import AlertWrapper, {
   IAlertOptions,
 } from "@/components/molecules/AlertWrapper";
+import Loading from "@/components/molecules/LoadingWrapper";
 import { DialogBase as Modal } from "@/lib/types/dialogs";
 import { isEmpty } from "lodash-es";
 import React, { createContext, useContext, useEffect, useState } from "react";
@@ -12,6 +13,7 @@ interface ContextData {
   dialogs: Record<string, Modal>;
   showDialog: (options: Modal) => void;
   closeDialog: (key: string) => void;
+  showLoading: (show: boolean) => void;
 }
 
 const defaultValue: ContextData = {
@@ -20,6 +22,7 @@ const defaultValue: ContextData = {
   dialogs: {},
   showDialog: (dialog: Modal) => {},
   closeDialog: (key: string) => {},
+  showLoading: (show: boolean) => {},
 };
 
 const GlobalContext = createContext<ContextData>(defaultValue);
@@ -29,6 +32,7 @@ export const useGlobal = () => useContext(GlobalContext);
 export function GlobalLayout({ children }: { children: React.ReactNode }) {
   const [alertData, setAlertData] = useState<IAlertOptions[] | any[]>([]);
   const [dialogs, setDialogs] = useState<Record<string, Modal>>({}); // max 10
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const showAlert = (options: IAlertOptions | null | undefined) => {
     Array.isArray(alertData)
@@ -71,6 +75,10 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
     });
   };
 
+  const showLoading = (show: boolean) => {
+    setIsLoading(show);
+  };
+
   useEffect(() => {
     if (alertData) {
       alertData.forEach((item: IAlertOptions) => {
@@ -83,43 +91,30 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
     }
   }, [alertData]);
 
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 5000);
+  }, [isLoading]);
+
   return (
     <GlobalContext.Provider
       value={{
         showAlert,
         alertData,
         showDialog,
-
         dialogs,
         closeDialog,
+        showLoading,
       }}
     >
-      {alertData ? <AlertWrapper alertData={alertData} /> : null}
+      {!isEmpty(alertData) ? <AlertWrapper alertData={alertData} /> : null}
 
       {!isEmpty(dialogs)
         ? Object.entries(dialogs).map(([_, value]) => {
             return value.render();
-            // <Dialog
-            //   key={key}
-            //   open={value.open}
-            //   onOpenChange={() => closeDialog(value.key!)}
-            //   //closeDialog(item?.key)
-            // >
-            //   <DialogContent className="sm:max-w-[425px]">
-            //     {value.header ? (
-            //       <DialogHeader>
-            //         <DialogTitle>{value.header.title}</DialogTitle>
-            //         <DialogDescription>{value.header.desc}</DialogDescription>
-            //       </DialogHeader>
-            //     ) : null}
-
-            //     {value.content}
-
-            //     <DialogFooter>{value.footer}</DialogFooter>
-            //   </DialogContent>
-            // </Dialog>;
           })
         : null}
+
+      {isLoading ? <Loading /> : null}
 
       {children}
     </GlobalContext.Provider>

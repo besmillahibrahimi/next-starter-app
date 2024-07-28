@@ -5,8 +5,9 @@ import Parse from "@/configs/http";
 import { isAuthenticated, LogOutAPI } from "@/lib/http/auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-import { AlertType, useGlobal } from "@/contexts/GlobalLayout";
+import { useGlobal } from "@/contexts/GlobalLayout";
 
 const colors = [
   "primary",
@@ -51,6 +52,7 @@ function saveGame() {
 
 export default function Home() {
   //const { t } = useTranslation("error-codes");
+  const { t } = useTranslation();
   const router = useRouter();
   useEffect(() => {
     if (!isAuthenticated()) router.replace("/auth/sign-in");
@@ -64,18 +66,18 @@ export default function Home() {
 
   const { showAlert, alertData } = useGlobal();
 
-  const showMyAlert = () => {
-    showAlert({
-      title: "MY Alert test",
-      body: "This is a test alert",
-      type: AlertType.Success,
-    });
-  };
+  // const showMyAlert = () => {
+  //   showAlert({
+  //     title: "MY Alert test",
+  //     body: "This is a test alert",
+  //     type: AlertType.Success,
+  //   });
+  // };
 
   return (
     <main className="container">
       <div className="py-8">
-        {/* <h1 className="text-center text-3xl">{t("202")}</h1> */}
+        <h1 className="text-center text-3xl">{t("test")}</h1>
         <div className="w-full flex justify-end space-x-5">
           {/* <h1>user name: {Parse.User.current()?.get('fullName')}</h1> */}
           <ThemeToggler />
@@ -83,7 +85,7 @@ export default function Home() {
         </div>
 
         <div>
-          <h1 className="text-center text-3xl">Color Palette</h1>
+          {/* <h1 className="text-center text-3xl">Color Palette</h1>
           <div className="w-full flex gap-x-8 py-8">
             {colors.map((color, index) => (
               <div key={index} className="grid grid-cols-1 gap-5 w-full">
@@ -101,11 +103,11 @@ export default function Home() {
                 ))}
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         <div>
-          <h1 className="text-center text-3xl">Components</h1>
+          {/* <h1 className="text-center text-3xl">Components</h1>
           <div className="flex space-x-8 bg-secondary-500 p-5 gap-y-6">
             {Object.entries(buttonVariants).map(([key, values], index) => (
               <div key={index}>
@@ -133,9 +135,13 @@ export default function Home() {
 
           <div className="flex justify-center mt-8">
             <Button onClick={logOut}>LogOut</Button>
-          </div>
+          </div> */}
           <div className="flex justify-center mt-8">
-            <Button onClick={showMyAlert}>Show Alert</Button>
+            <Button
+            //onClick={showMyAlert}
+            >
+              aaa
+            </Button>
           </div>
         </div>
       </div>

@@ -9,13 +9,9 @@ import {
   TagDialog,
 } from "@/lib/types/dialogs";
 import { useState } from "react";
-//import { useTranslation } from "react-i18next";
-import { useTranslation } from "@/configs/i18n";
 
 export default function Dashboard() {
   const [countState, setCountState] = useState<number>(1);
-
-  const t = useTranslation("fa");
 
   const { showAlert, showDialog, closeDialog, dialogs, showLoading } =
     useGlobal();

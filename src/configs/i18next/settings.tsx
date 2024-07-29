@@ -1,7 +1,7 @@
 import { InitOptions } from "i18next";
 
 export const fallbackLng = "en";
-export const languages = [fallbackLng];
+export const languages = [fallbackLng, "fa"];
 
 export const defaultNS = "translation";
 export const cookieName = "i18next";
@@ -12,8 +12,8 @@ export function getOptions(
 ) {
   const options: InitOptions = {
     // debug: true,
-    supportedLngs: languages,
-    fallbackLng: ["en", "fa"],
+    supportedLngs: ["en", "fa"], // languages,
+    fallbackLng,
     lng,
     fallbackNS: defaultNS,
     defaultNS,

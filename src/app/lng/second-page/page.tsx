@@ -1,16 +1,18 @@
 import { useTranslation } from "@/configs/i18next";
-import { LanguageSwitcher } from "@/components/languageSwitcher";
+import { cookies } from "next/headers";
 import Link from "next/link";
-import { Trans } from "react-i18next";
 
 export default async function Page({ params }: { params: { lng: string } }) {
-  const { t } = await useTranslation(undefined, "second-page");
+  const cookieStore = cookies();
+  const lng = cookieStore.get("i18next");
+  const { t } = await useTranslation(lng?.value ?? undefined, "second-page");
+
   return (
     <>
       <h1>{t("title")}</h1>
       <Link href={`/lng`}>{t("back-to-home")}</Link>
 
-      <LanguageSwitcher lng={params.lng} />
+      {/* <LanguageSwitcher lng={params.lng} /> */}
     </>
   );
 }

@@ -1,17 +1,27 @@
 import Link from "next/link";
 import { useTranslation } from "@/configs/i18next";
 import { LanguageSwitcher } from "@/components/languageSwitcher";
+import { cookies } from "next/headers";
 
 export default async function Page({ params }: { params: { lng: string } }) {
-  console.log("-----------------", params);
-  const { t } = await useTranslation("fa", "translation");
+  const cookieStore = cookies();
+  const lng = cookieStore.get("i18next");
+  const { t } = await useTranslation(lng?.value, "translation");
 
   return (
     <>
       <h1>{t("title")}</h1>
-      <Link href={`/lng/second-page`}>{t("to-second-page")}</Link>
+      <Link
+        href={{ pathname: "/lng/second-page", query: { language: lng?.value } }}
+      >
+        {t("to-second-page")}
+      </Link>
       <br />
-      <Link href={`/lng/client-page`}>{t("to-client-page")}</Link>
+      <Link
+        href={{ pathname: "/lng/client-page", query: { language: lng?.value } }}
+      >
+        {t("to-client-page")}
+      </Link>
 
       <LanguageSwitcher lng={params.lng} />
     </>

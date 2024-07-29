@@ -20,7 +20,7 @@ i18next
   .init(
     {
       ...getOptions(),
-      lng: "en", // let detect the language on client side
+      //lng: "en", // let detect the language on client side
       detection: {
         order: ["path", "htmlTag", "cookie", "navigator"],
       },
@@ -41,7 +41,9 @@ export function useTranslation(
   const ret = useTranslationOrg(ns, options);
   const { i18n } = ret;
 
-  if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {
+  //if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {
+  if (lng && i18n.resolvedLanguage !== lng) {
+    //setCookie("i18next", lng);
     i18n.changeLanguage(lng);
   }
   //else {

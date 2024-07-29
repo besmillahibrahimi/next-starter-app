@@ -1,3 +1,4 @@
+"use server";
 import _ from "lodash-es";
 import { createInstance } from "i18next";
 import resourcesToBackend from "i18next-resources-to-backend";

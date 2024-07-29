@@ -2,6 +2,7 @@
 
 import { useTranslation } from "@/configs/i18next/client";
 import { getOptions, languages } from "@/configs/i18next/settings";
+import { cookies } from "next/headers";
 import Link from "next/link";
 import { Trans } from "react-i18next/TransWithoutContext";
 

@@ -1,7 +1,7 @@
 "use client";
 import ThemeToggler from "@/components/molecules/ThemeToggler";
 import { Button } from "@/components/ui/button";
-import Parse from "@/configs/http";
+
 import { isAuthenticated, LogOutAPI } from "@/lib/http/auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -26,42 +26,18 @@ const buttonVariants = {
   size: ["default", "lg", "sm", "icon"],
 };
 
-function saveGame() {
-  console.log("saving game score...");
-  const GameScore = Parse.Object.extend("GameScore");
-  const gameScore = new GameScore();
-
-  gameScore.set("score", 1337);
-  gameScore.set("playerName", "Sean Plott");
-  gameScore.set("cheatMode", false);
-
-  console.log("object to save is", gameScore);
-
-  gameScore.save().then(
-    (gameScore: any) => {
-      // Execute any logic that should take place after the object is saved.
-      alert("New object created with objectId: " + gameScore.id);
-    },
-    (error: Error) => {
-      // Execute any logic that should take place if the save fails.
-      // error is a Parse.Error with an error code and message.
-      alert("Failed to create new object, with error code: " + error.message);
-    }
-  );
-}
-
 export default function Home() {
   //const { t } = useTranslation("error-codes");
   const { t } = useTranslation();
   const router = useRouter();
-  useEffect(() => {
-    if (!isAuthenticated()) router.replace("/auth/sign-in");
-  }, [router]);
+  // useEffect(() => {
+  //   if (!isAuthenticated()) router.replace("/auth/sign-in");
+  // }, [router]);
 
   const logOut = () => {
-    LogOutAPI()
-      .then((res) => router.replace("/auth/sign-in"))
-      .catch((err) => alert(err));
+    // LogOutAPI()
+    //   .then((res: any) => router.replace("/auth/sign-in"))
+    //   .catch((err: any) => alert(err));
   };
 
   const { showAlert, alertData } = useGlobal();
@@ -132,10 +108,10 @@ export default function Home() {
           <div className="flex justify-center mt-8">
             <Button onClick={saveGame}>Save Game Store</Button>
           </div>
-
+             */}
           <div className="flex justify-center mt-8">
             <Button onClick={logOut}>LogOut</Button>
-          </div> */}
+          </div>
           <div className="flex justify-center mt-8">
             <Button
             //onClick={showMyAlert}

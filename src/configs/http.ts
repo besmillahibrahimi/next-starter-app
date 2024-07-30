@@ -1,9 +1,14 @@
-import Parse from 'parse';
+// import ParseNode from "parse/node";
+import ParseNode from "parse/node";
 
-Parse.initialize(process.env.NEXT_PUBLIC_PARSE_APP_ID!, process.env.NEXT_PUBLIC_PARSE_JAVASCRIPT_KEY, process.env.NEXT_PUBLIC_PARSE_CLIENT_KEY!);
+ParseNode.initialize(
+  process.env.PARSE_APP_ID!,
+  process.env.PARSE_JAVASCRIPT_KEY,
+  process.env.PARSE_CLIENT_KEY!
+);
 
 //javascriptKey is required only if you have it on server.
 
-Parse.serverURL = process.env.NEXT_PUBLIC_PARSE_ADDRESS!
+ParseNode.serverURL = process.env.PARSE_ADDRESS!;
 
-export default Parse;
+export default ParseNode;

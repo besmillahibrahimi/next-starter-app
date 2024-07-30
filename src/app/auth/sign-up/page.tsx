@@ -3,7 +3,6 @@
 import MyInput from "@/components/atoms/MyInput";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useTranslation } from "@/configs/i18n/client";
 import { SignUpAPI } from "@/lib/http/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useCallback, useState } from "react";
@@ -38,14 +37,14 @@ export default function SignUpPage() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
-    SignUpAPI(values)
-      .then((res) => {
-        alert("Success!");
-      })
-      .catch((err) => {
-        alert(t(err.code));
-      });
+    // console.log(values);
+    // SignUpAPI(values)
+    //   .then((res) => {
+    //     alert("Success!");
+    //   })
+    //   .catch((err) => {
+    //     alert(t(err.code));
+    //   });
   }
 
   return (

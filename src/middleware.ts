@@ -1,11 +1,28 @@
-import { i18nRouter } from "next-i18n-router";
-import { NextRequest, NextResponse } from "next/server";
+import { cookieName, fallbackLng, languages } from "@/configs/i18next/settings";
 import acceptLanguage from "accept-language";
-import { fallbackLng, languages, cookieName } from "@/configs/i18next/settings";
+import { NextRequest, NextResponse } from "next/server";
+import { PRIVATE_ROUTES } from "./lib/http/contants";
 
 acceptLanguage.languages(languages);
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
+  // const isAauth = await fetch(
+  //   "http://localhost:3000/api/auth/is-authenticated"
+  // );
+
+  // const data = await isAauth.json();
+
+  // console.log("middleware -       -  - 2222222222222", data);
+
+  // if (request.cookies.has("session-token")) {
+  //   const userToken = request.cookies.get("session-token")?.value;
+  //   if (!userToken) {
+  //     return NextResponse.redirect(new URL("/auth/sign-in", request.url));
+  //   } else {
+  //     return NextResponse.redirect(new URL("/", request.url));
+  //   }
+  // }
+
   let lng;
   if (request.cookies.has(cookieName))
     lng = acceptLanguage.get(request.cookies.get(cookieName)?.value);
@@ -40,6 +57,6 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/((?!api|_next/static|_next/image|favicon.icosw.js|site.webmanifest).*)",
-    //...PRIVATE_ROUTES
+    ...PRIVATE_ROUTES,
   ],
 };

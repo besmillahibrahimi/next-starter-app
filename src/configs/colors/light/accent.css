@@ -1,38 +1,38 @@
 :root {
   /* accent colors shade */
-  --accent: #f0f1f1;
-  --accent-foreground: #000000;
+  --accent: 180 3% 94%;
+  --accent-foreground: 0 0% 0%;
 
-  --accent-50: #f0f1f1;
-  --accent-50-foreground: #000000;
+  --accent-50: 180 3% 94%;
+  --accent-50-foreground: 0 0% 0%;
 
-  --accent-100: #e2e2e3;
-  --accent-100-foreground: #000000;
+  --accent-100: 240 2% 89%;
+  --accent-100-foreground: 0 0% 0%;
 
-  --accent-200: #d3d4d5;
-  --accent-200-foreground: #000000;
+  --accent-200: 210 2% 83%;
+  --accent-200-foreground: 0 0% 0%;
 
-  --accent-300: #c5c5c7;
-  --accent-300-foreground: #000000;
+  --accent-300: 240 2% 78%;
+  --accent-300-foreground: 0 0% 0%;
 
-  --accent-400: #a7a8ab;
-  --accent-400-foreground: #000000;
+  --accent-400: 225 2% 66%;
+  --accent-400-foreground: 0 0% 0%;
 
-  --accent-500: #8a8b8f;
-  --accent-500-foreground: #000000;
+  --accent-500: 228 2% 55%;
+  --accent-500-foreground: 0 0% 0%;
 
-  --accent-600: #6d6e73;
-  --accent-600-foreground: #ffffff;
+  --accent-600: 230 3% 44%;
+  --accent-600-foreground: 0 0% 100%;
 
-  --accent-700: #57585c;
-  --accent-700-foreground: #ffffff;
+  --accent-700: 228 3% 35%;
+  --accent-700-foreground: 0 0% 100%;
 
-  --accent-800: #414245;
-  --accent-800-foreground: #ffffff;
+  --accent-800: 225 3% 26%;
+  --accent-800-foreground: 0 0% 100%;
 
-  --accent-900: #2c2c2e;
-  --accent-900-foreground: #ffffff;
+  --accent-900: 240 2% 18%;
+  --accent-900-foreground: 0 0% 100%;
 
-  --accent-950: #212123;
-  --accent-950-foreground: #ffffff;
+  --accent-950: 240 3% 13%;
+  --accent-950-foreground: 0 0% 100%;
 }

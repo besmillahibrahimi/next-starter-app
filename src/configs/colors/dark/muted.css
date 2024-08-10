@@ -1,39 +1,39 @@
 .dark {
   /* Dark muted colors shade */
   /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
-  --muted: #f0f1f1;
-  --muted-foreground: #000000;
+  --muted: 180 3% 94%;
+  --muted-foreground: 0 0% 0%;
 
-  --muted-50: #f0f1f1;
-  --muted-50-foreground: #000000;
+  --muted-50: 180 3% 94%;
+  --muted-50-foreground: 0 0% 0%;
 
-  --muted-100: #e2e2e3;
-  --muted-100-foreground: #000000;
+  --muted-100: 240 2% 89%;
+  --muted-100-foreground: 0 0% 0%;
 
-  --muted-200: #d3d4d5;
-  --muted-200-foreground: #000000;
+  --muted-200: 210 2% 83%;
+  --muted-200-foreground: 0 0% 0%;
 
-  --muted-300: #c5c5c7;
-  --muted-300-foreground: #000000;
+  --muted-300: 240 2% 78%;
+  --muted-300-foreground: 0 0% 0%;
 
-  --muted-400: #a7a8ab;
-  --muted-400-foreground: #000000;
+  --muted-400: 225 2% 66%;
+  --muted-400-foreground: 0 0% 0%;
 
-  --muted-500: #8a8b8f;
-  --muted-500-foreground: #000000;
+  --muted-500: 228 2% 55%;
+  --muted-500-foreground: 0 0% 0%;
 
-  --muted-600: #6d6e73;
-  --muted-600-foreground: #ffffff;
+  --muted-600: 230 3% 44%;
+  --muted-600-foreground: 0 0% 100%;
 
-  --muted-700: #57585c;
-  --muted-700-foreground: #ffffff;
+  --muted-700: 228 3% 35%;
+  --muted-700-foreground: 0 0% 100%;
 
-  --muted-800: #414245;
-  --muted-800-foreground: #ffffff;
+  --muted-800: 225 3% 26%;
+  --muted-800-foreground: 0 0% 100%;
 
-  --muted-900: #2c2c2e;
-  --muted-900-foreground: #ffffff;
+  --muted-900: 240 2% 18%;
+  --muted-900-foreground: 0 0% 100%;
 
-  --muted-950: #212123;
-  --muted-950-foreground: #ffffff;
+  --muted-950: 240 3% 13%;
+  --muted-950-foreground: 0 0% 100%;
 }

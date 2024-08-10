@@ -1,38 +1,38 @@
 .dark {
   /* Dark success colors shade */
-  --success: #079b53;
-  --success-foreground: #000000;
+  --success: 151 91% 32%;
+  --success-foreground: 0 0% 0%;
 
-  --success-50: #022f14;
-  --success-50-foreground: #ffffff;
+  --success-50: 144 92% 10%;
+  --success-50-foreground: 0 0% 100%;
 
-  --success-100: #034520;
-  --success-100-foreground: #ffffff;
+  --success-100: 146 92% 14%;
+  --success-100-foreground: 0 0% 100%;
 
-  --success-200: #045a2d;
-  --success-200-foreground: #ffffff;
+  --success-200: 149 91% 18%;
+  --success-200-foreground: 0 0% 100%;
 
-  --success-300: #05703a;
-  --success-300-foreground: #ffffff;
+  --success-300: 150 91% 23%;
+  --success-300-foreground: 0 0% 100%;
 
-  --success-400: #068547;
-  --success-400-foreground: #ffffff;
+  --success-400: 151 91% 27%;
+  --success-400-foreground: 0 0% 100%;
 
-  --success-500: #079b53;
-  --success-500-foreground: #000000;
+  --success-500: 151 91% 32%;
+  --success-500-foreground: 0 0% 0%;
 
-  --success-600: #08b15f;
-  --success-600-foreground: #000000;
+  --success-600: 151 91% 36%;
+  --success-600-foreground: 0 0% 0%;
 
-  --success-700: #09c76b;
-  --success-700-foreground: #000000;
+  --success-700: 151 91% 41%;
+  --success-700-foreground: 0 0% 0%;
 
-  --success-800: #0add78;
-  --success-800-foreground: #000000;
+  --success-800: 151 91% 45%;
+  --success-800-foreground: 0 0% 0%;
 
-  --success-900: #0cf384;
-  --success-900-foreground: #000000;
+  --success-900: 151 91% 50%;
+  --success-900-foreground: 0 0% 0%;
 
-  --success-950: #0dff90;
-  --success-950-foreground: #000000;
+  --success-950: 152 100% 53%;
+  --success-950-foreground: 0 0% 0%;
 }

@@ -1,39 +1,39 @@
 .dark {
   /* Dark destructive colors shade */
   /* Used for destructive actions such as <Button variant="destructive"> */
-  --destructive: #f0f1f1;
-  --destructive-foreground: #000000;
+  --destructive: 180 3% 94%;
+  --destructive-foreground: 0 0% 0%;
 
-  --destructive-50: #f0f1f1;
-  --destructive-50-foreground: #000000;
+  --destructive-50: 180 3% 94%;
+  --destructive-50-foreground: 0 0% 0%;
 
-  --destructive-100: #e2e2e3;
-  --destructive-100-foreground: #000000;
+  --destructive-100: 240 2% 89%;
+  --destructive-100-foreground: 0 0% 0%;
 
-  --destructive-200: #d3d4d5;
-  --destructive-200-foreground: #000000;
+  --destructive-200: 210 2% 83%;
+  --destructive-200-foreground: 0 0% 0%;
 
-  --destructive-300: #c5c5c7;
-  --destructive-300-foreground: #000000;
+  --destructive-300: 240 2% 78%;
+  --destructive-300-foreground: 0 0% 0%;
 
-  --destructive-400: #a7a8ab;
-  --destructive-400-foreground: #000000;
+  --destructive-400: 225 2% 66%;
+  --destructive-400-foreground: 0 0% 0%;
 
-  --destructive-500: #8a8b8f;
-  --destructive-500-foreground: #ffffff;
+  --destructive-500: 228 2% 55%;
+  --destructive-500-foreground: 0 0% 100%;
 
-  --destructive-600: #6d6e73;
-  --destructive-600-foreground: #ffffff;
+  --destructive-600: 230 3% 44%;
+  --destructive-600-foreground: 0 0% 100%;
 
-  --destructive-700: #57585c;
-  --destructive-700-foreground: #ffffff;
+  --destructive-700: 228 3% 35%;
+  --destructive-700-foreground: 0 0% 100%;
 
-  --destructive-800: #414245;
-  --destructive-800-foreground: #ffffff;
+  --destructive-800: 225 3% 26%;
+  --destructive-800-foreground: 0 0% 100%;
 
-  --destructive-900: #2c2c2e;
-  --destructive-900-foreground: #ffffff;
+  --destructive-900: 240 2% 18%;
+  --destructive-900-foreground: 0 0% 100%;
 
-  --destructive-950: #212123;
-  --destructive-950-foreground: #ffffff;
+  --destructive-950: 240 3% 13%;
+  --destructive-950-foreground: 0 0% 100%;
 }

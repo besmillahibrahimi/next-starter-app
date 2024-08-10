@@ -61,7 +61,7 @@ export default function Home() {
         </div>
 
         <div>
-          {/* <h1 className="text-center text-3xl">Color Palette</h1>
+          <h1 className="text-center text-3xl">Color Palette</h1>
           <div className="w-full flex gap-x-8 py-8">
             {colors.map((color, index) => (
               <div key={index} className="grid grid-cols-1 gap-5 w-full">
@@ -79,11 +79,11 @@ export default function Home() {
                 ))}
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
 
         <div>
-          {/* <h1 className="text-center text-3xl">Components</h1>
+          <h1 className="text-center text-3xl">Components</h1>
           <div className="flex space-x-8 bg-secondary-500 p-5 gap-y-6">
             {Object.entries(buttonVariants).map(([key, values], index) => (
               <div key={index}>
@@ -105,10 +105,10 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="flex justify-center mt-8">
+          {/* <div className="flex justify-center mt-8">
             <Button onClick={saveGame}>Save Game Store</Button>
-          </div>
-             */}
+          </div> */}
+
           <div className="flex justify-center mt-8">
             <Button onClick={logOut}>LogOut</Button>
           </div>

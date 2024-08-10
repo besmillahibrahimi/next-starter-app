@@ -1,38 +1,38 @@
 :root {
   /* Light Secondary colors shade */
-  --secondary: #f0f1f1;
-  --secondary-foreground: #000000;
+  --secondary: 180 3% 94%;
+  --secondary-foreground: 0 0% 0%;
 
-  --secondary-50: #f0f1f1;
-  --secondary-50-foreground: #000000;
+  --secondary-50: 180 3% 94%;
+  --secondary-50-foreground: 0 0% 0%;
 
-  --secondary-100: #e2e2e3;
-  --secondary-100-foreground: #000000;
+  --secondary-100: 240 2% 89%;
+  --secondary-100-foreground: 0 0% 0%;
 
-  --secondary-200: #d3d4d5;
-  --secondary-200-foreground: #000000;
+  --secondary-200: 210 2% 83%;
+  --secondary-200-foreground: 0 0% 0%;
 
-  --secondary-300: #c5c5c7;
-  --secondary-300-foreground: #000000;
+  --secondary-300: 240 2% 78%;
+  --secondary-300-foreground: 0 0% 0%;
 
-  --secondary-400: #a7a8ab;
-  --secondary-400-foreground: #000000;
+  --secondary-400: 225 2% 66%;
+  --secondary-400-foreground: 0 0% 0%;
 
-  --secondary-500: #8a8b8f;
-  --secondary-500-foreground: #000000;
+  --secondary-500: 228 2% 55%;
+  --secondary-500-foreground: 0 0% 0%;
 
-  --secondary-600: #6d6e73;
-  --secondary-600-foreground: #ffffff;
+  --secondary-600: 230 3% 44%;
+  --secondary-600-foreground: 0 0% 100%;
 
-  --secondary-700: #57585c;
-  --secondary-700-foreground: #ffffff;
+  --secondary-700: 228 3% 35%;
+  --secondary-700-foreground: 0 0% 100%;
 
-  --secondary-800: #414245;
-  --secondary-800-foreground: #ffffff;
+  --secondary-800: 225 3% 26%;
+  --secondary-800-foreground: 0 0% 100%;
 
-  --secondary-900: #2c2c2e;
-  --secondary-900-foreground: #ffffff;
+  --secondary-900: 240 2% 18%;
+  --secondary-900-foreground: 0 0% 100%;
 
-  --secondary-950: #212123;
-  --secondary-950-foreground: #ffffff;
+  --secondary-950: 240 3% 13%;
+  --secondary-950-foreground: 0 0% 100%;
 }

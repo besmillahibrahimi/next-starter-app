@@ -1,38 +1,38 @@
 :root {
   /* warning colors shade */
-  --warning: #eab308;
-  --warning-foreground: #000000;
+  --warning: 45 93% 47%;
+  --warning-foreground: 0 0% 0%;
 
-  --warning-50: #fefce8;
-  --warning-50-foreground: #000000;
+  --warning-50: 55 92% 95%;
+  --warning-50-foreground: 0 0% 0%;
 
-  --warning-100: #fef9c3;
-  --warning-100-foreground: #000000;
+  --warning-100: 55 97% 88%;
+  --warning-100-foreground: 0 0% 0%;
 
-  --warning-200: #fef08a;
-  --warning-200-foreground: #000000;
+  --warning-200: 53 98% 77%;
+  --warning-200-foreground: 0 0% 0%;
 
-  --warning-300: #fde047;
-  --warning-300-foreground: #000000;
+  --warning-300: 50 98% 64%;
+  --warning-300-foreground: 0 0% 0%;
 
-  --warning-400: #facc15;
-  --warning-400-foreground: #000000;
+  --warning-400: 48 96% 53%;
+  --warning-400-foreground: 0 0% 0%;
 
-  --warning-500: #eab308;
-  --warning-500-foreground: #000000;
+  --warning-500: 45 93% 47%;
+  --warning-500-foreground: 0 0% 0%;
 
-  --warning-600: #ca8a04;
-  --warning-600-foreground: #000000;
+  --warning-600: 41 96% 40%;
+  --warning-600-foreground: 0 0% 0%;
 
-  --warning-700: #a16207;
-  --warning-700-foreground: #ffffff;
+  --warning-700: 35 92% 33%;
+  --warning-700-foreground: 0 0% 100%;
 
-  --warning-800: #854d0e;
-  --warning-800-foreground: #ffffff;
+  --warning-800: 32 81% 29%;
+  --warning-800-foreground: 0 0% 100%;
 
-  --warning-900: #713f12;
-  --warning-900-foreground: #ffffff;
+  --warning-900: 28 73% 26%;
+  --warning-900-foreground: 0 0% 100%;
 
-  --warning-950: #422006;
-  --warning-950-foreground: #ffffff;
+  --warning-950: 26 83% 14%;
+  --warning-950-foreground: 0 0% 100%;
 }

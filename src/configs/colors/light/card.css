@@ -1,39 +1,39 @@
 :root {
   /* Light card colors shade */
   /* Background color for <Card /> */
-  --card: #f0f1f1;
-  --card-foreground: #000000;
+  --card: 180 3% 94%;
+  --card-foreground: 0 0% 0%;
 
-  --card-50: #f0f1f1;
-  --card-50-foreground: #000000;
+  --card-50: 180 3% 94%;
+  --card-50-foreground: 0 0% 0%;
 
-  --card-100: #e2e2e3;
-  --card-100-foreground: #000000;
+  --card-100: 240 2% 89%;
+  --card-100-foreground: 0 0% 0%;
 
-  --card-200: #d3d4d5;
-  --card-200-foreground: #000000;
+  --card-200: 210 2% 83%;
+  --card-200-foreground: 0 0% 0%;
 
-  --card-300: #c5c5c7;
-  --card-300-foreground: #000000;
+  --card-300: 240 2% 78%;
+  --card-300-foreground: 0 0% 0%;
 
-  --card-400: #a7a8ab;
-  --card-400-foreground: #000000;
+  --card-400: 225 2% 66%;
+  --card-400-foreground: 0 0% 0%;
 
-  --card-500: #8a8b8f;
-  --card-500-foreground: #000000;
+  --card-500: 228 2% 55%;
+  --card-500-foreground: 0 0% 0%;
 
-  --card-600: #6d6e73;
-  --card-600-foreground: #ffffff;
+  --card-600: 230 3% 44%;
+  --card-600-foreground: 0 0% 100%;
 
-  --card-700: #57585c;
-  --card-700-foreground: #ffffff;
+  --card-700: 228 3% 35%;
+  --card-700-foreground: 0 0% 100%;
 
-  --card-800: #414245;
-  --card-800-foreground: #ffffff;
+  --card-800: 225 3% 26%;
+  --card-800-foreground: 0 0% 100%;
 
-  --card-900: #2c2c2e;
-  --card-900-foreground: #ffffff;
+  --card-900: 240 2% 18%;
+  --card-900-foreground: 0 0% 100%;
 
-  --card-950: #212123;
-  --card-950-foreground: #ffffff;
+  --card-950: 240 3% 13%;
+  --card-950-foreground: 0 0% 100%;
 }

@@ -1,39 +1,39 @@
 :root {
   /* Light popover colors shade */
   /* Background color for popovers such as <DropdownMenu />, <HoverCard />, <Popover /> */
-  --popover: #f0f1f1;
-  --popover-foreground: #000000;
+  --popover: 180 3% 94%;
+  --popover-foreground: 0 0% 0%;
 
-  --popover-50: #f0f1f1;
-  --popover-50-foreground: #000000;
+  --popover-50: 180 3% 94%;
+  --popover-50-foreground: 0 0% 0%;
 
-  --popover-100: #e2e2e3;
-  --popover-100-foreground: #000000;
+  --popover-100: 240 2% 89%;
+  --popover-100-foreground: 0 0% 0%;
 
-  --popover-200: #d3d4d5;
-  --popover-200-foreground: #000000;
+  --popover-200: 210 2% 83%;
+  --popover-200-foreground: 0 0% 0%;
 
-  --popover-300: #c5c5c7;
-  --popover-300-foreground: #000000;
+  --popover-300: 240 2% 78%;
+  --popover-300-foreground: 0 0% 0%;
 
-  --popover-400: #a7a8ab;
-  --popover-400-foreground: #000000;
+  --popover-400: 225 2% 66%;
+  --popover-400-foreground: 0 0% 0%;
 
-  --popover-500: #8a8b8f;
-  --popover-500-foreground: #000000;
+  --popover-500: 228 2% 55%;
+  --popover-500-foreground: 0 0% 0%;
 
-  --popover-600: #6d6e73;
-  --popover-600-foreground: #ffffff;
+  --popover-600: 230 3% 44%;
+  --popover-600-foreground: 0 0% 100%;
 
-  --popover-700: #57585c;
-  --popover-700-foreground: #ffffff;
+  --popover-700: 228 3% 35%;
+  --popover-700-foreground: 0 0% 100%;
 
-  --popover-800: #414245;
-  --popover-800-foreground: #ffffff;
+  --popover-800: 225 3% 26%;
+  --popover-800-foreground: 0 0% 100%;
 
-  --popover-900: #2c2c2e;
-  --popover-900-foreground: #ffffff;
+  --popover-900: 240 2% 18%;
+  --popover-900-foreground: 0 0% 100%;
 
-  --popover-950: #212123;
-  --popover-950-foreground: #ffffff;
+  --popover-950: 240 3% 13%;
+  --popover-950-foreground: 0 0% 100%;
 }

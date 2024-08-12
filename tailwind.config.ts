@@ -48,9 +48,9 @@ const config = {
       colors: ColorExtends,
       borderRadius: RadiusExtend, //usage: rounded-md
       spacing: SpacingExtend, // usage : border-spacing-0
-      gap: SpaceExtend,
-      padding: SpaceExtend,
-      margin: SpaceExtend,
+      // gap: SpaceExtend,
+      // padding: SpaceExtend,
+      // margin: SpaceExtend,
 
       space: SpaceExtend, // usage: space-x-none
       width: WidthExtend,

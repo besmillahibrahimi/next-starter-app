@@ -1,11 +1,11 @@
 @import "./colors.css";
 
 :root {
-  --white: 0 0% 100%;
-  --black: 0 0% 0%;
+  --white: #ffffff;
+  --black: #000000;
 
-  --background: 210 80% 96%;
-  --foreground: 0 0% 1%;
+  --background: #edf5fd;
+  --foreground: #030303;
 
   --border: 214.3 31.8% 91.4%;
 

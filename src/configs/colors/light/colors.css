@@ -1,10 +1,10 @@
 @import "./error.css";
 @import "./info.css";
-@import "./primary.css";
+@import "./brand.css";
 @import "./secondary.css";
 @import "./success.css";
 @import "./warning.css";
-
+@import "./gray.css";
 @import "./accent.css";
 @import "./muted.css";
 @import "./destructive.css";

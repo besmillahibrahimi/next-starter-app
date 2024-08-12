@@ -1,0 +1,41 @@
+.dark {
+  /* Dark brand colors shade   222.2 47.4% 11.2% */
+  --brand: 209 74% 15%;
+  --brand-foreground: var(--brand-700);
+
+  --brand-25: 210 77% 15%;
+  --brand-25-foreground: var(--brand-700);
+
+  --brand-50: 210 77% 15%;
+  --brand-50-foreground: var(--brand-700);
+
+  --brand-100: 267 100% 96%;
+  --brand-100-foreground: var(--brand-700);
+
+  --brand-200: 268 95% 92%;
+  --brand-200-foreground: var(--brand-700);
+
+  --brand-300: 265 89% 86%;
+  --brand-300-foreground: var(--brand-700);
+
+  --brand-400: 262 83% 76%;
+  --brand-400-foreground: 0 0% 0%;
+
+  --brand-500: var(--brand);
+  --brand-500-foreground: var(--brand);
+
+  --brand-600: 259 63% 59%;
+  --brand-600-foreground: 0 0% 0%;
+
+  --brand-700: 258 54% 52%;
+  --brand-700-foreground: 0 0% 0%;
+
+  --brand-800: 256 48% 42%;
+  --brand-800-foreground: 0 0% 0%;
+
+  --brand-900: 254 45% 34%;
+  --brand-900-foreground: 0 0% 0%;
+
+  --brand-950: 254 54% 24%;
+  --brand-950-foreground: 0 0% 0%;
+}

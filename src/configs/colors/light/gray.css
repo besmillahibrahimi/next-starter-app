@@ -1,0 +1,42 @@
+:root {
+  /* gray Light colors shade */
+
+  --gray: 221 13% 46%;
+  --gray-foreground: 0 0% 100%;
+
+  --gray-25: 240 20% 99%;
+  --gray-25-foreground: var(--gray-700);
+
+  --gray-50: 210 20% 98%;
+  --gray-50-foreground: var(--gray-700);
+
+  --gray-100: 216 24% 96%;
+  --gray-100-foreground: var(--gray-700);
+
+  --gray-200: 218 17% 91%;
+  --gray-200-foreground: var(--gray-700);
+
+  --gray-300: 217 16% 84%;
+  --gray-300-foreground: var(--gray-700);
+
+  --gray-400: 218 15% 65%;
+  --gray-400-foreground: 0 0% 100%;
+
+  --gray-500: var(--gray);
+  --gray-500-foreground: 0 0% 100%;
+
+  --gray-600: 216 18% 34%;
+  --gray-600-foreground: 0 0% 100%;
+
+  --gray-700: 218 24% 27%;
+  --gray-700-foreground: 0 0% 100%;
+
+  --gray-800: 215 33% 14%;
+  --gray-800-foreground: 0 0% 100%;
+
+  --gray-900: 220 43% 11%;
+  --gray-900-foreground: 0 0% 100%;
+
+  --gray-950: 222 41% 8%;
+  --gray-950-foreground: 0 0% 100%;
+}

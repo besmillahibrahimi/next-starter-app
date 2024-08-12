@@ -1,11 +1,11 @@
 @import "./colors.css";
 
 .dark {
-  --white: #ffffff;
-  --black: #000000;
+  --white: 0 0% 100%;
+  --black: 0 0% 0%;
 
-  --background: #2b2626;
-  --foreground: #edf5fd;
+  --background: 0 6% 16%;
+  --foreground: 210 80% 96%;
 
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;

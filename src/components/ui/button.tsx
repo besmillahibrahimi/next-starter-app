@@ -10,15 +10,16 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "group gap-2 bg-primary text-primary-foreground shadow hover:bg-primary/20",
+          "group gap-2 bg-brand text-brand-foreground shadow hover:bg-brand/20",
         destructive:
           "group gap-2 bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/10",
         outline:
           "group gap-2 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary:
           "group gap-2 bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "group gap-2 hover:bg-accent hover:text-accent-foreground",
-        link: "group gap-2 text-primary underline-offset-4 hover:underline",
+        ghost:
+          "group gap-2 hover:bg-accent hover:text-accent-foreground border-none",
+        link: "group gap-2 text-brand underline-offset-4 underline border-none",
       },
       size: {
         default: "h-9 px-4 py-2",

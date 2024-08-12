@@ -9,7 +9,7 @@ const variants: Record<string, string[]> = {
 
 export default function Components() {
   return (
-    <div>
+    <div className="flex flex-col space-y-5">
       <h1>Buttons</h1>
       {Object.keys(variants).map((key, i) => {
         return (
@@ -40,7 +40,7 @@ export default function Components() {
                       Default {variant}
                     </span>
 
-                    <span className="hidden group-hover:inline">
+                    <span className="hidden group-hover:inline text-gray">
                       Hovered {variant}
                     </span>
                   </Button>
@@ -51,7 +51,21 @@ export default function Components() {
         );
       })}
 
-      {/* <h1 className="mt-16 text-[#970f0f] font-[800]">Inputs</h1>
+      <h1 className="mt-16 text-[#970f0f] font-[800] tablet:text-wrap sm:text-wrap container">
+        Inputs
+      </h1>
+      {/* <div className="flex space-x-8">
+        {Object.keys(inputVariants).map((item, i) => {
+          return (
+            <Input
+              key={item}
+              variant={item as any}
+              //placeholder="Enter text"
+              label="Default Input"
+            />
+          );
+        })}
+      </div> */}
       <div className="flex space-x-8">
         <Input
           variant="default"
@@ -64,8 +78,22 @@ export default function Components() {
           placeholder="Enter text"
           label="Success Input"
           icon={<CgSun />}
+          disabled
         />
-      </div> */}
+        <Input
+          type="file"
+          variant="file"
+          placeholder="FILE :)"
+          label="choose file"
+        />
+        <Input disabled placeholder="Disabled :(" />
+      </div>
+
+      <div>
+        <div className="w-xs h-32 bg-brand-300 text-brand-300-foreground rounded-xl text-[#fff] ">
+          test test test
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
-import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import { GlobalLayout } from "@/contexts/GlobalLayout";

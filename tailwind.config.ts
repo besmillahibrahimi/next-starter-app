@@ -2,33 +2,59 @@ import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import { ColorExtends } from "./src/configs/tailwind/colors-extend";
 
+import { SpaceExtend } from "./src/configs/ui/space/space-extend";
+import { WidthExtend } from "./src/configs/ui/width/width-extend";
+import { SpacingExtend } from "./src/configs/ui/spacing/spacing-extend";
+import { RadiusExtend } from "./src/configs/ui/radius/radius-extend";
+
 const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    // "./pages/**/*.{ts,tsx}",
+    // "./components/**/*.{ts,tsx}",
+    // "./app/**/*.{ts,tsx}",
+    // "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
+    screens: {
+      // => @media (min-width: 640px and max-width: 767px) { ... }
+      mobile: { min: "0px", max: "479px" },
+      mobileLS: { min: "480px", max: "779px" },
+      tablet: { min: "780px", max: "899px" },
+      tabletLS: { min: "900px", max: "1023px" },
+      desktop: { min: "1024px", max: "1535px" },
+      extra: { min: "1536px" },
+    },
     container: {
       center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
+      padding: {
+        "padding-mobile": "1rem",
+        "padding-desktop": "2rem",
       },
+
+      //screens: {
+      // mobile: "395px",
+      // tablet: "744px",
+      //desktop: "1512px",
+      // "xl": "1280px",
+      //},
     },
     extend: {
       fontFamily: {
         lato: ["var(--lato-font-family)", ...fontFamily.sans],
       },
       colors: ColorExtends,
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
+      borderRadius: RadiusExtend, //usage: rounded-md
+      spacing: SpacingExtend, // usage : border-spacing-0
+      gap: SpaceExtend,
+      padding: SpaceExtend,
+      margin: SpaceExtend,
+
+      space: SpaceExtend, // usage: space-x-none
+      width: WidthExtend,
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

@@ -1,0 +1,13 @@
+:root {
+  --width-xxs: 20rem;
+  --width-xs: 24rem;
+  --width-sm: 30rem;
+  --width-md: 35rem;
+  --width-lg: 40rem;
+  --width-xl: 48rem;
+  --width-2xl: 64rem;
+  --width-3xl: 80rem;
+  --width-4xl: 90rem;
+  --width-5xl: 100rem;
+  --width-6xl: 120rem;
+}

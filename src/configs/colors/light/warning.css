@@ -1,38 +1,41 @@
 :root {
   /* warning colors shade */
-  --warning: 45 93% 47%;
-  --warning-foreground: 0 0% 0%;
+  --warning: 34 94% 50%;
+  --warning-foreground: 0 0% 100%;
 
-  --warning-50: 55 92% 95%;
-  --warning-50-foreground: 0 0% 0%;
+  --warning-25: 42 100% 98%;
+  --warning-25-foreground: var(--warning-700);
 
-  --warning-100: 55 97% 88%;
-  --warning-100-foreground: 0 0% 0%;
+  --warning-50: 45 100% 96%;
+  --warning-50-foreground: var(--warning-700);
 
-  --warning-200: 53 98% 77%;
-  --warning-200-foreground: 0 0% 0%;
+  --warning-100: 45 96% 89%;
+  --warning-100-foreground: var(--warning-700);
 
-  --warning-300: 50 98% 64%;
-  --warning-300-foreground: 0 0% 0%;
+  --warning-200: 44 98% 77%;
+  --warning-200-foreground: var(--warning-700);
 
-  --warning-400: 48 96% 53%;
-  --warning-400-foreground: 0 0% 0%;
+  --warning-300: 42 99% 65%;
+  --warning-300-foreground: var(--warning-700);
 
-  --warning-500: 45 93% 47%;
-  --warning-500-foreground: 0 0% 0%;
+  --warning-400: 39 98% 56%;
+  --warning-400-foreground: 0 0% 100%;
 
-  --warning-600: 41 96% 40%;
-  --warning-600-foreground: 0 0% 0%;
+  --warning-500: var(--warning);
+  --warning-500-foreground: 0 0% 100%;
 
-  --warning-700: 35 92% 33%;
+  --warning-600: 28 97% 44%;
+  --warning-600-foreground: 0 0% 100%;
+
+  --warning-700: 22 92% 37%;
   --warning-700-foreground: 0 0% 100%;
 
-  --warning-800: 32 81% 29%;
+  --warning-800: 19 84% 31%;
   --warning-800-foreground: 0 0% 100%;
 
-  --warning-900: 28 73% 26%;
+  --warning-900: 18 79% 27%;
   --warning-900-foreground: 0 0% 100%;
 
-  --warning-950: 26 83% 14%;
+  --warning-950: 17 79% 17%;
   --warning-950-foreground: 0 0% 100%;
 }

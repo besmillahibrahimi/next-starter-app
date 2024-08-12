@@ -9,13 +9,7 @@ import { RadiusExtend } from "./src/configs/ui/radius/radius-extend";
 
 const config = {
   darkMode: ["class"],
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    // "./pages/**/*.{ts,tsx}",
-    // "./components/**/*.{ts,tsx}",
-    // "./app/**/*.{ts,tsx}",
-    // "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   prefix: "",
   theme: {
     screens: {
@@ -33,25 +27,20 @@ const config = {
         "padding-mobile": "1rem",
         "padding-desktop": "2rem",
       },
-
-      //screens: {
-      // mobile: "395px",
-      // tablet: "744px",
-      //desktop: "1512px",
-      // "xl": "1280px",
-      //},
     },
     extend: {
       fontFamily: {
         lato: ["var(--lato-font-family)", ...fontFamily.sans],
       },
+      textColor: {
+        "gray-200-foreground": "hsl(var(--gray-700))",
+      },
       colors: ColorExtends,
       borderRadius: RadiusExtend, //usage: rounded-md
       spacing: SpacingExtend, // usage : border-spacing-0
-      // gap: SpaceExtend,
-      // padding: SpaceExtend,
-      // margin: SpaceExtend,
-
+      gap: SpaceExtend,
+      padding: SpaceExtend,
+      margin: SpaceExtend,
       space: SpaceExtend, // usage: space-x-none
       width: WidthExtend,
 

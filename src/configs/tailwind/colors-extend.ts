@@ -4,59 +4,67 @@ export const ColorExtends = {
   ring: "hsl(var(--ring))",
   background: "hsl(var(--background))",
   foreground: "hsl(var(--foreground))",
-  primary: {
-    DEFAULT: "hsl(var(--primary))",
-    foreground: "hsl(var(--primary-foreground))",
+  brand: {
+    DEFAULT: "hsl(var(--brand))",
+    foreground: "hsl(var(--brand-foreground))",
 
+    25: {
+      DEFAULT: "hsl(var(--brand-25))",
+      foreground: "hsl(var(--brand-25-foreground))",
+    },
     50: {
-      DEFAULT: "hsl(var(--primary-50))",
-      foreground: "hsl(var(--primary-50-foreground))",
+      DEFAULT: "hsl(var(--brand-50))",
+      foreground: "hsl(var(--brand-50-foreground))",
     },
     100: {
-      DEFAULT: "hsl(var(--primary-100))",
-      foreground: "hsl(var(--primary-100-foreground))",
+      DEFAULT: "hsl(var(--brand-100))",
+      foreground: "hsl(var(--brand-100-foreground))",
     },
     200: {
-      DEFAULT: "hsl(var(--primary-200))",
-      foreground: "hsl(var(--primary-200-foreground))",
+      DEFAULT: "hsl(var(--brand-200))",
+      foreground: "hsl(var(--brand-200-foreground))",
     },
     300: {
-      DEFAULT: "hsl(var(--primary-300))",
-      foreground: "hsl(var(--primary-300-foreground))",
+      DEFAULT: "hsl(var(--brand-300))",
+      foreground: "hsl(var(--brand-300-foreground))",
     },
     400: {
-      DEFAULT: "hsl(var(--primary-400))",
-      foreground: "hsl(var(--primary-400-foreground))",
+      DEFAULT: "hsl(var(--brand-400))",
+      foreground: "hsl(var(--brand-400-foreground))",
     },
     500: {
-      DEFAULT: "hsl(var(--primary-500))",
-      foreground: "hsl(var(--primary-500-foreground))",
+      DEFAULT: "hsl(var(--brand-500))",
+      foreground: "hsl(var(--brand-500-foreground))",
     },
     600: {
-      DEFAULT: "hsl(var(--primary-600))",
-      foreground: "hsl(var(--primary-600-foreground))",
+      DEFAULT: "hsl(var(--brand-600))",
+      foreground: "hsl(var(--brand-600-foreground))",
     },
     700: {
-      DEFAULT: "hsl(var(--primary-700))",
-      foreground: "hsl(var(--primary-700-foreground))",
+      DEFAULT: "hsl(var(--brand-700))",
+      foreground: "hsl(var(--brand-700-foreground))",
     },
     800: {
-      DEFAULT: "hsl(var(--primary-800))",
-      foreground: "hsl(var(--primary-800-foreground))",
+      DEFAULT: "hsl(var(--brand-800))",
+      foreground: "hsl(var(--brand-800-foreground))",
     },
     900: {
-      DEFAULT: "hsl(var(--primary-900))",
-      foreground: "hsl(var(--primary-900-foreground))",
+      DEFAULT: "hsl(var(--brand-900))",
+      foreground: "hsl(var(--brand-900-foreground))",
     },
     950: {
-      DEFAULT: "hsl(var(--primary-950))",
-      foreground: "hsl(var(--primary-950-foreground))",
+      DEFAULT: "hsl(var(--brand-950))",
+      foreground: "hsl(var(--brand-950-foreground))",
     },
   },
   secondary: {
     DEFAULT: "hsl(var(--secondary))",
     foreground: "hsl(var(--secondary-foreground))",
 
+    25: {
+      DEFAULT: "hsl(var(--secondary-25))",
+      foreground: "hsl(var(--secondary-25-foreground))",
+    },
     50: {
       DEFAULT: "hsl(var(--secondary-50))",
       foreground: "hsl(var(--secondary-50-foreground))",
@@ -106,6 +114,10 @@ export const ColorExtends = {
     DEFAULT: "hsl(var(--error))",
     foreground: "hsl(var(--error-foreground))",
 
+    25: {
+      DEFAULT: "hsl(var(--error-25))",
+      foreground: "hsl(var(--error-25-foreground))",
+    },
     50: {
       DEFAULT: "hsl(var(--error-50))",
       foreground: "hsl(var(--error-50-foreground))",
@@ -155,6 +167,10 @@ export const ColorExtends = {
     DEFAULT: "hsl(var(--warning))",
     foreground: "hsl(var(--warning-foreground))",
 
+    25: {
+      DEFAULT: "hsl(var(--warning-25))",
+      foreground: "hsl(var(--warning-25-foreground))",
+    },
     50: {
       DEFAULT: "hsl(var(--warning-50))",
       foreground: "hsl(var(--warning-50-foreground))",
@@ -253,6 +269,10 @@ export const ColorExtends = {
     DEFAULT: "hsl(var(--success))",
     foreground: "hsl(var(--success-foreground))",
 
+    25: {
+      DEFAULT: "hsl(var(--success-25))",
+      foreground: "hsl(var(--success-25-foreground))",
+    },
     50: {
       DEFAULT: "hsl(var(--success-50))",
       foreground: "hsl(var(--success-50-foreground))",
@@ -541,6 +561,57 @@ export const ColorExtends = {
     950: {
       DEFAULT: "hsl(var(--popover-950))",
       foreground: "hsl(var(--popover-950-foreground))",
+    },
+  },
+  gray: {
+    DEFAULT: "hsl(var(--gray))",
+    foreground: "hsl(var(--gray-foreground))",
+
+    25: {
+      DEFAULT: "hsl(var(--gray-25))",
+      foreground: "hsl(var(--gray-25-foreground))",
+    },
+    50: {
+      DEFAULT: "hsl(var(--gray-50))",
+      foreground: "hsl(var(--gray-50-foreground))",
+    },
+    100: {
+      DEFAULT: "hsl(var(--gray-100))",
+      foreground: "hsl(var(--gray-100-foreground))",
+    },
+    200: "hsl(var(--gray-200))",
+
+    300: {
+      DEFAULT: "hsl(var(--gray-300))",
+      foreground: "hsl(var(--gray-300-foreground))",
+    },
+    400: {
+      DEFAULT: "hsl(var(--gray-400))",
+      foreground: "hsl(var(--gray-400-foreground))",
+    },
+    500: {
+      DEFAULT: "hsl(var(--gray-500))",
+      foreground: "hsl(var(--gray-500-foreground))",
+    },
+    600: {
+      DEFAULT: "hsl(var(--gray-600))",
+      foreground: "hsl(var(--gray-600-foreground))",
+    },
+    700: {
+      DEFAULT: "hsl(var(--gray-700))",
+      foreground: "hsl(var(--gray-700-foreground))",
+    },
+    800: {
+      DEFAULT: "hsl(var(--gray-800))",
+      foreground: "hsl(var(--gray-800-foreground))",
+    },
+    900: {
+      DEFAULT: "hsl(var(--gray-900))",
+      foreground: "hsl(var(--gray-900-foreground))",
+    },
+    950: {
+      DEFAULT: "hsl(var(--gray-950))",
+      foreground: "hsl(var(--gray-950-foreground))",
     },
   },
 };

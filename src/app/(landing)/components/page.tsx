@@ -90,7 +90,7 @@ export default function Components() {
       </div>
 
       <div>
-        <div className="w-xs h-32 bg-brand-300 text-brand-300-foreground rounded-xl text-[#fff] ">
+        <div className="w-xs h-32 bg-brand-300-foreground text-gray-200-foreground rounded-xl text-[#fff] border-gray-200 border-2 ">
           test test test
         </div>
       </div>

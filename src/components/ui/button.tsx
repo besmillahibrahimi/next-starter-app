@@ -17,9 +17,8 @@ const buttonVariants = cva(
           "group gap-2 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary:
           "group gap-2 bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost:
-          "group gap-2 hover:bg-accent hover:text-accent-foreground border-none",
-        link: "group gap-2 text-brand underline-offset-4 underline border-none",
+        ghost: "group gap-2 hover:bg-accent hover:text-accent-foreground",
+        link: "group gap-2 text-brand underline-offset-4 underline ",
       },
       size: {
         default: "h-9 px-4 py-2",

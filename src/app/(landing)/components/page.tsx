@@ -1,5 +1,17 @@
+"use client";
+
+import IconInput from "@/components/molecules/IconInput";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { CgMoon, CgSun } from "react-icons/cg";
 
 const variants: Record<string, string[]> = {
@@ -77,8 +89,8 @@ export default function Components() {
           variant="success"
           placeholder="Enter text"
           label="Success Input"
-          icon={<CgSun />}
-          disabled
+          className="pl-10"
+          //disabled
         />
         <Input
           type="file"
@@ -90,9 +102,67 @@ export default function Components() {
       </div>
 
       <div>
-        <div className="w-xs h-32 bg-brand-300-foreground text-gray-200-foreground rounded-xl text-[#fff] border-gray-200 border-2 ">
+        <div className="w-xs h-8 bg-brand-300-foreground text-gray-200-foreground rounded-xl text-[#fff] border-gray-200 border-2 ">
           test test test
         </div>
+      </div>
+
+      <div>
+        <IconInput
+          variant="success"
+          startIcon={<CgMoon />}
+          endIcon={<CgSun />}
+          label="success"
+          placeholder="success :)"
+          className="w-[300px]"
+          onClickStartIcon={() =>
+            console.log("mm 100 -   start icon has been clicked . . .")
+          }
+          onClickEndIcon={() =>
+            console.log("mm 100 -   end icon has been clicked . . .")
+          }
+        />
+        <Input
+          label="My Input"
+          StartNode={<CgMoon className="bg-success-200" />}
+          EndNode={<CgSun onClick={() => console.log("clicked end icon")} />}
+        />
+      </div>
+
+      {/* <div>
+        <div className="flex items-center">
+          <Select>
+            <SelectTrigger className="w-[150px]">
+              <SelectValue placeholder="Choose an option" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="option1">Option 1</SelectItem>
+              <SelectItem value="option2">Option 2</SelectItem>
+              <SelectItem value="option3">Option 3</SelectItem>
+            </SelectContent>
+          </Select>
+          <Input className="ml-2" placeholder="Enter text here" />
+        </div>
+      </div> */}
+
+      <div className="flex w-[300px] items-center rounded-md overflow-hidden">
+        {/* Select Component */}
+        <Select>
+          <SelectTrigger className="px-4 py-2 bg-gray-200 border-r w-1/3 rounded-r-none">
+            <SelectValue placeholder="Choose" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="option1">Option 1</SelectItem>
+            <SelectItem value="option2">Option 2</SelectItem>
+            <SelectItem value="option3">Option 3</SelectItem>
+          </SelectContent>
+        </Select>
+
+        {/* Input Component */}
+        <Input
+          placeholder="Enter text here"
+          className="flex-1 px-4 py-2 rounded-l-none"
+        />
       </div>
     </div>
   );

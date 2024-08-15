@@ -5,14 +5,23 @@ import { useTheme } from "next-themes";
 import { Icon } from "@iconify/react";
 
 import { Button } from "@/components/ui/button";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface Props {
   useSwitch?: boolean;
 }
 
 const ThemeToggler: React.FC<Props> = ({ useSwitch = true }) => {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  React.useEffect(() => {
+    console.log(" theme changed . . ");
+  }, [theme]);
 
   return useSwitch ? (
     <span>
@@ -50,9 +59,15 @@ const ThemeToggler: React.FC<Props> = ({ useSwitch = true }) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("light")}>
+          Light
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("dark")}>
+          Dark
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("system")}>
+          System
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

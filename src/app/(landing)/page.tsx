@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <main className="container">
       <div className="py-8">
-        <h1 className="text-center text-3xl">{t("test")}</h1>
+        <h1 className="text-center text-3xl bg-brand">{t("test")}</h1>
         <div className="w-full flex justify-end space-x-5">
           {/* <h1>user name: {Parse.User.current()?.get('fullName')}</h1> */}
           <ThemeToggler />

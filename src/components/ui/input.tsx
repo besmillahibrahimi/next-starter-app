@@ -48,7 +48,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ) => {
     const startNode = React.useRef<HTMLDivElement | null>(null);
     const endNode = React.useRef<HTMLDivElement | null>(null);
-    const [paddingLeft, setPaddingLeft] = React.useState<number>(0);
+    const [paddingLeft, setPaddingLeft] = React.useState<number>(10);
     const [paddingRight, setPaddingRight] = React.useState<number>(0);
 
     React.useEffect(() => {
@@ -68,7 +68,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label className="mb-2 block text-sm font-medium">{label}</label>
         )}
-        <div className="w-max relative ">
+        <div className="w-max relative">
           {/* {icon && <span className="mr-2">{icon}</span>} */}
           <input
             className={cn(

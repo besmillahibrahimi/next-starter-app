@@ -8,6 +8,8 @@
 @import "../configs/ui/space/space.css";
 @import "../configs/ui/width/width.css";
 @import "../configs/ui/radius/radius.css";
+@import "../configs//ui/typography/typogeraphy.css";
+@import "../configs//ui/typography/fontWeight.css";
 
 @layer base {
   * {

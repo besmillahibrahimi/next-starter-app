@@ -51,7 +51,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         }`}
       >
         <Select>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-[180px] bg-red">
             <SelectValue placeholder="Select a fruit" />
           </SelectTrigger>
           <SelectContent>

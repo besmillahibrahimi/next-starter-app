@@ -6,6 +6,8 @@ import { SpaceExtend } from "./src/configs/ui/space/space-extend";
 import { WidthExtend } from "./src/configs/ui/width/width-extend";
 import { SpacingExtend } from "./src/configs/ui/spacing/spacing-extend";
 import { RadiusExtend } from "./src/configs/ui/radius/radius-extend";
+import { FontWeightExtend } from "./src/configs/ui/typography/fontWeight-extends";
+import { TypographyExtends } from "./src/configs/ui/typography/typography-extends";
 
 const config = {
   darkMode: ["class"],
@@ -35,13 +37,15 @@ const config = {
       textColor: {
         "gray-200-foreground": "hsl(var(--gray-700))",
       },
+      fontSize: TypographyExtends, //usage: text-display-2xl
+      fontWeight: FontWeightExtend, //usage: font-regular
       colors: ColorExtends,
       borderRadius: RadiusExtend, //usage: rounded-md
-      spacing: SpacingExtend, // usage : border-spacing-0
+      spacing: SpacingExtend, //usage : border-spacing-0
       gap: SpaceExtend,
       padding: SpaceExtend,
       margin: SpaceExtend,
-      space: SpaceExtend, // usage: space-x-none
+      space: SpaceExtend, //usage: space-x-none
       width: WidthExtend,
 
       keyframes: {

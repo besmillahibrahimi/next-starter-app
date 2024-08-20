@@ -1,6 +1,5 @@
 "use client";
 
-import IconInput from "@/components/molecules/IconInput";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,6 +12,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CgMoon, CgSun } from "react-icons/cg";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import TooltipWrapper from "@/components/molecules/TooltipWrapper";
+import { ArrowDirection, Direction } from "@/lib/constants";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -108,20 +116,6 @@ export default function Components() {
       </div>
 
       <div>
-        <IconInput
-          variant="success"
-          startIcon={<CgMoon />}
-          endIcon={<CgSun />}
-          label="success"
-          placeholder="success :)"
-          className="w-[300px]"
-          onClickStartIcon={() =>
-            console.log("mm 100 -   start icon has been clicked . . .")
-          }
-          onClickEndIcon={() =>
-            console.log("mm 100 -   end icon has been clicked . . .")
-          }
-        />
         <Input
           label="My Input"
           StartNode={<CgMoon className="bg-success-200" />}
@@ -162,6 +156,82 @@ export default function Components() {
         <Input
           placeholder="Enter text here"
           className="flex-1 px-4 py-2 rounded-l-none"
+        />
+      </div>
+
+      <div className="flex justify-around">
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline">Hover</Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Add to library</p>
+              <div className="absolute w-2 h-2 bg-brand rotate-45 -bottom-1 left-1/2 transform -translate-x-1/2" />
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+
+        <TooltipWrapper triggerText="text" tooltipText="Tooltip text" />
+
+        <TooltipWrapper
+          triggerText={<Button>BOTTOM LEFT</Button>}
+          tooltipText="Bottom Left Tooltip :)"
+          arrowDirection={ArrowDirection.BOTTOM_LEFT}
+          tooltipSide={Direction.TOP}
+        />
+
+        <TooltipWrapper
+          triggerText={<Button>BOTTOM RIGHT</Button>}
+          tooltipText="Bottom Right Tooltip :)"
+          arrowDirection={ArrowDirection.BOTTOM_RIGHT}
+          tooltipSide={Direction.TOP}
+        />
+
+        <TooltipWrapper
+          triggerText={<Button>TOP</Button>}
+          tooltipText="Top Tooltip :)"
+          arrowDirection={ArrowDirection.BOTTOM}
+          tooltipSide={Direction.TOP}
+        />
+
+        <TooltipWrapper
+          triggerText={<Button>BOTTOM</Button>}
+          tooltipText="Bottom  Tooltip :)"
+          arrowDirection={ArrowDirection.TOP}
+          tooltipSide={Direction.BOTTOM}
+        />
+
+        <TooltipWrapper
+          triggerText={<Button>RIGHT</Button>}
+          tooltipText="Right Tooltip :)"
+          arrowDirection={ArrowDirection.RIGHT}
+          tooltipSide={Direction.RIGHT}
+        />
+
+        <TooltipWrapper
+          triggerText={<Button>LEFT</Button>}
+          tooltipText="Left Tooltip :)"
+          arrowDirection={ArrowDirection.LEFT}
+          tooltipSide={Direction.LEFT}
+        />
+
+        <TooltipWrapper
+          className="w-[270px]"
+          triggerText={<Button>With Title</Button>}
+          tooltipText={
+            <div className="flex flex-col">
+              <h1>Title</h1>
+              <p>
+                dehwiuqe qeihfqiefiq qfiuhewe fijregvjieroierg dehwiuqe
+                qeihfqiefiq qfiuhewe fijregvjieroiergdehwiuqe qeihfqiefiq
+                qfiuhewe fijregvjieroiergdehwiuqe qeihfqiefiq qfiuhewe
+                fijregvjieroierg
+              </p>
+            </div>
+          }
+          // arrowDirection={ArrowDirection.LEFT}
+          // tooltipSide={Direction.LEFT}
         />
       </div>
     </div>

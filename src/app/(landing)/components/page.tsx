@@ -159,6 +159,12 @@ export default function Components() {
         />
       </div>
 
+      <div className="flex justify-center border-tertiary bg-brand-warning-primary">
+        <h1 className="font-bold text-2xl text-success-primary/50">
+          H E L L O . . . :)
+        </h1>
+      </div>
+
       <div className="flex justify-around">
         <TooltipProvider>
           <Tooltip>

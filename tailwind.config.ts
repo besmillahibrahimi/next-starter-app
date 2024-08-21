@@ -8,12 +8,18 @@ import { SpacingExtend } from "./src/configs/ui/spacing/spacing-extend";
 import { RadiusExtend } from "./src/configs/ui/radius/radius-extend";
 import { FontWeightExtend } from "./src/configs/ui/typography/fontWeight-extends";
 import { TypographyExtends } from "./src/configs/ui/typography/typography-extends";
+import TextColor from "./src/configs/tailwind/text-color";
+import BorderColor from "./src/configs/tailwind/border-color";
+import BackgroundColor from "./src/configs/tailwind/background-color";
 
 const config = {
   darkMode: ["class"],
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   prefix: "",
   theme: {
+    textColor: TextColor,
+    borderColor: BorderColor,
+    backgroundColor: BackgroundColor,
     screens: {
       // => @media (min-width: 640px and max-width: 767px) { ... }
       mobile: { min: "0px", max: "479px" },
@@ -39,7 +45,7 @@ const config = {
       },
       fontSize: TypographyExtends, //usage: text-display-2xl
       fontWeight: FontWeightExtend, //usage: font-regular
-      colors: ColorExtends,
+      // colors: ColorExtends,
       borderRadius: RadiusExtend, //usage: rounded-md
       spacing: SpacingExtend, //usage : border-spacing-0
       gap: SpaceExtend,

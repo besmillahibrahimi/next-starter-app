@@ -41,7 +41,7 @@ const TooltipContent = React.forwardRef<
       ref={ref}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 overflow-hidden rounded-md bg-brand-950 px-lg py-md text-xs text-brand-foreground data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+        "z-50 overflow-hidden rounded-md bg-primary-solid px-lg py-md text-xs text-white data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
         className
       )}
       {...props}
@@ -51,7 +51,7 @@ const TooltipContent = React.forwardRef<
       <div
         className={
           arrowDirection
-            ? `absolute w-2 h-2 bg-brand-950 rotate-45 transform ${
+            ? `absolute w-2 h-2 bg-primary-solid rotate-45 transform ${
                 tooltipPostion[arrowDirection as keyof typeof tooltipPostion]
               }`
             : ``

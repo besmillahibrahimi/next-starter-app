@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "group gap-2 bg-brand text-brand-foreground shadow hover:bg-brand/20",
+          "group gap-2 bg-primary text-brand-foreground shadow hover:bg-brand/20",
         destructive:
           "group gap-2 bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/10",
         outline:

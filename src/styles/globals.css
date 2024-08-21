@@ -4,18 +4,11 @@
 
 @import "../configs/colors/light/theme.css";
 @import "../configs/colors/dark/theme.css";
+@import "../configs/colors/tokens/tokens-colors.css";
+@import "../configs/colors/tokens/tokens-colors-dark.css";
 @import "../configs/ui/spacing/spacing.css";
 @import "../configs/ui/space/space.css";
 @import "../configs/ui/width/width.css";
 @import "../configs/ui/radius/radius.css";
 @import "../configs//ui/typography/typogeraphy.css";
 @import "../configs//ui/typography/fontWeight.css";
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}

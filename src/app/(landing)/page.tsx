@@ -61,7 +61,9 @@ export default function Home() {
         </div>
 
         <div>
-          <h1 className="text-center text-3xl">Color Palette</h1>
+          <h1 className="text-center text-3xl font-bold text-success-primary">
+            Color Palette
+          </h1>
           <div className="w-full flex gap-x-8 py-8">
             {colors.map((color, index) => (
               <div key={index} className="grid grid-cols-1 gap-5 w-full">

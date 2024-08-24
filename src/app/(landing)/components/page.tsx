@@ -20,7 +20,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import TooltipWrapper from "@/components/molecules/TooltipWrapper";
-import { Direction } from "@/lib/constants";
+import { Progress } from "@/components/ui/progress";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -186,6 +186,15 @@ export default function Components() {
             <CgMoon size={40} />
           </span>
         </TooltipWrapper>
+      </div>
+
+      <h1 className="mt-16 text-primary font-bold tablet:text-wrap sm:text-wrap container">
+        Progress
+      </h1>
+      <div className="flex space-x-8 px-8">
+        <Progress value={30} />
+        <Progress value={50} />
+        <Progress value={80} />
       </div>
     </div>
   );

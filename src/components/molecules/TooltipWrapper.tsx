@@ -6,39 +6,46 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ArrowDirection, Direction } from "@/lib/constants";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { Direction } from "@/lib/constants";
 
-interface TooltipProps {
-  triggerText: React.ReactNode;
-  tooltipText: React.ReactNode;
-  arrowDirection?: ArrowDirection;
-  tooltipSide?: Direction;
-  className?: string;
+// @ts-ignore
+interface TooltipProps
+  extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {
+  title?: React.ReactNode;
+  body?: React.ReactNode;
 }
 
 const TooltipWrapper: React.FC<TooltipProps> = ({
-  triggerText,
-  tooltipText,
-  arrowDirection,
-  tooltipSide,
-  className,
+  children,
+  title,
+  body,
+  ...props
 }) => {
+  const titleNode =
+    typeof title === "string" ? (
+      <h6 className="text-xs font-bold">{title}</h6>
+    ) : (
+      title
+    );
+  const bodyNode =
+    typeof body === "string" ? (
+      <p className="text-xs font-medium">{body}</p>
+    ) : (
+      body
+    );
+
   return (
     <TooltipProvider>
       <Tooltip>
         {/* Use a span or div instead of a button for the trigger */}
-        <TooltipTrigger asChild>
-          <span className="text-blue-600 place-self-center cursor-pointer">
-            {triggerText}
-          </span>
-        </TooltipTrigger>
-        <TooltipContent
-          arrowDirection={arrowDirection}
-          tooltipSide={tooltipSide}
-          className={className}
-        >
-          {tooltipText}
-          {/* <div className="absolute w-2 h-2 bg-gray-900 rotate-45 -bottom-1 left-1/2 transform -translate-x-1/2" /> */}
+        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipContent {...(props || {})}>
+          <div className="max-w-32 relative">
+            {titleNode}
+            {bodyNode}
+          </div>
+          <TooltipPrimitive.TooltipArrow className="fill-primary-solid" />
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

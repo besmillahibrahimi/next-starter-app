@@ -20,7 +20,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import TooltipWrapper from "@/components/molecules/TooltipWrapper";
-import { ArrowDirection, Direction } from "@/lib/constants";
+import { Direction } from "@/lib/constants";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -74,18 +74,7 @@ export default function Components() {
       <h1 className="mt-16 text-[#970f0f] font-[800] tablet:text-wrap sm:text-wrap container">
         Inputs
       </h1>
-      {/* <div className="flex space-x-8">
-        {Object.keys(inputVariants).map((item, i) => {
-          return (
-            <Input
-              key={item}
-              variant={item as any}
-              //placeholder="Enter text"
-              label="Default Input"
-            />
-          );
-        })}
-      </div> */}
+
       <div className="flex space-x-8">
         <Input
           variant="default"
@@ -139,32 +128,6 @@ export default function Components() {
         </div>
       </div> */}
 
-      <div className="flex w-[300px] items-center rounded-md overflow-hidden">
-        {/* Select Component */}
-        <Select>
-          <SelectTrigger className="px-4 py-2 bg-gray-200 border-r w-1/3 rounded-r-none">
-            <SelectValue placeholder="Choose" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="option1">Option 1</SelectItem>
-            <SelectItem value="option2">Option 2</SelectItem>
-            <SelectItem value="option3">Option 3</SelectItem>
-          </SelectContent>
-        </Select>
-
-        {/* Input Component */}
-        <Input
-          placeholder="Enter text here"
-          className="flex-1 px-4 py-2 rounded-l-none"
-        />
-      </div>
-
-      <div className="flex justify-center border-tertiary bg-brand-warning-primary">
-        <h1 className="font-bold text-2xl text-success-primary/50">
-          H E L L O . . . :)
-        </h1>
-      </div>
-
       <div className="flex justify-around">
         <TooltipProvider>
           <Tooltip>
@@ -173,72 +136,56 @@ export default function Components() {
             </TooltipTrigger>
             <TooltipContent>
               <p>Add to library</p>
-              <div className="absolute w-2 h-2 bg-brand rotate-45 -bottom-1 left-1/2 transform -translate-x-1/2" />
+              {/* <div className="absolute w-2 h-2 bg-brand rotate-45 -bottom-1 left-1/2 transform -translate-x-1/2" /> */}
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
 
-        <TooltipWrapper triggerText="text" tooltipText="Tooltip text" />
+        <TooltipWrapper body="Bottom Left Tooltip :)">
+          <Button>BOTTOM LEFT</Button>
+        </TooltipWrapper>
+
+        <TooltipWrapper body="Bottom Right Tooltip :)">
+          <Button>BOTTOM RIGHT</Button>
+        </TooltipWrapper>
+
+        <TooltipWrapper body="Top Tooltip :)">
+          <Button>TOP</Button>
+        </TooltipWrapper>
+
+        <TooltipWrapper body="Bottom  Tooltip :)">
+          <Button>BOTTOM</Button>
+        </TooltipWrapper>
+
+        <TooltipWrapper body="Right Tooltip :)">
+          <Button>RIGHT</Button>
+        </TooltipWrapper>
+
+        <TooltipWrapper body="Left Tooltip :)">
+          <Button>LEFT</Button>
+        </TooltipWrapper>
 
         <TooltipWrapper
-          triggerText={<Button>BOTTOM LEFT</Button>}
-          tooltipText="Bottom Left Tooltip :)"
-          arrowDirection={ArrowDirection.BOTTOM_LEFT}
-          tooltipSide={Direction.TOP}
-        />
-
-        <TooltipWrapper
-          triggerText={<Button>BOTTOM RIGHT</Button>}
-          tooltipText="Bottom Right Tooltip :)"
-          arrowDirection={ArrowDirection.BOTTOM_RIGHT}
-          tooltipSide={Direction.TOP}
-        />
-
-        <TooltipWrapper
-          triggerText={<Button>TOP</Button>}
-          tooltipText="Top Tooltip :)"
-          arrowDirection={ArrowDirection.BOTTOM}
-          tooltipSide={Direction.TOP}
-        />
-
-        <TooltipWrapper
-          triggerText={<Button>BOTTOM</Button>}
-          tooltipText="Bottom  Tooltip :)"
-          arrowDirection={ArrowDirection.TOP}
-          tooltipSide={Direction.BOTTOM}
-        />
-
-        <TooltipWrapper
-          triggerText={<Button>RIGHT</Button>}
-          tooltipText="Right Tooltip :)"
-          arrowDirection={ArrowDirection.RIGHT}
-          tooltipSide={Direction.RIGHT}
-        />
-
-        <TooltipWrapper
-          triggerText={<Button>LEFT</Button>}
-          tooltipText="Left Tooltip :)"
-          arrowDirection={ArrowDirection.LEFT}
-          tooltipSide={Direction.LEFT}
-        />
-
-        <TooltipWrapper
-          className="w-[270px]"
-          triggerText={<Button>With Title</Button>}
-          tooltipText={
-            <div className="flex flex-col">
-              <h1>Title</h1>
-              <p>
-                dehwiuqe qeihfqiefiq qfiuhewe fijregvjieroierg dehwiuqe
+          title={"hi"}
+          body={`  dehwiuqe qeihfqiefiq qfiuhewe fijregvjieroierg dehwiuqe
                 qeihfqiefiq qfiuhewe fijregvjieroiergdehwiuqe qeihfqiefiq
                 qfiuhewe fijregvjieroiergdehwiuqe qeihfqiefiq qfiuhewe
-                fijregvjieroierg
-              </p>
-            </div>
-          }
-          // arrowDirection={ArrowDirection.LEFT}
-          // tooltipSide={Direction.LEFT}
-        />
+                fijregvjieroierg`}
+        >
+          <Button>Click me</Button>
+        </TooltipWrapper>
+
+        <TooltipWrapper
+          title={"hi"}
+          body={`  dehwiuqe qeihfqiefiq qfiuhewe fijregvjieroierg dehwiuqe
+                qeihfqiefiq qfiuhewe fijregvjieroiergdehwiuqe qeihfqiefiq
+                qfiuhewe fijregvjieroiergdehwiuqe qeihfqiefiq qfiuhewe
+                fijregvjieroierg`}
+        >
+          <span>
+            <CgMoon size={40} />
+          </span>
+        </TooltipWrapper>
       </div>
     </div>
   );

@@ -45,7 +45,7 @@ const config = {
       },
       fontSize: TypographyExtends, //usage: text-display-2xl
       fontWeight: FontWeightExtend, //usage: font-regular
-      // colors: ColorExtends,
+      colors: BackgroundColor,
       borderRadius: RadiusExtend, //usage: rounded-md
       spacing: SpacingExtend, //usage : border-spacing-0
       gap: SpaceExtend,

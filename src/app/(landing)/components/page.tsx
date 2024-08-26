@@ -21,8 +21,7 @@ import {
 import TooltipWrapper from "@/components/molecules/TooltipWrapper";
 import { Progress } from "@/components/ui/progress";
 import { useEffect, useState } from "react";
-import CircularProgress from "@/components/molecules/progress/CircleProgress";
-import HalfCircularProgress from "@/components/molecules/progress/HalfCircularProgress";
+import CircularProgress from "@/components/molecules/progress/CircularProgress";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -137,7 +136,7 @@ export default function Components() {
         </div>
       </div>
 
-      <div className="flex justify-around">
+      <div className="flex justify-between py-8">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -150,28 +149,12 @@ export default function Components() {
           </Tooltip>
         </TooltipProvider>
 
-        <TooltipWrapper body="Bottom Left Tooltip :)">
-          <Button>BOTTOM LEFT</Button>
+        <TooltipWrapper body="Tooltip :)">
+          <Button>Tooltip</Button>
         </TooltipWrapper>
 
-        <TooltipWrapper body="Bottom Right Tooltip :)">
-          <Button>BOTTOM RIGHT</Button>
-        </TooltipWrapper>
-
-        <TooltipWrapper body="Top Tooltip :)">
-          <Button>TOP</Button>
-        </TooltipWrapper>
-
-        <TooltipWrapper body="Bottom  Tooltip :)">
-          <Button>BOTTOM</Button>
-        </TooltipWrapper>
-
-        <TooltipWrapper body="Right Tooltip :)">
-          <Button>RIGHT</Button>
-        </TooltipWrapper>
-
-        <TooltipWrapper body="Left Tooltip :)">
-          <Button>LEFT</Button>
+        <TooltipWrapper body="Tooltip :)">
+          <Button>Tooltip</Button>
         </TooltipWrapper>
 
         <TooltipWrapper
@@ -181,7 +164,7 @@ export default function Components() {
                 qfiuhewe fijregvjieroiergdehwiuqe qeihfqiefiq qfiuhewe
                 fijregvjieroierg`}
         >
-          <Button>Click me</Button>
+          <Button>Tooltip</Button>
         </TooltipWrapper>
 
         <TooltipWrapper
@@ -211,17 +194,24 @@ export default function Components() {
         <Progress value={progress} />
         <Progress value={10}></Progress>
       </div>
-      <div className="flex space-x-8 px-8">
-        <CircularProgress value={progress} />
+      <div className="flex space-x-8 px-8 py-8">
+        <CircularProgress value={progress} shape="halfCircle" />
+        <CircularProgress value={progress} shape="halfCircle" direction="rtl" />
         <CircularProgress value={50} size={80} strokeWidth={5} />
         <CircularProgress value={75} size={160} strokeWidth={12} label="hiii" />
-      </div>
-
-      <div className="flex space-x-8 px-8">
-        <HalfCircularProgress value={progress} />
-        <HalfCircularProgress value={50} size={80} strokeWidth={5} />
-        <HalfCircularProgress value={90} size={200} strokeWidth={12} />
-        <HalfCircularProgress value={10} size={200} strokeWidth={12} />
+        <CircularProgress
+          value={90}
+          size={200}
+          strokeWidth={12}
+          shape="halfCircle"
+        />
+        <CircularProgress
+          value={10}
+          size={200}
+          strokeWidth={12}
+          shape="halfCircle"
+          direction="rtl"
+        />
       </div>
     </div>
   );

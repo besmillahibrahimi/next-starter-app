@@ -7,6 +7,8 @@ interface CircularProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
   strokeWidth?: number;
   label?: string;
+  shape?: "circle" | "halfCircle";
+  direction?: "ltr" | "rtl";
 }
 
 export default function CircularProgress({
@@ -16,40 +18,63 @@ export default function CircularProgress({
   strokeWidth = 8,
   className,
   label,
+  shape = "circle",
+  direction = "ltr",
   ...props
 }: CircularProgressProps) {
   const percentage = (value / max) * 100;
   const radius = (size - strokeWidth) / 2;
-  const circumference = radius * 2 * Math.PI;
-  const offset = (1 - percentage / 100) * circumference;
+  const circumference = (shape === "circle" ? 2 : 1) * radius * Math.PI;
+  const offset =
+    ((shape === "circle" ? 1 : 2) - percentage / 100) * circumference;
 
   return (
     <div
       className={cn(
-        "relative inline-flex items-center justify-center",
+        "relative inline-flex flex-col items-center justify-center",
         className
       )}
-      style={{ width: size, height: size }}
+      style={{
+        width: size,
+        height: size / (shape === "circle" ? 1 : 1.8),
+        transform:
+          shape === "halfCircle" && direction === "ltr"
+            ? "rotateY(180deg)"
+            : "",
+      }}
       role="progressbar"
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={max}
       {...props}
     >
-      <svg width={size} height={size} className="rotate-[-90deg]">
+      <svg
+        width={size}
+        height={size}
+        className={`${
+          shape === "circle" ? "rotate-[-90deg]" : "rotate-[0deg]"
+        }`}
+      >
         <circle
           style={{ color: "hsl(var(--bg-quaternary))" }}
           strokeWidth={strokeWidth}
           stroke="currentColor"
           fill="transparent"
           r={radius}
+          strokeDasharray={
+            shape === "halfCircle" ? `${circumference} ${circumference}` : ""
+          }
+          strokeDashoffset={shape === "halfCircle" ? circumference : ""}
           cx={size / 2}
           cy={size / 2}
+          strokeLinecap="round"
         />
         <circle
           style={{ color: "hsl(var(--bg-brand-solid))" }}
           strokeWidth={strokeWidth}
-          strokeDasharray={circumference}
+          strokeDasharray={
+            shape === "halfCircle" ? `${offset} ${offset}` : circumference
+          }
           strokeDashoffset={offset}
           strokeLinecap="round"
           stroke="currentColor"
@@ -59,7 +84,17 @@ export default function CircularProgress({
           cy={size / 2}
         />
       </svg>
-      <div className="absolute flex flex-col text-center">
+      <div
+        className={`absolute flex flex-col text-center ${
+          shape === "halfCircle" ? "bottom-0" : ""
+        }`}
+        style={{
+          transform:
+            shape === "halfCircle" && direction === "ltr"
+              ? "rotateY(-180deg)"
+              : "",
+        }}
+      >
         <span className="text-lg">{label}</span>
         <span className="text-2xl font-bold">{Math.round(percentage)}%</span>
       </div>

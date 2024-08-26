@@ -12,7 +12,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { CgMoon, CgSun } from "react-icons/cg";
-
 import {
   Tooltip,
   TooltipContent,
@@ -21,6 +20,9 @@ import {
 } from "@/components/ui/tooltip";
 import TooltipWrapper from "@/components/molecules/TooltipWrapper";
 import { Progress } from "@/components/ui/progress";
+import { useEffect, useState } from "react";
+import CircularProgress from "@/components/molecules/progress/CircleProgress";
+import HalfCircularProgress from "@/components/molecules/progress/HalfCircularProgress";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -28,8 +30,15 @@ const variants: Record<string, string[]> = {
 };
 
 export default function Components() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(30), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="flex flex-col space-y-5">
+    <div className="flex flex-col space-y-5 p-8">
       <h1>Buttons</h1>
       {Object.keys(variants).map((key, i) => {
         return (
@@ -112,7 +121,7 @@ export default function Components() {
         />
       </div>
 
-      {/* <div>
+      <div>
         <div className="flex items-center">
           <Select>
             <SelectTrigger className="w-[150px]">
@@ -126,7 +135,7 @@ export default function Components() {
           </Select>
           <Input className="ml-2" placeholder="Enter text here" />
         </div>
-      </div> */}
+      </div>
 
       <div className="flex justify-around">
         <TooltipProvider>
@@ -194,7 +203,25 @@ export default function Components() {
       <div className="flex space-x-8 px-8">
         <Progress value={30} />
         <Progress value={50} />
-        <Progress value={80} />
+        <Progress value={70} />
+        <Progress value={60} />
+        <Progress value={10} />
+        <Progress value={100} />
+        <Progress value={0} />
+        <Progress value={progress} />
+        <Progress value={10}></Progress>
+      </div>
+      <div className="flex space-x-8 px-8">
+        <CircularProgress value={progress} />
+        <CircularProgress value={50} size={80} strokeWidth={5} />
+        <CircularProgress value={75} size={160} strokeWidth={12} label="hiii" />
+      </div>
+
+      <div className="flex space-x-8 px-8">
+        <HalfCircularProgress value={progress} />
+        <HalfCircularProgress value={50} size={80} strokeWidth={5} />
+        <HalfCircularProgress value={90} size={200} strokeWidth={12} />
+        <HalfCircularProgress value={10} size={200} strokeWidth={12} />
       </div>
     </div>
   );

@@ -6,20 +6,22 @@ interface CircularProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   max?: number;
   size?: number;
   strokeWidth?: number;
-  label?: string;
+  label?: React.ReactNode;
   shape?: "circle" | "halfCircle";
   direction?: "ltr" | "rtl";
+  renderLabel?: (value: number) => React.ReactNode;
 }
 
 export default function CircularProgress({
   value,
   max = 100,
-  size = 120,
-  strokeWidth = 8,
+  size = 240,
+  strokeWidth = 24,
   className,
   label,
   shape = "circle",
   direction = "ltr",
+  renderLabel,
   ...props
 }: CircularProgressProps) {
   const percentage = (value / max) * 100;
@@ -95,8 +97,18 @@ export default function CircularProgress({
               : "",
         }}
       >
-        <span className="text-lg">{label}</span>
-        <span className="text-2xl font-bold">{Math.round(percentage)}%</span>
+        {renderLabel ? (
+          renderLabel(percentage)
+        ) : (
+          <>
+            <span className="text-text-sm font-semibold text-tertiary">
+              {label}
+            </span>
+            <span className="text-display-md font-semibold">
+              {Math.round(percentage)}%
+            </span>
+          </>
+        )}
       </div>
     </div>
   );

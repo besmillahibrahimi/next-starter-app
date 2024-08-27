@@ -22,6 +22,7 @@ import TooltipWrapper from "@/components/molecules/TooltipWrapper";
 import { Progress } from "@/components/ui/progress";
 import { useEffect, useState } from "react";
 import CircularProgress from "@/components/molecules/progress/CircularProgress";
+import { Direction } from "@/lib/constants";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -183,34 +184,43 @@ export default function Components() {
       <h1 className="mt-16 text-primary font-bold tablet:text-wrap sm:text-wrap container">
         Progress
       </h1>
-      <div className="flex space-x-8 px-8">
-        <Progress value={30} />
-        <Progress value={50} />
-        <Progress value={70} />
-        <Progress value={60} />
-        <Progress value={10} />
-        <Progress value={100} />
-        <Progress value={0} />
+      <div className="flex flex-col space-x-8 px-8">
         <Progress value={progress} />
-        <Progress value={10}></Progress>
+        <Progress
+          value={30}
+          showPercentageText={true}
+          positionPercentageText={Direction.BOTTOM}
+        />
+        <Progress value={100} showPercentageText={true} />
+        <Progress value={37} showPercentageText={true} />
+        <Progress value={0} showPercentageText={true} />
+
+        <Progress value={70} showPercentageCard={true} />
+        <Progress value={37} showPercentageCard={true} />
+        <Progress value={58} showPercentageCard={true} />
+        <Progress
+          value={10}
+          showPercentageCard={true}
+          positionPercentageCard={Direction.BOTTOM}
+        />
       </div>
       <div className="flex space-x-8 px-8 py-8">
         <CircularProgress value={progress} shape="halfCircle" />
         <CircularProgress value={progress} shape="halfCircle" direction="rtl" />
-        <CircularProgress value={50} size={80} strokeWidth={5} />
-        <CircularProgress value={75} size={160} strokeWidth={12} label="hiii" />
+        <CircularProgress value={40} />
+        <CircularProgress value={75} label="Active Users" />
         <CircularProgress
-          value={90}
-          size={200}
-          strokeWidth={12}
-          shape="halfCircle"
-        />
-        <CircularProgress
-          value={10}
+          value={50}
           size={200}
           strokeWidth={12}
           shape="halfCircle"
           direction="rtl"
+          renderLabel={(value) => (
+            <div className="">
+              <h6>active users</h6>
+              <h6 className="text-4xl font-bold">{value}%</h6>
+            </div>
+          )}
         />
       </div>
     </div>

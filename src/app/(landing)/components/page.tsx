@@ -23,6 +23,8 @@ import { Progress } from "@/components/ui/progress";
 import { useEffect, useState } from "react";
 import CircularProgress from "@/components/molecules/progress/CircularProgress";
 import { Direction } from "@/lib/constants";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -31,6 +33,8 @@ const variants: Record<string, string[]> = {
 
 export default function Components() {
   const [progress, setProgress] = useState(0);
+
+  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setProgress(30), 1000);
@@ -222,6 +226,32 @@ export default function Components() {
             </div>
           )}
         />
+      </div>
+
+      <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2">
+          <Switch id="airplane-mode" />
+          <Label htmlFor="airplane-mode">Airplane Mode</Label>
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <Switch
+            id="controlled-switch"
+            checked={isChecked}
+            onCheckedChange={setIsChecked}
+          />
+          <Label htmlFor="controlled-switch">{isChecked ? "On" : "Off"}</Label>
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <Switch id="disabled-switch" disabled={true} />
+          <Label htmlFor="disabled-switch">Disabled</Label>
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <Switch id="disabled-checked-switch" disabled defaultChecked />
+          <Label htmlFor="disabled-checked-switch">Disabled Checked </Label>
+        </div>
       </div>
     </div>
   );

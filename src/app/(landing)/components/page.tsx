@@ -239,12 +239,13 @@ export default function Components() {
             id="controlled-switch"
             checked={isChecked}
             onCheckedChange={setIsChecked}
+            size="md"
           />
           <Label htmlFor="controlled-switch">{isChecked ? "On" : "Off"}</Label>
         </div>
 
         <div className="flex items-center space-x-2">
-          <Switch id="disabled-switch" disabled={true} />
+          <Switch id="disabled-switch" disabled />
           <Label htmlFor="disabled-switch">Disabled</Label>
         </div>
 

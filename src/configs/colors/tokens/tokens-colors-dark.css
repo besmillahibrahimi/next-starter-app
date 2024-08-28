@@ -49,6 +49,35 @@
   --border-error_subtle: var(--error-400);
 
   /*************************************
+                Foreground Token 
+    **************************************/
+  --fg-primary: white;
+  --fg-secondary: var(--gray-300);
+  --fg-secondary_hover: var(--gray-200);
+  --fg-tertiary: var(--gray-400);
+  --fg-tertiary_hover: var(--gray-300);
+  --fg-quaternary: var(--gray-400);
+  --fg-quaternary_hover: var(--gray-300);
+  --fg-quinary: var(--gray-500);
+  --fg-quinary_hover: var(--gray-400);
+  --fg-senary: var(--gray-600);
+
+  --fg-white: white;
+  --fg-disabled: var(--gray-500);
+  --fg-disabled_subtle: var(--gray-600);
+
+  --fg-brand-primary: var(--brand-500);
+  --fg-brand-primary_alt: var(--brand-300);
+  --fg-brand-secondary: var(--brand-500);
+
+  --fg-error-primary: var(--error-500);
+  --fg-error-secondary: var(--error-400);
+  --fg-warning-primary: var(--warning-500);
+  --fg-warning-secondary: var(--warning-400);
+  --fg-success-primary: var(--success-500);
+  --fg-success-secondary: var(--success-400);
+
+  /*************************************
                   Background Token 
       **************************************/
   --bg-primary: var(--gray-950);

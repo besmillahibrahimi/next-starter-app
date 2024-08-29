@@ -64,7 +64,7 @@
 
   --fg-white: white;
   --fg-disabled: var(--gray-400);
-  --fg-disabled_subtle: var(--gray-300);
+  --fg-disabled-subtle: var(--gray-300);
 
   --fg-brand-primary: var(--brand-600);
   --fg-brand-primary_alt: var(--brand-600);

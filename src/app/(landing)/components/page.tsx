@@ -25,6 +25,9 @@ import CircularProgress from "@/components/molecules/progress/CircularProgress";
 import { Direction } from "@/lib/constants";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
+
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -34,12 +37,27 @@ const variants: Record<string, string[]> = {
 export default function Components() {
   const [progress, setProgress] = useState(0);
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isSwitchOn, setIsSwitchOn] = useState(false);
+  const [isChecked, setIsChecked] = useState<true | false | "indeterminate">(
+    "indeterminate"
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => setProgress(30), 1000);
     return () => clearTimeout(timer);
   }, []);
+
+  const onCheckHandler = () => {
+    isChecked == "indeterminate"
+      ? setIsChecked(true)
+      : isChecked == true
+      ? setIsChecked(false)
+      : setIsChecked(true);
+  };
+
+  const boolToString = (bool: boolean | string) => `${bool}`;
+  const stringToBool = (bool: boolean | string): boolean | "indeterminate" =>
+    bool === "true" ? true : bool === "false" ? false : "indeterminate";
 
   return (
     <div className="flex flex-col space-y-5 p-8">
@@ -237,11 +255,11 @@ export default function Components() {
         <div className="flex items-center space-x-2">
           <Switch
             id="controlled-switch"
-            checked={isChecked}
-            onCheckedChange={setIsChecked}
+            checked={isSwitchOn}
+            onCheckedChange={setIsSwitchOn}
             size="md"
           />
-          <Label htmlFor="controlled-switch">{isChecked ? "On" : "Off"}</Label>
+          <Label htmlFor="controlled-switch">{isSwitchOn ? "On" : "Off"}</Label>
         </div>
 
         <div className="flex items-center space-x-2">
@@ -253,6 +271,53 @@ export default function Components() {
           <Switch id="disabled-checked-switch" disabled defaultChecked />
           <Label htmlFor="disabled-checked-switch">Disabled Checked </Label>
         </div>
+      </div>
+
+      <div className="flex justify-center items-center w-full space-x-4 ">
+        <div>
+          <Checkbox
+            id="terms1"
+            checked={isChecked}
+            onClick={() => onCheckHandler()}
+            title="Remember me"
+            desc="Save my login details for next time"
+          />
+        </div>
+
+        <Checkbox id="terms2" checked={isChecked} shape="square" />
+        <Checkbox
+          id="terms3"
+          checked={isChecked}
+          onCheckedChange={setIsChecked}
+          disabled
+        />
+        <Checkbox
+          id="terms4"
+          checked={isChecked}
+          onClick={() => onCheckHandler()}
+          size="md"
+          shape="square"
+          disabled
+        />
+
+        <RadioGroup
+          value={boolToString(isChecked)}
+          defaultValue={boolToString(isChecked)}
+          onValueChange={(v) => setIsChecked(stringToBool(v))}
+        >
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="indeterminate" id="r1" />
+            <Label htmlFor="r1">indeterminate</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value={"true"} id="r2" />
+            <Label htmlFor="r2">True</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value={"false"} id="r3" />
+            <Label htmlFor="r3">False</Label>
+          </div>
+        </RadioGroup>
       </div>
     </div>
   );

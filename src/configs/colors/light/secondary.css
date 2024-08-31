@@ -35,4 +35,424 @@
 
   --secondary-950: 240 3% 13%;
   --secondary-950-foreground: 0 0% 100%;
+
+  /*************************************
+                  Gray Blue
+    **************************************/
+  --gray-blue: 231 36% 48%;
+  --gray-blue-foreground: 0 0% 100%;
+
+  --gray-blue-25: 240 20% 99%;
+  --gray-blue-25-foreground: var(--gray-blue-700);
+
+  --gray-blue-50: 225 40% 98%;
+  --gray-blue-50-foreground: var(--gray-blue-700);
+
+  --gray-blue-100: 229 35% 94%;
+  --gray-blue-100-foreground: var(--gray-blue-700);
+
+  --gray-blue-200: 229 35% 88%;
+  --gray-blue-200-foreground: var(--gray-blue-700);
+
+  --gray-blue-300: 232 36% 78%;
+  --gray-blue-300-foreground: var(--gray-blue-700);
+
+  --gray-blue-400: 232 36% 59%;
+  --gray-blue-400-foreground: 0 0% 100%;
+
+  --gray-blue-500: var(--gray-blue);
+  --gray-blue-500-foreground: 0 0% 100%;
+
+  --gray-blue-600: 232 36% 38%;
+  --gray-blue-600-foreground: 0 0% 100%;
+
+  --gray-blue-700: 231 36% 33%;
+  --gray-blue-700-foreground: 0 0% 100%;
+
+  --gray-blue-800: 231 35% 25%;
+  --gray-blue-800-foreground: 0 0% 100%;
+
+  --gray-blue-900: 231 37% 10%;
+  --gray-blue-900-foreground: 0 0% 100%;
+
+  --gray-blue-950: 232 37% 8%;
+  --gray-blue-950-foreground: 0 0% 100%;
+
+  /*************************************
+                Blue Light
+  **************************************/
+  --blue-light: 199 91% 48%;
+  --blue-light-foreground: 0 0% 100%;
+
+  --blue-light-25: 204 100% 98%;
+  --blue-light-25-foreground: var(--blue-light-700);
+
+  --blue-light-50: 204 100% 97%;
+  --blue-light-50-foreground: var(--blue-light-700);
+
+  --blue-light-100: 204 94% 94%;
+  --blue-light-100-foreground: var(--blue-light-700);
+
+  --blue-light-200: 201 97% 86%;
+  --blue-light-200-foreground: var(--blue-light-700);
+
+  --blue-light-300: 199 97% 74%;
+  --blue-light-300-foreground: var(--blue-light-700);
+
+  --blue-light-400: 198 95% 60%;
+  --blue-light-400-foreground: 0 0% 100%;
+
+  --blue-light-500: var(--blue-light);
+  --blue-light-500-foreground: 0 0% 100%;
+
+  --blue-light-600: 200 100% 39%;
+  --blue-light-600-foreground: 0 0% 100%;
+
+  --blue-light-700: 201 98% 32%;
+  --blue-light-700-foreground: 0 0% 100%;
+
+  --blue-light-800: 201 91% 27%;
+  --blue-light-800-foreground: 0 0% 100%;
+
+  --blue-light-900: 202 82% 24%;
+  --blue-light-900-foreground: 0 0% 100%;
+
+  --blue-light-950: 201 83% 14%;
+  --blue-light-950-foreground: 0 0% 100%;
+
+  /*************************************
+                   Blue
+  **************************************/
+  --blue: 211 95% 58%;
+  --blue-foreground: 0 0% 100%;
+
+  --blue-25: 210 100% 98%;
+  --blue-25-foreground: var(--blue-700);
+
+  --blue-50: 206 100% 97%;
+  --blue-50-foreground: var(--blue-700);
+
+  --blue-100: 209 100% 91%;
+  --blue-100-foreground: var(--blue-700);
+
+  --blue-200: 206 100% 85%;
+  --blue-200-foreground: var(--blue-700);
+
+  --blue-300: 206 100% 76%;
+  --blue-300-foreground: var(--blue-700);
+
+  --blue-400: 207 98% 66%;
+  --blue-400-foreground: 0 0% 100%;
+
+  --blue-500: var(--blue);
+  --blue-500-foreground: 0 0% 100%;
+
+  --blue-600: 215 87% 51%;
+  --blue-600-foreground: 0 0% 100%;
+
+  --blue-700: 218 80% 46%;
+  --blue-700-foreground: 0 0% 100%;
+
+  --blue-800: 220 76% 37%;
+  --blue-800-foreground: 0 0% 100%;
+
+  --blue-900: 218 68% 31%;
+  --blue-900-foreground: 0 0% 100%;
+
+  --blue-950: 218 69% 20%;
+  --blue-950-foreground: 0 0% 100%;
+
+  /*************************************
+                Blue Dark
+  **************************************/
+  --blue-dark: 220 100% 66%;
+  --blue-dark-foreground: 0 0% 100%;
+
+  --blue-dark-25: 222 100% 98%;
+  --blue-dark-25-foreground: var(--blue-dark-700);
+
+  --blue-dark-50: 221 100% 97%;
+  --blue-dark-50-foreground: var(--blue-dark-700);
+
+  --blue-dark-100: 220 100% 91%;
+  --blue-dark-100-foreground: var(--blue-dark-700);
+
+  --blue-dark-200: 220 100% 85%;
+  --blue-dark-200-foreground: var(--blue-dark-700);
+
+  --blue-dark-300: 220 100% 76%;
+  --blue-dark-300-foreground: var(--blue-dark-700);
+
+  --blue-dark-400: 220 100% 66%;
+  --blue-dark-400-foreground: 0 0% 100%;
+
+  --blue-dark-500: var(--blue-dark);
+  --blue-dark-500-foreground: 0 0% 100%;
+
+  --blue-dark-600: 220 87% 51%;
+  --blue-dark-600-foreground: 0 0% 100%;
+
+  --blue-dark-700: 220 100% 46%;
+  --blue-dark-700-foreground: 0 0% 100%;
+
+  --blue-dark-800: 220 100% 38%;
+  --blue-dark-800-foreground: 0 0% 100%;
+
+  --blue-dark-900: 220 100% 31%;
+  --blue-dark-900-foreground: 0 0% 100%;
+
+  --blue-dark-950: 220 100% 20%;
+  --blue-dark-950-foreground: 0 0% 100%;
+
+  /*************************************
+                  Indigo
+  **************************************/
+  --indigo: 233 86% 67%;
+  --indigo-foreground: 0 0% 100%;
+
+  --indigo-25: 222 100% 98%;
+  --indigo-25-foreground: var(--indigo-700);
+
+  --indigo-50: 219 100% 97%;
+  --indigo-50-foreground: var(--indigo-700);
+
+  --indigo-100: 221 100% 94%;
+  --indigo-100-foreground: var(--indigo-700);
+
+  --indigo-200: 223 96% 89%;
+  --indigo-200-foreground: var(--indigo-700);
+
+  --indigo-300: 224 96% 82%;
+  --indigo-300-foreground: var(--indigo-700);
+
+  --indigo-400: 228 91% 74%;
+  --indigo-400-foreground: 0 0% 100%;
+
+  --indigo-500: var(--indigo);
+  --indigo-500-foreground: 0 0% 100%;
+
+  --indigo-600: 237 77% 59%;
+  --indigo-600-foreground: 0 0% 100%;
+
+  --indigo-700: 239 60% 51%;
+  --indigo-700-foreground: 0 0% 100%;
+
+  --indigo-800: 238 57% 41%;
+  --indigo-800-foreground: 0 0% 100%;
+
+  --indigo-900: 236 49% 34%;
+  --indigo-900-foreground: 0 0% 100%;
+
+  --indigo-950: 236 50% 24%;
+  --indigo-950-foreground: 0 0% 100%;
+
+  /*************************************
+                  Purple
+  **************************************/
+  --purple: 252 92% 66%;
+  --purple-foreground: 0 0% 100%;
+
+  --purple-25: 240 100% 99%;
+  --purple-25-foreground: var(--purple-700);
+
+  --purple-50: 245 100% 98%;
+  --purple-50-foreground: var(--purple-700);
+
+  --purple-100: 246 91% 95%;
+  --purple-100-foreground: var(--purple-700);
+
+  --purple-200: 244 95% 92%;
+  --purple-200-foreground: var(--purple-700);
+
+  --purple-300: 247 97% 85%;
+  --purple-300-foreground: var(--purple-700);
+
+  --purple-400: 249 93% 76%;
+  --purple-400-foreground: 0 0% 100%;
+
+  --purple-500: var(--purple);
+  --purple-500-foreground: 0 0% 100%;
+
+  --purple-600: 256 86% 58%;
+  --purple-600-foreground: 0 0% 100%;
+
+  --purple-700: 257 72% 50%;
+  --purple-700-foreground: 0 0% 100%;
+
+  --purple-800: 257 71% 42%;
+  --purple-800-foreground: 0 0% 100%;
+
+  --purple-900: 257 69% 35%;
+  --purple-900-foreground: 0 0% 100%;
+
+  --purple-950: 257 70% 22%;
+  --purple-950-foreground: 0 0% 100%;
+
+  /*************************************
+                  Fuchsia
+  **************************************/
+  --fuchsia: 290 86% 61%;
+  --fuchsia-foreground: 0 0% 100%;
+
+  --fuchsia-25: 288 100% 99%;
+  --fuchsia-25-foreground: var(--fuchsia-700);
+
+  --fuchsia-50: 289 100% 98%;
+  --fuchsia-50-foreground: var(--fuchsia-700);
+
+  --fuchsia-100: 290 100% 95%;
+  --fuchsia-100-foreground: var(--fuchsia-700);
+
+  --fuchsia-200: 290 96% 91%;
+  --fuchsia-200-foreground: var(--fuchsia-700);
+
+  --fuchsia-300: 289 95% 83%;
+  --fuchsia-300-foreground: var(--fuchsia-700);
+
+  --fuchsia-400: 290 93% 73%;
+  --fuchsia-400-foreground: 0 0% 100%;
+
+  --fuchsia-500: var(--fuchsia);
+  --fuchsia-500-foreground: 0 0% 100%;
+
+  --fuchsia-600: 291 71% 49%;
+  --fuchsia-600-foreground: 0 0% 100%;
+
+  --fuchsia-700: 293 74% 40%;
+  --fuchsia-700-foreground: 0 0% 100%;
+
+  --fuchsia-800: 293 71% 33%;
+  --fuchsia-800-foreground: 0 0% 100%;
+
+  --fuchsia-900: 295 66% 28%;
+  --fuchsia-900-foreground: 0 0% 100%;
+
+  --fuchsia-950: 295 65% 18%;
+  --fuchsia-950-foreground: 0 0% 100%;
+
+  /*************************************
+                   Pink
+  **************************************/
+  --pink: 318 83% 60%;
+  --pink-foreground: 0 0% 100%;
+
+  --pink-25: 323 80% 98%;
+  --pink-25-foreground: var(--pink-700);
+
+  --pink-50: 316 73% 97%;
+  --pink-50-foreground: var(--pink-700);
+
+  --pink-100: 317 78% 95%;
+  --pink-100-foreground: var(--pink-700);
+
+  --pink-200: 318 88% 90%;
+  --pink-200-foreground: var(--pink-700);
+
+  --pink-300: 319 89% 82%;
+  --pink-300-foreground: var(--pink-700);
+
+  --pink-400: 321 88% 70%;
+  --pink-400-foreground: 0 0% 100%;
+
+  --pink-500: var(--pink);
+  --pink-500-foreground: 0 0% 100%;
+
+  --pink-600: 325 73% 51%;
+  --pink-600-foreground: 0 0% 100%;
+
+  --pink-700: 327 80% 42%;
+  --pink-700-foreground: 0 0% 100%;
+
+  --pink-800: 328 76% 35%;
+  --pink-800-foreground: 0 0% 100%;
+
+  --pink-900: 328 72% 30%;
+  --pink-900-foreground: 0 0% 100%;
+
+  --pink-950: 328 71% 18%;
+  --pink-950-foreground: 0 0% 100%;
+
+  /*************************************
+                Orange Dark
+  **************************************/
+  --orange-dark: 15 100% 51%;
+  --orange-dark-foreground: 0 0% 100%;
+
+  --orange-dark-25: 24 100% 98%;
+  --orange-dark-25-foreground: var(--orange-dark-700);
+
+  --orange-dark-50: 23 100% 96%;
+  --orange-dark-50-foreground: var(--orange-dark-700);
+
+  --orange-dark-100: 24 100% 92%;
+  --orange-dark-100-foreground: var(--orange-dark-700);
+
+  --orange-dark-200: 30 100% 84%;
+  --orange-dark-200-foreground: var(--orange-dark-700);
+
+  --orange-dark-300: 21 100% 70%;
+  --orange-dark-300-foreground: var(--orange-dark-700);
+
+  --orange-dark-400: 17 100% 59%;
+  --orange-dark-400-foreground: 0 0% 100%;
+
+  --orange-dark-500: var(--orange-dark);
+  --orange-dark-500-foreground: 0 0% 100%;
+
+  --orange-dark-600: 11 96% 46%;
+  --orange-dark-600-foreground: 0 0% 100%;
+
+  --orange-dark-700: 7 94% 38%;
+  --orange-dark-700-foreground: 0 0% 100%;
+
+  --orange-dark-800: 5 85% 32%;
+  --orange-dark-800-foreground: 0 0% 100%;
+
+  --orange-dark-900: 7 80% 26%;
+  --orange-dark-900-foreground: 0 0% 100%;
+
+  --orange-dark-950: 7 79% 19%;
+  --orange-dark-950-foreground: 0 0% 100%;
+
+  /*************************************
+                  Orange
+  **************************************/
+  --orange: 21 87% 53%;
+  --orange-foreground: 0 0% 100%;
+
+  --orange-25: 33 82% 98%;
+  --orange-25-foreground: var(--orange-700);
+
+  --orange-50: 30 89% 96%;
+  --orange-50-foreground: var(--orange-700);
+
+  --orange-100: 30 90% 92%;
+  --orange-100-foreground: var(--orange-700);
+
+  --orange-200: 36 86% 83%;
+  --orange-200-foreground: var(--orange-700);
+
+  --orange-300: 27 89% 72%;
+  --orange-300-foreground: var(--orange-700);
+
+  --orange-400: 23 88% 61%;
+  --orange-400-foreground: 0 0% 100%;
+
+  --orange-500: var(--orange);
+  --orange-500-foreground: 0 0% 100%;
+
+  --orange-600: 17 82% 48%;
+  --orange-600-foreground: 0 0% 100%;
+
+  --orange-700: 13 80% 40%;
+  --orange-700-foreground: 0 0% 100%;
+
+  --orange-800: 11 71% 34%;
+  --orange-800-foreground: 0 0% 100%;
+
+  --orange-900: 11 68% 28%;
+  --orange-900-foreground: 0 0% 100%;
+
+  --orange-950: 11 67% 19%;
+  --orange-950-foreground: 0 0% 100%;
 }

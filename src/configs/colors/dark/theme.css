@@ -1,12 +1,4 @@
-@import "./colors.css";
-
 .dark {
-  --white: 0 0% 100%;
-  --black: 0 82% 52%;
-
-  --background: 0 6% 16%;
-  --foreground: 210 80% 96%;
-
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
   /* Used for focus ring */

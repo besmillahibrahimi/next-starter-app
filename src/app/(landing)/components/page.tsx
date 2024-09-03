@@ -28,6 +28,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Badge } from "@/components/ui/badge";
 
 const variants: Record<string, string[]> = {
   variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
@@ -203,7 +204,7 @@ export default function Components() {
         </TooltipWrapper>
       </div>
 
-      <h1 className="mt-16 text-primary font-bold tablet:text-wrap sm:text-wrap container">
+      <h1 className="mt-16 utility font-bold tablet:text-wrap sm:text-wrap container">
         Progress
       </h1>
       <div className="flex flex-col space-x-8 px-8">
@@ -318,6 +319,100 @@ export default function Components() {
             <Label htmlFor="r3">False</Label>
           </div>
         </RadioGroup>
+      </div>
+
+      <div className="flex justify-start w-full space-x-4 px-8 ">
+        <Badge variant={"pillColor"} size="sm">
+          pillColor
+          <CgMoon />
+        </Badge>
+        <Badge variant={"pillOutline"} size="sm">
+          pillOutline
+          <CgMoon />
+        </Badge>
+        <Badge variant={"badgeColor"} size="sm">
+          badgeColor
+          <CgMoon />
+        </Badge>
+        <Badge variant={"badgeModern"} size="sm">
+          badgeModern
+          <CgMoon />
+        </Badge>
+      </div>
+
+      <div className="flex justify-start w-full space-x-4 px-8 ">
+        <Badge variant={"pillColor"} size="md">
+          pillColor
+        </Badge>
+        <Badge variant={"pillOutline"} size="md">
+          pillOutline
+        </Badge>
+        <Badge variant={"badgeColor"} size="md">
+          badgeColor
+        </Badge>
+        <Badge variant={"badgeModern"} size="md">
+          badgeModern
+        </Badge>
+      </div>
+
+      <div className="flex justify-start w-full space-x-4 px-8 ">
+        <Badge variant={"pillColor"} size="lg">
+          pillColor
+        </Badge>
+        <Badge variant={"pillOutline"} size="lg">
+          pillOutline
+        </Badge>
+        <Badge variant={"badgeColor"} size="lg">
+          badgeColor
+        </Badge>
+        <Badge variant={"badgeModern"} size="lg">
+          badgeModern
+        </Badge>
+      </div>
+
+      <div className="flex justify-start w-full space-x-4 px-8 ">
+        <Badge variant={"pillColor"} size="icon_sm">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"pillOutline"} size="icon_sm">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"badgeColor"} size="icon_sm">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"badgeModern"} size="icon_sm">
+          <CgMoon />
+        </Badge>
+      </div>
+
+      <div className="flex justify-start w-full space-x-4 px-8 ">
+        <Badge variant={"pillColor"} size="icon_md">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"pillOutline"} size="icon_md">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"badgeColor"} size="icon_md">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"badgeModern"} size="icon_md">
+          <CgMoon />
+        </Badge>
+      </div>
+
+      <div className="flex justify-start w-full space-x-4 px-8 ">
+        <Badge variant={"pillColor"} size="icon_lg">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"pillOutline"} size="icon_lg">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"badgeColor"} size="icon_lg">
+          <CgMoon />
+        </Badge>
+        <Badge variant={"badgeModern"} size="icon_lg">
+          <CgMoon />
+        </Badge>
       </div>
     </div>
   );

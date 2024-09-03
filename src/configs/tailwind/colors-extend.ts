@@ -2,220 +2,228 @@ export const ColorExtends = {
   border: "hsl(var(--border))",
   input: "hsl(var(--input))",
   ring: "hsl(var(--ring))",
-  background: "hsl(var(--background))",
-  foreground: "hsl(var(--foreground))",
-  brand: {
-    DEFAULT: "hsl(var(--brand))",
-    foreground: "hsl(var(--brand-foreground))",
 
-    25: {
-      DEFAULT: "hsl(var(--brand-25))",
-      foreground: "hsl(var(--brand-25-foreground))",
+  fg: {
+    primary: "hsl(var(--fg-primary))",
+    secondary: "hsl(var(--fg-secondary))",
+    secondary_hover: "hsl(var(--fg-secondary_hover))",
+    tertiary: "hsl(var(--fg-tertiary))",
+    tertiary_hover: "hsl(var(--fg-tertiary_hover))",
+    quaternary: "hsl(var(--fg-quaternary))",
+    quaternary_hover: "hsl(var(--fg-quaternary_hover))",
+    quinary: "hsl(var(--fg-quinary))",
+    quinary_hover: "hsl(var(--fg-quinary_hover))",
+    senary: "hsl(var(--fg-senary))",
+
+    white: "hsl(var(--fg-white))",
+    disabled: "hsl(var(--fg-disabled))",
+    "disabled-subtle": "hsl(var(--fg-disabled-subtle))",
+
+    "brand-primary": "hsl(var(--fg-brand-primary))",
+    "brand-primary_alt": "hsl(var(--fg-brand-primary_alt))",
+    "brand-secondary": "hsl(var(--fg-brand-secondary))",
+
+    "error-primary": "hsl(var(--fg-error-primary))",
+    "error-secondary": "hsl(var(--fg-error-secondary))",
+    "warning-primary": "hsl(var(--fg-warning-primary))",
+    "warning-secondary": "hsl(var(--fg-warning-secondary))",
+    "success-primary": "hsl(var(--fg-success-primary))",
+    "success-secondary": "hsl(var(--fg-success-secondary))",
+  },
+
+  alpha: {
+    white: {
+      10: "var(--alpha-white-10)",
+      20: "var(--alpha-white-20)",
+      30: "var(--alpha-white-30)",
+      40: "var(--alpha-white-40)",
+      50: "var(--alpha-white-50)",
+      60: "var(--alpha-white-60)",
+      70: "var(--alpha-white-70)",
+      80: "var(--alpha-white-80)",
+      90: "var(--alpha-white-90)",
+      100: "var(--alpha-white-100)",
     },
-    50: {
-      DEFAULT: "hsl(var(--brand-50))",
-      foreground: "hsl(var(--brand-50-foreground))",
-    },
-    100: {
-      DEFAULT: "hsl(var(--brand-100))",
-      foreground: "hsl(var(--brand-100-foreground))",
-    },
-    200: {
-      DEFAULT: "hsl(var(--brand-200))",
-      foreground: "hsl(var(--brand-200-foreground))",
-    },
-    300: {
-      DEFAULT: "hsl(var(--brand-300))",
-      foreground: "hsl(var(--brand-300-foreground))",
-    },
-    400: {
-      DEFAULT: "hsl(var(--brand-400))",
-      foreground: "hsl(var(--brand-400-foreground))",
-    },
-    500: {
-      DEFAULT: "hsl(var(--brand-500))",
-      foreground: "hsl(var(--brand-500-foreground))",
-    },
-    600: {
-      DEFAULT: "hsl(var(--brand-600))",
-      foreground: "hsl(var(--brand-600-foreground))",
-    },
-    700: {
-      DEFAULT: "hsl(var(--brand-700))",
-      foreground: "hsl(var(--brand-700-foreground))",
-    },
-    800: {
-      DEFAULT: "hsl(var(--brand-800))",
-      foreground: "hsl(var(--brand-800-foreground))",
-    },
-    900: {
-      DEFAULT: "hsl(var(--brand-900))",
-      foreground: "hsl(var(--brand-900-foreground))",
-    },
-    950: {
-      DEFAULT: "hsl(var(--brand-950))",
-      foreground: "hsl(var(--brand-950-foreground))",
+    black: {
+      10: "var(--alpha-white-10)",
+      20: "var(--alpha-white-20)",
+      30: "var(--alpha-white-30)",
+      40: "var(--alpha-white-40)",
+      50: "var(--alpha-white-50)",
+      60: "var(--alpha-white-60)",
+      70: "var(--alpha-white-70)",
+      80: "var(--alpha-white-80)",
+      90: "var(--alpha-white-90)",
+      100: "var(--alpha-white-100)",
     },
   },
-  secondary: {
-    DEFAULT: "hsl(var(--secondary))",
-    foreground: "hsl(var(--secondary-foreground))",
-
-    25: {
-      DEFAULT: "hsl(var(--secondary-25))",
-      foreground: "hsl(var(--secondary-25-foreground))",
+  utility: {
+    gray: {
+      50: "hsl(var(--utility-gray-50))",
+      100: "hsl(var(--utility-gray-100))",
+      200: "hsl(var(--utility-gray-200))",
+      300: "hsl(var(--utility-gray-300))",
+      400: "hsl(var(--utility-gray-400))",
+      500: "hsl(var(--utility-gray-500))",
+      600: "hsl(var(--utility-gray-600))",
+      700: "hsl(var(--utility-gray-700))",
+      800: "hsl(var(--utility-gray-800))",
+      900: "hsl(var(--utility-gray-900))",
     },
-    50: {
-      DEFAULT: "hsl(var(--secondary-50))",
-      foreground: "hsl(var(--secondary-50-foreground))",
+    brand: {
+      50: "hsl(var(--utility-brand-50))",
+      "50_alt": "hsl(var(--utility-brand-50))",
+      100: "hsl(var(--utility-brand-100))",
+      "100_alt": "hsl(var(--utility-brand-100))",
+      200: "hsl(var(--utility-brand-200))",
+      "200_alt": "hsl(var(--utility-brand-200))",
+      300: "hsl(var(--utility-brand-300))",
+      "300_alt": "hsl(var(--utility-brand-300))",
+      400: "hsl(var(--utility-brand-400))",
+      "400_alt": "hsl(var(--utility-brand-400))",
+      500: "hsl(var(--utility-brand-500))",
+      "500_alt": "hsl(var(--utility-brand-500))",
+      600: "hsl(var(--utility-brand-600))",
+      "600_alt": "hsl(var(--utility-brand-600))",
+      700: "hsl(var(--utility-brand-700))",
+      "700_alt": "hsl(var(--utility-brand-700))",
+      800: "hsl(var(--utility-brand-800))",
+      "800_alt": "hsl(var(--utility-brand-800))",
+      900: "hsl(var(--utility-brand-900))",
+      "900_alt": "hsl(var(--utility-brand-900))",
     },
-    100: {
-      DEFAULT: "hsl(var(--secondary-100))",
-      foreground: "hsl(var(--secondary-100-foreground))",
+    error: {
+      50: "hsl(var(--utility-error-50))",
+      100: "hsl(var(--utility-error-100))",
+      200: "hsl(var(--utility-error-200))",
+      300: "hsl(var(--utility-error-300))",
+      400: "hsl(var(--utility-error-400))",
+      500: "hsl(var(--utility-error-500))",
+      600: "hsl(var(--utility-error-600))",
+      700: "hsl(var(--utility-error-700))",
     },
-    200: {
-      DEFAULT: "hsl(var(--secondary-200))",
-      foreground: "hsl(var(--secondary-200-foreground))",
+    warning: {
+      50: "hsl(var(--utility-warning-50))",
+      100: "hsl(var(--utility-warning-100))",
+      200: "hsl(var(--utility-warning-200))",
+      300: "hsl(var(--utility-warning-300))",
+      400: "hsl(var(--utility-warning-400))",
+      500: "hsl(var(--utility-warning-500))",
+      600: "hsl(var(--utility-warning-600))",
+      700: "hsl(var(--utility-warning-700))",
     },
-    300: {
-      DEFAULT: "hsl(var(--secondary-300))",
-      foreground: "hsl(var(--secondary-300-foreground))",
+    success: {
+      50: "hsl(var(--utility-success-50))",
+      100: "hsl(var(--utility-success-100))",
+      200: "hsl(var(--utility-success-200))",
+      300: "hsl(var(--utility-success-300))",
+      400: "hsl(var(--utility-success-400))",
+      500: "hsl(var(--utility-success-500))",
+      600: "hsl(var(--utility-success-600))",
+      700: "hsl(var(--utility-success-700))",
     },
-    400: {
-      DEFAULT: "hsl(var(--secondary-400))",
-      foreground: "hsl(var(--secondary-400-foreground))",
+    "gray-blue": {
+      50: "hsl(var(--utility-gray-blue-50))",
+      100: "hsl(var(--utility-gray-blue-100))",
+      200: "hsl(var(--utility-gray-blue-200))",
+      300: "hsl(var(--utility-gray-blue-300))",
+      400: "hsl(var(--utility-gray-blue-400))",
+      500: "hsl(var(--utility-gray-blue-500))",
+      600: "hsl(var(--utility-gray-blue-600))",
+      700: "hsl(var(--utility-gray-blue-700))",
     },
-    500: {
-      DEFAULT: "hsl(var(--secondary-500))",
-      foreground: "hsl(var(--secondary-500-foreground))",
+    "blue-light": {
+      50: "hsl(var(--utility-blue-light-50))",
+      100: "hsl(var(--utility-blue-light-100))",
+      200: "hsl(var(--utility-blue-light-200))",
+      300: "hsl(var(--utility-blue-light-300))",
+      400: "hsl(var(--utility-blue-light-400))",
+      500: "hsl(var(--utility-blue-light-500))",
+      600: "hsl(var(--utility-blue-light-600))",
+      700: "hsl(var(--utility-blue-light-700))",
     },
-    600: {
-      DEFAULT: "hsl(var(--secondary-600))",
-      foreground: "hsl(var(--secondary-600-foreground))",
+    blue: {
+      50: "hsl(var(--utility-blue-50))",
+      100: "hsl(var(--utility-blue-100))",
+      200: "hsl(var(--utility-blue-200))",
+      300: "hsl(var(--utility-blue-300))",
+      400: "hsl(var(--utility-blue-400))",
+      500: "hsl(var(--utility-blue-500))",
+      600: "hsl(var(--utility-blue-600))",
+      700: "hsl(var(--utility-blue-700))",
     },
-    700: {
-      DEFAULT: "hsl(var(--secondary-700))",
-      foreground: "hsl(var(--secondary-700-foreground))",
+    "blue-dark": {
+      50: "hsl(var(--utility-blue-dark-50))",
+      100: "hsl(var(--utility-blue-dark-100))",
+      200: "hsl(var(--utility-blue-dark-200))",
+      300: "hsl(var(--utility-blue-dark-300))",
+      400: "hsl(var(--utility-blue-dark-400))",
+      500: "hsl(var(--utility-blue-dark-500))",
+      600: "hsl(var(--utility-blue-dark-600))",
+      700: "hsl(var(--utility-blue-dark-700))",
     },
-    800: {
-      DEFAULT: "hsl(var(--secondary-800))",
-      foreground: "hsl(var(--secondary-800-foreground))",
+    indigo: {
+      50: "hsl(var(--utility-indigo-50))",
+      100: "hsl(var(--utility-indigo-100))",
+      200: "hsl(var(--utility-indigo-200))",
+      300: "hsl(var(--utility-indigo-300))",
+      400: "hsl(var(--utility-indigo-400))",
+      500: "hsl(var(--utility-indigo-500))",
+      600: "hsl(var(--utility-indigo-600))",
+      700: "hsl(var(--utility-indigo-700))",
     },
-    900: {
-      DEFAULT: "hsl(var(--secondary-900))",
-      foreground: "hsl(var(--secondary-900-foreground))",
+    purple: {
+      50: "hsl(var(--utility-purple-50))",
+      100: "hsl(var(--utility-purple-100))",
+      200: "hsl(var(--utility-purple-200))",
+      300: "hsl(var(--utility-purple-300))",
+      400: "hsl(var(--utility-purple-400))",
+      500: "hsl(var(--utility-purple-500))",
+      600: "hsl(var(--utility-purple-600))",
+      700: "hsl(var(--utility-purple-700))",
     },
-    950: {
-      DEFAULT: "hsl(var(--secondary-950))",
-      foreground: "hsl(var(--secondary-950-foreground))",
+    fuchsia: {
+      50: "hsl(var(--utility-fuchsia-50))",
+      100: "hsl(var(--utility-fuchsia-100))",
+      200: "hsl(var(--utility-fuchsia-200))",
+      300: "hsl(var(--utility-fuchsia-300))",
+      400: "hsl(var(--utility-fuchsia-400))",
+      500: "hsl(var(--utility-fuchsia-500))",
+      600: "hsl(var(--utility-fuchsia-600))",
+      700: "hsl(var(--utility-fuchsia-700))",
+    },
+    pink: {
+      50: "hsl(var(--utility-pink-50))",
+      100: "hsl(var(--utility-pink-100))",
+      200: "hsl(var(--utility-pink-200))",
+      300: "hsl(var(--utility-pink-300))",
+      400: "hsl(var(--utility-pink-400))",
+      500: "hsl(var(--utility-pink-500))",
+      600: "hsl(var(--utility-pink-600))",
+      700: "hsl(var(--utility-pink-700))",
+    },
+    "orange-dark": {
+      50: "hsl(var(--utility-orange-dark-50))",
+      100: "hsl(var(--utility-orange-dark-100))",
+      200: "hsl(var(--utility-orange-dark-200))",
+      300: "hsl(var(--utility-orange-dark-300))",
+      400: "hsl(var(--utility-orange-dark-400))",
+      500: "hsl(var(--utility-orange-dark-500))",
+      600: "hsl(var(--utility-orange-dark-600))",
+      700: "hsl(var(--utility-orange-dark-700))",
+    },
+    orange: {
+      50: "hsl(var(--utility-orange-50))",
+      100: "hsl(var(--utility-orange-100))",
+      200: "hsl(var(--utility-orange-200))",
+      300: "hsl(var(--utility-orange-300))",
+      400: "hsl(var(--utility-orange-400))",
+      500: "hsl(var(--utility-orange-500))",
+      600: "hsl(var(--utility-orange-600))",
+      700: "hsl(var(--utility-orange-700))",
     },
   },
-  error: {
-    DEFAULT: "hsl(var(--error))",
-    foreground: "hsl(var(--error-foreground))",
 
-    25: {
-      DEFAULT: "hsl(var(--error-25))",
-      foreground: "hsl(var(--error-25-foreground))",
-    },
-    50: {
-      DEFAULT: "hsl(var(--error-50))",
-      foreground: "hsl(var(--error-50-foreground))",
-    },
-    100: {
-      DEFAULT: "hsl(var(--error-100))",
-      foreground: "hsl(var(--error-100-foreground))",
-    },
-    200: {
-      DEFAULT: "hsl(var(--error-200))",
-      foreground: "hsl(var(--error-200-foreground))",
-    },
-    300: {
-      DEFAULT: "hsl(var(--error-300))",
-      foreground: "hsl(var(--error-300-foreground))",
-    },
-    400: {
-      DEFAULT: "hsl(var(--error-400))",
-      foreground: "hsl(var(--error-400-foreground))",
-    },
-    500: {
-      DEFAULT: "hsl(var(--error-500))",
-      foreground: "hsl(var(--error-500-foreground))",
-    },
-    600: {
-      DEFAULT: "hsl(var(--error-600))",
-      foreground: "hsl(var(--error-600-foreground))",
-    },
-    700: {
-      DEFAULT: "hsl(var(--error-700))",
-      foreground: "hsl(var(--error-700-foreground))",
-    },
-    800: {
-      DEFAULT: "hsl(var(--error-800))",
-      foreground: "hsl(var(--error-800-foreground))",
-    },
-    900: {
-      DEFAULT: "hsl(var(--error-900))",
-      foreground: "hsl(var(--error-900-foreground))",
-    },
-    950: {
-      DEFAULT: "hsl(var(--error-950))",
-      foreground: "hsl(var(--error-950-foreground))",
-    },
-  },
-  warning: {
-    DEFAULT: "hsl(var(--warning))",
-    foreground: "hsl(var(--warning-foreground))",
-
-    25: {
-      DEFAULT: "hsl(var(--warning-25))",
-      foreground: "hsl(var(--warning-25-foreground))",
-    },
-    50: {
-      DEFAULT: "hsl(var(--warning-50))",
-      foreground: "hsl(var(--warning-50-foreground))",
-    },
-    100: {
-      DEFAULT: "hsl(var(--warning-100))",
-      foreground: "hsl(var(--warning-100-foreground))",
-    },
-    200: {
-      DEFAULT: "hsl(var(--warning-200))",
-      foreground: "hsl(var(--warning-200-foreground))",
-    },
-    300: {
-      DEFAULT: "hsl(var(--warning-300))",
-      foreground: "hsl(var(--warning-300-foreground))",
-    },
-    400: {
-      DEFAULT: "hsl(var(--warning-400))",
-      foreground: "hsl(var(--warning-400-foreground))",
-    },
-    500: {
-      DEFAULT: "hsl(var(--warning-500))",
-      foreground: "hsl(var(--warning-500-foreground))",
-    },
-    600: {
-      DEFAULT: "hsl(var(--warning-600))",
-      foreground: "hsl(var(--warning-600-foreground))",
-    },
-    700: {
-      DEFAULT: "hsl(var(--warning-700))",
-      foreground: "hsl(var(--warning-700-foreground))",
-    },
-    800: {
-      DEFAULT: "hsl(var(--warning-800))",
-      foreground: "hsl(var(--warning-800-foreground))",
-    },
-    900: {
-      DEFAULT: "hsl(var(--warning-900))",
-      foreground: "hsl(var(--warning-900-foreground))",
-    },
-    950: {
-      DEFAULT: "hsl(var(--warning-950))",
-      foreground: "hsl(var(--warning-950-foreground))",
-    },
-  },
   info: {
     DEFAULT: "hsl(var(--info))",
     foreground: "hsl(var(--info-foreground))",
@@ -263,59 +271,6 @@ export const ColorExtends = {
     950: {
       DEFAULT: "hsl(var(--info-950))",
       foreground: "hsl(var(--info-950-foreground))",
-    },
-  },
-  success: {
-    DEFAULT: "hsl(var(--success))",
-    foreground: "hsl(var(--success-foreground))",
-
-    25: {
-      DEFAULT: "hsl(var(--success-25))",
-      foreground: "hsl(var(--success-25-foreground))",
-    },
-    50: {
-      DEFAULT: "hsl(var(--success-50))",
-      foreground: "hsl(var(--success-50-foreground))",
-    },
-    100: {
-      DEFAULT: "hsl(var(--success-100))",
-      foreground: "hsl(var(--success-100-foreground))",
-    },
-    200: {
-      DEFAULT: "hsl(var(--success-200))",
-      foreground: "hsl(var(--success-200-foreground))",
-    },
-    300: {
-      DEFAULT: "hsl(var(--success-300))",
-      foreground: "hsl(var(--success-300-foreground))",
-    },
-    400: {
-      DEFAULT: "hsl(var(--success-400))",
-      foreground: "hsl(var(--success-400-foreground))",
-    },
-    500: {
-      DEFAULT: "hsl(var(--success-500))",
-      foreground: "hsl(var(--success-500-foreground))",
-    },
-    600: {
-      DEFAULT: "hsl(var(--success-600))",
-      foreground: "hsl(var(--success-600-foreground))",
-    },
-    700: {
-      DEFAULT: "hsl(var(--success-700))",
-      foreground: "hsl(var(--success-700-foreground))",
-    },
-    800: {
-      DEFAULT: "hsl(var(--success-800))",
-      foreground: "hsl(var(--success-800-foreground))",
-    },
-    900: {
-      DEFAULT: "hsl(var(--success-900))",
-      foreground: "hsl(var(--success-900-foreground))",
-    },
-    950: {
-      DEFAULT: "hsl(var(--success-950))",
-      foreground: "hsl(var(--success-950-foreground))",
     },
   },
   card: {
@@ -561,57 +516,6 @@ export const ColorExtends = {
     950: {
       DEFAULT: "hsl(var(--popover-950))",
       foreground: "hsl(var(--popover-950-foreground))",
-    },
-  },
-  gray: {
-    DEFAULT: "hsl(var(--gray))",
-    foreground: "hsl(var(--gray-foreground))",
-
-    25: {
-      DEFAULT: "hsl(var(--gray-25))",
-      foreground: "hsl(var(--gray-25-foreground))",
-    },
-    50: {
-      DEFAULT: "hsl(var(--gray-50))",
-      foreground: "hsl(var(--gray-50-foreground))",
-    },
-    100: {
-      DEFAULT: "hsl(var(--gray-100))",
-      foreground: "hsl(var(--gray-100-foreground))",
-    },
-    200: "hsl(var(--gray-200))",
-
-    300: {
-      DEFAULT: "hsl(var(--gray-300))",
-      foreground: "hsl(var(--gray-300-foreground))",
-    },
-    400: {
-      DEFAULT: "hsl(var(--gray-400))",
-      foreground: "hsl(var(--gray-400-foreground))",
-    },
-    500: {
-      DEFAULT: "hsl(var(--gray-500))",
-      foreground: "hsl(var(--gray-500-foreground))",
-    },
-    600: {
-      DEFAULT: "hsl(var(--gray-600))",
-      foreground: "hsl(var(--gray-600-foreground))",
-    },
-    700: {
-      DEFAULT: "hsl(var(--gray-700))",
-      foreground: "hsl(var(--gray-700-foreground))",
-    },
-    800: {
-      DEFAULT: "hsl(var(--gray-800))",
-      foreground: "hsl(var(--gray-800-foreground))",
-    },
-    900: {
-      DEFAULT: "hsl(var(--gray-900))",
-      foreground: "hsl(var(--gray-900-foreground))",
-    },
-    950: {
-      DEFAULT: "hsl(var(--gray-950))",
-      foreground: "hsl(var(--gray-950-foreground))",
     },
   },
 };

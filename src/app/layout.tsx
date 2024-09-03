@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-lato antialiased",
+          "min-h-screen bg-primary text-fg-primary font-lato antialiased",
           lato.variable
         )}
       >

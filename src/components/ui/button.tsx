@@ -17,11 +17,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-button-primary-bg text-button-primary-fg hover:bg-button-primary-bg_hover hover:text-button-primary-fg_hover focus:bg-button-primary-bg focus:text-button-primary-fg focus:!ring-focus-ring disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-disabled disabled:!shadow-none",
+          "bg-button-primary-bg text-button-primary-fg hover:bg-button-primary-bg_hover hover:text-button-primary-fg_hover focus:bg-button-primary-bg focus:text-button-primary-fg focus:!ring-focus-ring disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-disabled disabled:!shadow-xs",
         secondaryGray:
-          "!shadow-none bg-button-secondary-bg text-button-secondary-fg border !border-button-secondary-border hover:bg-button-secondary-bg_hover hover:text-button-secondary-fg_hover hover:!border-button-secondary-border_hover focus:bg-button-secondary-bg focus:text-button-secondary-fg focus:!border-button-secondary-border focus:ring-focus-ring disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-primary disabled:!shadow-none",
+          "!shadow-none bg-button-secondary-bg text-button-secondary-fg border !border-button-secondary-border hover:bg-button-secondary-bg_hover hover:text-button-secondary-fg_hover hover:!border-button-secondary-border_hover focus:bg-button-secondary-bg focus:text-button-secondary-fg focus:!border-button-secondary-border focus:ring-focus-ring disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-primary disabled:!shadow-xs",
         secondaryColor:
-          "!shadow-none bg-button-secondary-color-bg text-button-secondary-color-fg border !border-button-secondary-color-border hover:bg-button-secondary-color-bg_hover hover:text-button-secondary-color-fg_hover hover:!border-button-secondary-color-border_hover focus:bg-button-secondary-color-bg focus:text-button-secondary-color-fg focus:!border-button-secondary-color-border focus:ring-focus-ring disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-primary disabled:!shadow-none",
+          "!shadow-none bg-button-secondary-color-bg text-button-secondary-color-fg border !border-button-secondary-color-border hover:bg-button-secondary-color-bg_hover hover:text-button-secondary-color-fg_hover hover:!border-button-secondary-color-border_hover focus:bg-button-secondary-color-bg focus:text-button-secondary-color-fg focus:!border-button-secondary-color-border focus:ring-focus-ring disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-primary disabled:!shadow-xs",
         tertiaryGray:
           "!shadow-none text-button-tertiary-fg hover:bg-button-tertiary-bg_hover hover:text-button-tertiary-fg_hover focus:text-button-tertiary-fg focus:ring-focus-ring disabled:text-fg-disabled",
         tertiaryColor:
@@ -31,9 +31,9 @@ const buttonVariants = cva(
         linkColor:
           "!shadow-none text-button-tertiary-color-fg hover:text-button-tertiary-color-fg_hover focus:text-button-tertiary-color-fg focus:ring-focus-ring disabled:text-fg-disabled",
         destructivePrimary:
-          "bg-button-primary-error-bg text-fg-white hover:bg-button-primary-error-bg_hover hover:text-fg-white focus:bg-button-primary-error-bg focus:text-fg-white focus:!ring-focus-ring-error disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-disabled disabled:!shadow-none",
+          "bg-button-primary-error-bg text-fg-white hover:bg-button-primary-error-bg_hover hover:text-fg-white focus:bg-button-primary-error-bg focus:text-fg-white focus:!ring-focus-ring-error disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-disabled disabled:!shadow-xs",
         secondary:
-          "!shadow-none bg-button-secondary-error-bg text-button-secondary-error-fg border !border-button-secondary-error-border hover:bg-button-secondary-error-bg_hover hover:text-button-secodary-error-fg_hover focus:bg-button-secondary-error-bg focus:text-button-secondary-error-fg focus:!border-button-secondary-error-border focus:ring-focus-ring-error disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-primary disabled:!shadow-none",
+          "!shadow-none bg-button-secondary-error-bg text-button-secondary-error-fg border !border-button-secondary-error-border hover:bg-button-secondary-error-bg_hover hover:text-button-secodary-error-fg_hover focus:bg-button-secondary-error-bg focus:text-button-secondary-error-fg focus:!border-button-secondary-error-border focus:ring-focus-ring-error disabled:text-fg-disabled disabled:!border-disabled-subtle disabled:bg-primary disabled:!shadow-xs",
         tertiary:
           "!shadow-none text-button-tertiary-error-fg hover:bg-button-tertiary-error-bg_hover hover:text-button-tertiary-error-fg_hover focus:text-button-tertiary-error-fg focus:ring-focus-ring-error disabled:text-fg-disabled",
         link: "!shadow-none text-button-tertiary-error-fg hover:text-button-tertiary-error-fg_hover focus:text-button-tertiary-error-fg focus:ring-focus-ring-error disabled:text-fg-disabled",

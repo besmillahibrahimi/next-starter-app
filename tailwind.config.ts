@@ -43,6 +43,7 @@ const config = {
       textColor: TextColor,
       backgroundColor: BackgroundColor,
       borderColor: BorderColor,
+      ringColor: BorderColor,
       fontSize: TypographyExtends, //usage: text-display-2xl  text-text-sm
       fontWeight: FontWeightExtend, //usage: font-regular
       colors: ColorExtends,

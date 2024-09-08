@@ -1,7 +1,9 @@
 @import "./info.css";
 @import "./gray.css";
+@import "./grayDark.css";
 @import "./primary.css";
 @import "./accent.css";
 @import "./muted.css";
 @import "./destructive.css";
 @import "./card.css";
+@import "./base.css";

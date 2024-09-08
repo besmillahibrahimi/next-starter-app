@@ -49,7 +49,7 @@ const Progress = React.forwardRef<
       {showPercentageCard ? (
         <div
           style={{ left: `${value}%` }}
-          className={`drop-shadow-md rounded-md shadow-sm absolute p-1 bg-[white] ${
+          className={`drop-shadow-md rounded-md shadow-sm absolute p-1 bg-primary-alt ${
             positionPercentageCard === "bottom" ? "-bottom-10" : "-top-10"
           } `}
         >

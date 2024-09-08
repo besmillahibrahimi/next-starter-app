@@ -297,4 +297,116 @@
   --utility-orange-500: var(--orange-500);
   --utility-orange-600: var(--orange-400);
   --utility-orange-700: var(--orange-300);
+
+  /*************************************
+        Components Tooltip Token 
+  **************************************/
+  --tooltip-supporting-text: var(--gray-dark-300);
+
+  /*************************************
+      Components Button Primary Token 
+  **************************************/
+  --button-primary-bg: var(--brand-600);
+  --button-primary-bg_hover: var(--brand-700);
+  --button-primary-fg: var(--white);
+  --button-primary-fg_hover: var(--white);
+
+  /*************************************
+     Components Button Secondary Token 
+  **************************************/
+  --button-secondary-bg: var(--gray-dark-900);
+  --button-secondary-bg_hover: var(--gray-dark-800);
+  --button-secondary-fg: var(--gray-dark-300);
+  --button-secondary-fg_hover: var(--gray-dark-100);
+  --button-secondary-border: var(--gray-dark-700);
+  --button-secondary-border_hover: var(--gray-dark-700);
+
+  /*************************************
+    Components Button Secondary Color Token 
+  **************************************/
+  --button-secondary-color-bg: var(--gray-dark-900);
+  --button-secondary-color-border_hover: var(--gray-dark-700);
+  --button-secondary-color-fg: var(--gray-dark-300);
+  --button-secondary-color-fg_hover: var(--gray-dark-100);
+  --button-secondary-color-border: var(--gray-dark-700);
+  --button-secondary-color-bg_hover: var(--gray-dark-800);
+
+  /*************************************
+    Components Button Primary Error Token 
+  **************************************/
+  --button-primary-error-bg: var(--error-600);
+  --button-primary-error-bg_hover: var(--error-700);
+  --button-primary-error-fg: var(--white);
+  --button-primary-error-fg_hover: var(--white);
+
+  /*************************************
+      Components Button Secondary Error Token 
+  **************************************/
+  --button-secondary-error-bg: var(--error-950);
+  --button-secondary-error-bg_hover: var(--error-900);
+  --button-secondary-error-fg: var(--error-200);
+  --button-secondary-error-fg_hover: var(--error-100);
+  --button-secondary-error-border: var(--error-800);
+  --button-secondary-error-bg_hover: var(--error-700);
+
+  /*************************************
+      Components WYSIWYG editor Token 
+  **************************************/
+  --wysiwyg-editor-icon-fg: var(--gray-dark-400);
+  --wysiwyg-editor-icon-fg_active: var(--white);
+
+  /*************************************
+      Components Button Tertiary Token 
+  **************************************/
+  --button-tertiary-bg_hover: var(--gray-dark-800);
+  --button-tertiary-fg: var(--gray-dark-400);
+  --button-tertiary-fg_hover: var(--gray-dark-200);
+
+  /*************************************
+      Components Button Tertiary Color Token 
+  **************************************/
+  --button-tertiary-color-bg_hover: var(--error-800);
+  --button-tertiary-color-fg: var(--gray-dark-300);
+  --button-tertiary-color-fg_hover: var(--gray-dark-100);
+
+  /*************************************
+       Components Button Tertiary Error Token 
+  **************************************/
+  --button-tertiary-error-bg_hover: var(--error-900);
+  --button-tertiary-error-fg: var(--error-300);
+  --button-tertiary-error-fg_hover: var(--error-200);
+
+  /*************************************
+        Components Slider Token 
+  **************************************/
+  --slider-handle-border: var(--bg-primary);
+  --slider-handle-bg: var(--fg-brand-primary);
+
+  /*************************************
+          Components Toggle Token 
+  **************************************/
+  --toggle-button-fg_disabled: var(--gray-dark-600);
+
+  /*************************************
+            Effect Shadow Token 
+  **************************************/
+  --shadow-xs: var(--transparent);
+  --shadow-sm_01: var(--transparent);
+  --shadow-sm_02: var(--transparent);
+  --shadow-md_01: var(--transparent);
+  --shadow-md_02: var(--transparent);
+  --shadow-lg_01: var(--transparent);
+  --shadow-lg_02: var(--transparent);
+  --shadow-xl_01: var(--transparent);
+  --shadow-xl_02: var(--transparent);
+  --shadow-2xl: var(--transparent);
+  --shadow-3xl: var(--transparent);
+  --shadow-skeumorphic-inner: rgba(12, 17, 29, 5%);
+  --shadow-skeumorphic-inner_border: rgba(12, 17, 29, 18%);
+
+  /*************************************
+          Effect Focus Rings Token 
+  **************************************/
+  --focus-ring: var(--brand-500);
+  --focus-ring-error: var(--error-500);
 }

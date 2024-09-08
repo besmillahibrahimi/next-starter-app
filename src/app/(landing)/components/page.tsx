@@ -31,8 +31,31 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 
 const variants: Record<string, string[]> = {
-  variant: ["default", "destructive", "outline", "secondary", "ghost", "link"],
-  size: ["default", "sm", "lg", "icon"],
+  variant: [
+    "primary",
+    "secondaryGray",
+    "secondaryColor",
+    "tertiaryGray",
+    "tertiaryColor",
+    "linkGray",
+    "linkColor",
+    "destructivePrimary",
+    "secondary",
+    "tertiary",
+    "link",
+  ],
+  size: [
+    "sm",
+    "md",
+    "lg",
+    "xl",
+    "2xl",
+    "icon_sm",
+    "icon_md",
+    "icon_lg",
+    "icon_xl",
+    "icon_2xl",
+  ],
 };
 
 export default function Components() {
@@ -71,7 +94,7 @@ export default function Components() {
               {variants[key].map((variant, index) =>
                 key === "size" ? (
                   <Button key={variant} size={variant as any}>
-                    {variant}
+                    <CgSun />
                   </Button>
                 ) : (
                   <Button
@@ -88,9 +111,7 @@ export default function Components() {
                       <CgMoon />
                     </div>
 
-                    <span className="group-hover:hidden">
-                      Default {variant}
-                    </span>
+                    <span className="group-hover:hidden">{variant}</span>
 
                     <span className="hidden group-hover:inline text-gray">
                       Hovered {variant}
@@ -164,7 +185,7 @@ export default function Components() {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="outline">Hover</Button>
+              <Button variant="primary">Hover</Button>
             </TooltipTrigger>
             <TooltipContent>
               <p>Add to library</p>

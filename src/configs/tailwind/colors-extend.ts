@@ -18,19 +18,24 @@ export const ColorExtends = {
     white: "hsl(var(--fg-white))",
     disabled: "hsl(var(--fg-disabled))",
     "disabled-subtle": "hsl(var(--fg-disabled-subtle))",
-
-    "brand-primary": "hsl(var(--fg-brand-primary))",
-    "brand-primary_alt": "hsl(var(--fg-brand-primary_alt))",
-    "brand-secondary": "hsl(var(--fg-brand-secondary))",
-
-    "error-primary": "hsl(var(--fg-error-primary))",
-    "error-secondary": "hsl(var(--fg-error-secondary))",
-    "warning-primary": "hsl(var(--fg-warning-primary))",
-    "warning-secondary": "hsl(var(--fg-warning-secondary))",
-    "success-primary": "hsl(var(--fg-success-primary))",
-    "success-secondary": "hsl(var(--fg-success-secondary))",
+    brand: {
+      primary: "hsl(var(--fg-brand-primary))",
+      primary_alt: "hsl(var(--fg-brand-primary_alt))",
+      secondary: "hsl(var(--fg-brand-secondary))",
+    },
+    error: {
+      primary: "hsl(var(--fg-error-primary))",
+      secondary: "hsl(var(--fg-error-secondary))",
+    },
+    warning: {
+      primary: "hsl(var(--fg-warning-primary))",
+      secondary: "hsl(var(--fg-warning-secondary))",
+    },
+    success: {
+      primary: "hsl(var(--fg-success-primary))",
+      secondary: "hsl(var(--fg-success-secondary))",
+    },
   },
-
   alpha: {
     white: {
       10: "var(--alpha-white-10)",
@@ -223,7 +228,107 @@ export const ColorExtends = {
       700: "hsl(var(--utility-orange-700))",
     },
   },
+  tooltip: {
+    "supporting-text": "hsl(var(--tooltip-supporting-text))",
+  },
+  button: {
+    primary: {
+      bg: "hsl(var(--button-primary-bg))",
+      bg_hover: "hsl(var(--button-primary-bg_hover))",
+      fg: "hsl(var(--button-primary-fg))",
+      fg_hover: "hsl(var(--button-primary-fg_hover))",
 
+      error: {
+        bg: "hsl(var(--button-primary-error-bg))",
+        bg_hover: "hsl(var(--button-primary-error-bg_hover))",
+        fg: "hsl(var(--button-primary-error-fg))",
+        fg_hover: "hsl(var(--button-primary-error-fg_hover))",
+      },
+    },
+    secondary: {
+      bg: "hsl(var(--button-secondary-bg))",
+      bg_hover: "hsl(var(--button-secondary-bg_hover))",
+      fg: "hsl(var(--button-secondary-fg))",
+      fg_hover: "hsl(var(--button-secondary-fg_hover))",
+      border: "hsl(var(--button-secondary-border))",
+      border_hover: "hsl(var(--button-secondary-border_hover))",
+
+      color: {
+        bg: "hsl(var(--button-secondary-color-bg))",
+        bg_hover: "hsl(var(--button-secondary-color-bg_hover))",
+        fg: "hsl(var(--button-secondary-color-fg))",
+        fg_hover: "hsl(var(--button-secondary-color-fg_hover))",
+        border: "hsl(var(--button-secondary-color-border))",
+        border_hover: "hsl(var(--button-secondary-color-border_hover))",
+      },
+      error: {
+        bg: "hsl(var(--button-secondary-error-bg))",
+        bg_hover: "hsl(var(--button-secondary-error-bg_hover))",
+        fg: "hsl(var(--button-secondary-error-fg))",
+        fg_hover: "hsl(var(--button-secondary-error-fg_hover))",
+        border: "hsl(var(--button-secondary-error-border))",
+        border_hover: "hsl(var(--button-secondary-error-border_hover))",
+      },
+    },
+    tertiary: {
+      bg_hover: "hsl(var(--button-tertiary-bg_hover))",
+      fg: "hsl(var(--button-tertiary-fg))",
+      fg_hover: "hsl(var(--button-tertiary-fg_hover))",
+
+      color: {
+        bg_hover: "hsl(var(--button-tertiary-color-bg_hover))",
+        fg: "hsl(var(--button-tertiary-color-fg))",
+        fg_hover: "hsl(var(--button-tertiary-color-fg_hover))",
+      },
+      error: {
+        bg_hover: "hsl(var(--button-tertiary-error-bg_hover))",
+        fg: "hsl(var(--button-tertiary-error-fg))",
+        fg_hover: "hsl(var(--button-tertiary-error-fg_hover))",
+      },
+    },
+  },
+  wysiwyg: {
+    editor: {
+      icon: {
+        fg: "hsl(var(--wysiwyg-editor-icon-fg))",
+        fg_active: "hsl(var(--wysiwyg-editor-icon-fg_active))",
+      },
+    },
+  },
+  slider: {
+    handle: {
+      border: "hsl(var(--slider-handle-border))",
+      bg: "hsl(var(--slider-handle-bg))",
+    },
+  },
+  toggle: {
+    button: {
+      fg_disabled: "hsl(var(--toggle-button-fg_disabled))",
+    },
+  },
+  focus: {
+    ring: {
+      DEFAULT: "hsl(var(--focus-ring))",
+      error: "hsl(var(--focus-ring-error))",
+    },
+  },
+  shadow: {
+    xs: "var(--shadow-xs)",
+    sm_01: "var(--shadow-sm_01)",
+    sm_02: "var(--shadow-sm_02)",
+    md_01: "var(--shadow-md_01)",
+    md_02: "var(--shadow-md_02)",
+    lg_01: "var(--shadow-lg_01)",
+    lg_02: "var(--shadow-lg_02)",
+    xl_01: "var(--shadow-xl_01)",
+    xl_02: "var(--shadow-xl_02)",
+    "2xl": "var(--shadow-2xl)",
+    "3xl": "var(--shadow-3xl)",
+    skeumorphic: {
+      inner: "var(--shadow-skeumorphic-inner)",
+      inner_border: "var(--shadow-skeumorphic-inner_border)",
+    },
+  },
   info: {
     DEFAULT: "hsl(var(--info))",
     foreground: "hsl(var(--info-foreground))",

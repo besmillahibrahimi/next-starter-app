@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { CheckIcon, MinusIcon } from "@radix-ui/react-icons";
+import { CheckIcon, MinusIcon, DotFilledIcon } from "@radix-ui/react-icons";
 
 import { cn } from "@/lib/utils";
 
@@ -10,10 +10,14 @@ const sizeClasses = {
   sm: {
     container: "w-[1rem] h-[1rem]",
     roundedIcon: "w-[0.375rem] h-[0.375rem]",
+    padding: "0.125rem",
+    iconStyle: { height: 3, width: 3 },
   },
   md: {
     container: "w-[1.25rem] h-[1.25rem]",
     roundedIcon: "w-[0.5rem] h-[0.5rem]",
+    padding: "0.1875rem",
+    iconStyle: { height: 5, width: 5 },
   },
 };
 
@@ -39,21 +43,23 @@ const Checkbox = React.forwardRef<
     },
     ref
   ) => {
-    const { container, roundedIcon } = sizeClasses[size];
+    const { container, roundedIcon, padding, iconStyle } = sizeClasses[size];
 
-    // hsl(var(--fg-disabled_subtle))
     return (
       <div className="flex justify-center items-start space-x-md">
         <CheckboxPrimitive.Root
           ref={ref}
           className={cn(
-            `${container} ${shape == "square" ? "rounded-xs" : "rounded-full"}`,
-            "group peer shrink-0 bg-primary shadow mt-xxs",
-            "focus:outline-none focus:ring-2 focus:ring-brand-solid focus:ring-offset-2 focus:ring-offset-background",
-            "disabled:cursor-not-allowed disabled:data-[state=checked]:bg-disabled disabled:data-[state=checked]:text-[hsl(var(--fg-disabled-subtle))] disabled:data-[state=unchecked]:bg-disabled",
-            "disabled:data-[state=indeterminate]:bg-disabled disabled:data-[state=indeterminate]:text-[hsl(var(--fg-disabled-subtle))]",
-            "data-[state=checked]:bg-brand-solid data-[state=checked]:text-white",
-            "data-[state=indeterminate]:bg-brand-solid data-[state=indeterminate]:text-white",
+            `${container} ${
+              shape == "square" ? "rounded-xs" : "rounded-full"
+            } ${padding}`,
+            "group peer shrink-0 bg-primary shadow mt-xxs flex justify-center items-center",
+            "text-white",
+            "focus:outline-none focus:ring-2 focus:ring-focus-ring focus:ring-offset-2 focus:ring-offset-background border border-transparent",
+            "disabled:cursor-not-allowed disabled:data-[state=checked]:bg-disabled disabled:data-[state=checked]:text-fg-disabled-subtle disabled:data-[state=unchecked]:bg-disabled disabled:border-disabled-subtle",
+            "disabled:data-[state=indeterminate]:bg-disabled disabled:data-[state=indeterminate]:text-fg-disabled-subtle",
+            "data-[state=checked]:bg-brand-solid data-[state=checked]:text-fg-white",
+            "data-[state=indeterminate]:bg-brand-solid data-[state=indeterminate]:text-fg-white",
             className
           )}
           {...props}
@@ -62,13 +68,15 @@ const Checkbox = React.forwardRef<
             className={cn("flex items-center justify-center text-current")}
           >
             {shape == "circle" ? (
-              <div
-                className={`${roundedIcon} rounded-full bg-[white] disabled:data-[state=checked]:bg-[hsl(var(--fg-disabled-subtle))]`}
-              />
+              <DotFilledIcon />
             ) : (
               <>
-                <CheckIcon className="h-4 w-4 hidden group-data-[state=checked]:block" />
-                <MinusIcon className="h-4 w-4 hidden group-data-[state=indeterminate]:block" />
+                <CheckIcon
+                  className={`h-${iconStyle.height} w-${iconStyle.width} hidden group-data-[state=checked]:block`}
+                />
+                <MinusIcon
+                  className={`h-${iconStyle.height} w-${iconStyle.width} hidden group-data-[state=indeterminate]:block`}
+                />
               </>
             )}
           </CheckboxPrimitive.CheckboxIndicator>

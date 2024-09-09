@@ -25,7 +25,7 @@ const ThemeToggler: React.FC<Props> = ({ useSwitch = true }) => {
 
   return useSwitch ? (
     <span>
-      <Button variant="outline" size="icon">
+      <Button variant="primary" size="icon_md">
         <Icon
           onClick={() => setTheme("light")}
           color="var(--peach-5)"
@@ -44,7 +44,7 @@ const ThemeToggler: React.FC<Props> = ({ useSwitch = true }) => {
   ) : (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button variant="primary" size="icon_md">
           <Icon
             color="var(--peach-5)"
             icon="solar:sun-bold-duotone"

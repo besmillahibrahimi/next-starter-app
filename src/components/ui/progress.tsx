@@ -41,7 +41,7 @@ const Progress = React.forwardRef<
         {...props}
       >
         <ProgressPrimitive.Indicator
-          className="h-full w-full flex-1 bg-brand-solid-hover transition-all rounded"
+          className="h-full w-full flex-1 bg-fg-brand-primary transition-all rounded"
           style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
         ></ProgressPrimitive.Indicator>
       </ProgressPrimitive.Root>
@@ -49,7 +49,7 @@ const Progress = React.forwardRef<
       {showPercentageCard ? (
         <div
           style={{ left: `${value}%` }}
-          className={`drop-shadow-md rounded-md shadow-sm absolute p-1 bg-primary-alt ${
+          className={`drop-shadow-md rounded-md shadow-sm absolute p-1 bg-primary-alt text-secondary ${
             positionPercentageCard === "bottom" ? "-bottom-10" : "-top-10"
           } `}
         >

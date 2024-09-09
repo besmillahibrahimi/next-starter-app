@@ -321,6 +321,13 @@ export default function Components() {
           shape="square"
           disabled
         />
+        <Checkbox
+          id="terms4"
+          checked={isChecked}
+          onClick={() => onCheckHandler()}
+          size="md"
+          shape="square"
+        />
 
         <RadioGroup
           value={boolToString(isChecked)}

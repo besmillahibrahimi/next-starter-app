@@ -7,7 +7,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { Direction } from "@/lib/constants";
 
 // @ts-ignore
 interface TooltipProps
@@ -24,13 +23,13 @@ const TooltipWrapper: React.FC<TooltipProps> = ({
 }) => {
   const titleNode =
     typeof title === "string" ? (
-      <h6 className="text-xs font-bold">{title}</h6>
+      <h6 className="text-xs font-bold text-[white]">{title}</h6>
     ) : (
       title
     );
   const bodyNode =
     typeof body === "string" ? (
-      <p className="text-xs font-medium">{body}</p>
+      <p className="text-xs font-medium text-tooltip-supporting-text">{body}</p>
     ) : (
       body
     );

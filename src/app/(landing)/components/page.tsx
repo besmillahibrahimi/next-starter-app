@@ -22,13 +22,15 @@ import TooltipWrapper from "@/components/molecules/TooltipWrapper";
 import { Progress } from "@/components/ui/progress";
 import { useEffect, useState } from "react";
 import CircularProgress from "@/components/molecules/progress/CircularProgress";
-import { Direction } from "@/lib/constants";
+import { Direction, HorizontalDirection } from "@/lib/constants";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
+import SelectInput from "@/components/molecules/SelectInput";
+import CustomSelect from "@/components/molecules/select/CustomSelect";
 
 const variants: Record<string, string[]> = {
   variant: [
@@ -149,20 +151,6 @@ export default function Components() {
           label="choose file"
         />
         <Input disabled placeholder="Disabled :(" />
-      </div>
-
-      <div>
-        <div className="w-xs h-8 bg-brand-300-foreground text-gray-200-foreground rounded-xl text-[#fff] border-gray-200 border-2 ">
-          test test test
-        </div>
-      </div>
-
-      <div>
-        <Input
-          label="My Input"
-          StartNode={<CgMoon className="bg-success-200" />}
-          EndNode={<CgSun onClick={() => console.log("clicked end icon")} />}
-        />
       </div>
 
       <div>

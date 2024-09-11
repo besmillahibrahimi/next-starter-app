@@ -10,6 +10,7 @@ export default function InputPage() {
     <div className="flex flex-col gap-y-8 p-8">
       <div>
         <Input
+          id="default"
           label="Default"
           placeholder="Default"
           EndNode={
@@ -23,6 +24,7 @@ export default function InputPage() {
 
       <div>
         <Input
+          id="iconLeading"
           label="Icon Leading"
           placeholder="Icon Leading"
           StartNode={<CgMoon />}
@@ -37,6 +39,7 @@ export default function InputPage() {
 
       <div>
         <Input
+          id="leadingDropdown"
           label="Leading Dropdown"
           placeholder="Leading Dropdown"
           EndNode={
@@ -56,6 +59,7 @@ export default function InputPage() {
 
       <div>
         <Input
+          id="trailingDropDown"
           label="Trailing Dropdown"
           placeholder="Trailing Dropdown"
           StartNode={<CgMoon />}
@@ -71,6 +75,49 @@ export default function InputPage() {
               selectPosition={HorizontalDirection.RIGHT}
             />
           }
+        />
+      </div>
+
+      <div>
+        <Input
+          label="Default"
+          placeholder="Default"
+          EndNode={
+            <CgSun
+              onClick={() => console.log("clicked end icon")}
+              className="text-fg-quinary"
+            />
+          }
+          TrailingButtonNode={true}
+          LeadingTextNode={true}
+        />
+      </div>
+
+      <div>
+        <Input
+          label="Default"
+          placeholder="Default"
+          EndNode={
+            <CgSun
+              onClick={() => console.log("clicked end icon")}
+              className="text-fg-quinary"
+            />
+          }
+          TrailingButtonNode={true}
+        />
+      </div>
+
+      <div>
+        <Input
+          label="Default"
+          placeholder="Default"
+          EndNode={
+            <CgSun
+              onClick={() => console.log("clicked end icon")}
+              className="text-fg-quinary"
+            />
+          }
+          LeadingTextNode={true}
         />
       </div>
     </div>

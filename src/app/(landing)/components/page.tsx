@@ -30,7 +30,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 import SelectInput from "@/components/molecules/SelectInput";
-import CustomSelect from "@/components/molecules/select/CustomSelect";
+import CustomSelect from "@/components/molecules/select/MySelect";
 
 const variants: Record<string, string[]> = {
   variant: [

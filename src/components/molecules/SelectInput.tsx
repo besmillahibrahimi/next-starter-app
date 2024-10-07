@@ -12,7 +12,7 @@ import {
 import { HorizontalDirection } from "@/lib/constants";
 import { SelectItemType } from "@/lib/types/ui/ui.types";
 import { CgMoon } from "react-icons/cg";
-import CustomSelect from "./select/CustomSelect";
+import CustomSelect from "./select/MySelect";
 
 export interface SelectInputProps {
   InputProps?: InputPropsType;

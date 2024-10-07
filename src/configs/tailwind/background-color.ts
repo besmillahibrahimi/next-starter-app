@@ -3,8 +3,8 @@ import { RecursiveKeyValuePair, ResolvableTo } from "tailwindcss/types/config";
 const BackgroundColor: ResolvableTo<RecursiveKeyValuePair> = {
   background: "hsl(var(--background))",
   primary: {
-    DEFAULT: "var(--bg-primary)",
-    alt: "var(--bg-primary_alt)",
+    DEFAULT: "hsl(var(--bg-primary))",
+    alt: "hsl(var(--bg-primary_alt))",
     hover: "hsl(var(--bg-primary_hover))",
     solid: "hsl(var(--bg-primary-solid))",
   },

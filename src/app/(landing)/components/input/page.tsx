@@ -1,123 +1,86 @@
-"use client";
-
-import CustomSelect from "@/components/molecules/select/CustomSelect";
+import ThemeToggler from "@/components/molecules/ThemeToggler";
 import { Input } from "@/components/ui/input";
-import { HorizontalDirection } from "@/lib/constants";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { DividerVerticalIcon } from "@radix-ui/react-icons";
 import { CgMoon, CgSun } from "react-icons/cg";
 
 export default function InputPage() {
   return (
-    <div className="flex flex-col gap-y-8 p-8">
-      <div>
+    <div className="flex flex-col space-y-5 p-8">
+      <div className="flex flex-col w-1/5 space-y-5">
+        <ThemeToggler />
         <Input
-          id="default"
-          label="Default"
-          placeholder="Default"
-          EndNode={
-            <CgSun
-              onClick={() => console.log("clicked end icon")}
-              className="text-fg-quinary"
-            />
-          }
+          inputSize={"sm"}
+          type="text"
+          placeholder="sm"
+          Trailing={<CgMoon />}
+          Leading={<CgSun />}
         />
-      </div>
-
-      <div>
         <Input
-          id="iconLeading"
-          label="Icon Leading"
-          placeholder="Icon Leading"
-          StartNode={<CgMoon />}
-          EndNode={
-            <CgSun
-              onClick={() => console.log("clicked end icon")}
-              className="text-fg-quinary"
-            />
-          }
+          inputSize={"sm"}
+          type="text"
+          placeholder="sm"
+          Trailing={<CgMoon />}
+          useLeadingDivider={false}
+          Leading={<CgSun />}
+          useTrailingDivider={false}
+          disabled
         />
-      </div>
-
-      <div>
         <Input
-          id="leadingDropdown"
-          label="Leading Dropdown"
-          placeholder="Leading Dropdown"
-          EndNode={
-            <CgSun
-              onClick={() => console.log("clicked end icon")}
-              className="text-fg-quinary"
-            />
-          }
-          LeadingNode={
-            <CustomSelect
-              type="InputSelect"
-              selectPosition={HorizontalDirection.LEFT}
-            />
-          }
+          disabled
+          inputSize={"sm"}
+          type="text"
+          placeholder="sm"
+          Trailing={<CgMoon />}
+          Leading={<CgSun />}
         />
-      </div>
-
-      <div>
+        <Input inputSize={"md"} type="text" placeholder="md" />
+        <Input inputSize={"md"} type="text" placeholder="disabled" disabled />
         <Input
-          id="trailingDropDown"
-          label="Trailing Dropdown"
-          placeholder="Trailing Dropdown"
-          StartNode={<CgMoon />}
-          EndNode={
-            <CgSun
-              onClick={() => console.log("clicked end icon")}
-              className="text-fg-quinary"
-            />
-          }
-          TrailingNode={
-            <CustomSelect
-              type="InputSelect"
-              selectPosition={HorizontalDirection.RIGHT}
-            />
-          }
+          inputSize={"md"}
+          type="text"
+          placeholder="disabled"
+          useLeadingDivider={true}
+          Leading={<p className="">{"http://"}</p>}
         />
-      </div>
-
-      <div>
         <Input
-          label="Default"
-          placeholder="Default"
-          EndNode={
-            <CgSun
-              onClick={() => console.log("clicked end icon")}
-              className="text-fg-quinary"
-            />
-          }
-          TrailingButtonNode={true}
-          LeadingTextNode={true}
+          inputSize={"md"}
+          type="text"
+          placeholder="disabled"
+          useLeadingDivider={true}
+          Leading={<p className="">{"http://"}</p>}
+          disabled
         />
-      </div>
-
-      <div>
         <Input
-          label="Default"
-          placeholder="Default"
-          EndNode={
-            <CgSun
-              onClick={() => console.log("clicked end icon")}
-              className="text-fg-quinary"
-            />
+          inputSize={"md"}
+          type="text"
+          placeholder="disabled"
+          useLeadingDivider={true}
+          Leading={
+            <Select>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select a fruit" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>Fruits</SelectLabel>
+                  <SelectItem value="apple">Apple</SelectItem>
+                  <SelectItem value="banana">Banana</SelectItem>
+                  <SelectItem value="blueberry">Blueberry</SelectItem>
+                  <SelectItem value="grapes">Grapes</SelectItem>
+                  <SelectItem value="pineapple">Pineapple</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           }
-          TrailingButtonNode={true}
-        />
-      </div>
-
-      <div>
-        <Input
-          label="Default"
-          placeholder="Default"
-          EndNode={
-            <CgSun
-              onClick={() => console.log("clicked end icon")}
-              className="text-fg-quinary"
-            />
-          }
-          LeadingTextNode={true}
         />
       </div>
     </div>

@@ -12,3 +12,25 @@
 @import "../configs/ui/radius/radius.css";
 @import "../configs//ui/typography/typogeraphy.css";
 @import "../configs//ui/typography/fontWeight.css";
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a8a8a8;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}

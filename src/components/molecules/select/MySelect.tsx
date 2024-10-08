@@ -58,13 +58,7 @@ const MySelect = React.forwardRef<HTMLSelectElement, ISelect & SelectProps>(
             <SelectValue placeholder={placeholder} />
           </div>
         ) : (
-          <div className="relative">
-            <SelectValue placeholder={placeholder} />
-            <input
-              className="absolute top-0 left-0 bg-blue-300 z-10"
-              autoFocus
-            />
-          </div>
+          <SelectValue placeholder={placeholder} />
         )}
       </SelectTrigger>
       <SelectContent className={cn("", classes?.content)}>

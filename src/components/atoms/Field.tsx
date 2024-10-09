@@ -14,25 +14,26 @@ type IFieldProps<D extends keyof JSX.IntrinsicElements> =
     message?: React.ReactNode | string;
     label?: string;
     Input: React.ComponentType<any>;
+    InputProps?: any;
     name: string;
   };
 export function Field<D extends keyof JSX.IntrinsicElements>(
   props: IFieldProps<D>
 ) {
   return (
-    <div>
-      <FormField
-        control={props.control}
-        name={props.name}
-        render={({ field }) => (
-          <FormItem>
-            <FormLabel>{props.label}</FormLabel>
-            <FormControl>{<props.Input {...field} />}</FormControl>
-            <FormDescription />
-            <FormMessage>{props.message}</FormMessage>
-          </FormItem>
-        )}
-      />
-    </div>
+    <FormField
+      control={props.control}
+      name={props.name}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>{props.label}</FormLabel>
+          <FormControl>
+            {<props.Input {...field} {...(props.InputProps || {})} />}
+          </FormControl>
+          <FormDescription />
+          <FormMessage>{props.message}</FormMessage>
+        </FormItem>
+      )}
+    />
   );
 }

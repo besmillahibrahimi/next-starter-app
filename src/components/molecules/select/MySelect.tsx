@@ -30,6 +30,9 @@ interface ISelect {
   selectLabel?: React.ReactNode;
   Leading?: React.ReactNode;
   Trailing?: React.ReactNode;
+  className?: string;
+  onChange?: (e: any) => void;
+
   options: SelectItemType[] | any[];
   renderItem?: (item: SelectItemType | any) => React.ReactNode;
   getItemValue?: (item: SelectItemType | any) => string;
@@ -46,12 +49,21 @@ const MySelect = React.forwardRef<HTMLSelectElement, ISelect & SelectProps>(
       getItemValue,
       size = "md",
       Leading,
+      value,
+      onChange,
+      onValueChange,
       ...props
     },
     ref
   ) => (
-    <Select {...props}>
-      <SelectTrigger className={cn("", InputClasses.size[size].default)}>
+    <Select
+      defaultValue={value}
+      onValueChange={onValueChange ?? onChange}
+      {...props}
+    >
+      <SelectTrigger
+        className={cn("", InputClasses.size[size].default, classes?.trigger)}
+      >
         {Leading ? (
           <div className="flex space-x-3 items-center">
             {Leading}

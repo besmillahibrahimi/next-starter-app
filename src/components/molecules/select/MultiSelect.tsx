@@ -12,17 +12,24 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { cn } from "@/lib/utils";
-import { Cross2Icon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import {
+  CheckIcon,
+  Cross2Icon,
+  MagnifyingGlassIcon,
+} from "@radix-ui/react-icons";
+import { CgSun } from "react-icons/cg";
+import { SelectItemType } from "@/lib/types/ui/ui.types";
+import { InputClasses } from "@/lib/styles/common";
 
 export interface Option {
-  node?: React.ReactNode;
   value: string;
   label: string;
   disable?: boolean;
   /** fixed option that can't be removed. */
   fixed?: boolean;
+
   /** Group the options by providing key. */
-  [key: string]: string | boolean | undefined | React.ReactNode;
+  [key: string]: any;
 }
 
 interface GroupOption {
@@ -85,6 +92,14 @@ interface MultipleSelectorProps {
   /** hide the clear all button. */
   hideClearAllButton?: boolean;
   type?: "badge" | "text";
+  renderItem?: (item: SelectItemType | any) => React.ReactNode;
+  renderSelectedItems?: (
+    items: SelectItemType[] | any[],
+    unselectItem?: (item: SelectItemType | any) => void
+  ) => React.ReactNode;
+  getItemValue?: (item: SelectItemType | any) => string;
+  wrapSelectedItem?: boolean;
+  size?: "sm" | "md";
 }
 
 export interface MultipleSelectorRef {
@@ -130,6 +145,7 @@ function transToGroupOption(options: Option[], groupBy?: string) {
 }
 
 function removePickedOption(groupOption: GroupOption, picked: Option[]) {
+  return groupOption;
   const cloneOption = JSON.parse(JSON.stringify(groupOption)) as GroupOption;
 
   for (const [key, value] of Object.entries(cloneOption)) {
@@ -207,7 +223,12 @@ const MultipleSelector = React.forwardRef<
       commandProps,
       inputProps,
       hideClearAllButton = false,
+      renderItem,
+      getItemValue,
+      renderSelectedItems,
+      wrapSelectedItem = false,
       type = "text",
+      size = "sm",
     }: MultipleSelectorProps,
     ref: React.Ref<MultipleSelectorRef>
   ) => {
@@ -440,6 +461,13 @@ const MultipleSelector = React.forwardRef<
       return undefined;
     }, [creatable, commandProps?.filter]);
 
+    const isInSelected = (candidate: SelectItemType | any) =>
+      selected.some((o) =>
+        getItemValue
+          ? getItemValue(o) === getItemValue(candidate)
+          : o.value === candidate.value
+      );
+
     return (
       <Command
         ref={dropdownRef}
@@ -449,7 +477,7 @@ const MultipleSelector = React.forwardRef<
           commandProps?.onKeyDown?.(e);
         }}
         className={cn(
-          "h-auto overflow-visible bg-transparent border border-primary rounded-md shadow-sm placeholder:text-muted-foreground [&>span]:line-clamp-1",
+          " overflow-visible bg-transparent border border-primary rounded-md shadow-sm placeholder:text-muted-foreground [&>span]:line-clamp-1",
           `${
             disabled
               ? "cursor-not-allowed opacity-50 "
@@ -466,11 +494,12 @@ const MultipleSelector = React.forwardRef<
       >
         <div
           className={cn(
-            "min-h-10 rounded-md border border-input text-sm flex justify-start ",
+            "rounded-md border border-input text-sm flex justify-start items-center",
             {
-              "px-0 py-2": selected.length !== 0,
+              "": selected.length !== 0,
               "cursor-text": !disabled && selected.length !== 0,
             },
+            InputClasses.size[size].default,
             className
           )}
           onClick={() => {
@@ -478,118 +507,197 @@ const MultipleSelector = React.forwardRef<
             inputRef?.current?.focus();
           }}
         >
-          <div className=" flex justify-center items-center w-8 pl-3">
+          <div className=" flex justify-center items-center pr-3">
             <MagnifyingGlassIcon
               width="25"
               height="25"
-              className="text-gray-400"
+              className="text-gray-400 h-[1.25rem] w-[1.25rem]"
             />
           </div>
-          <div className=" flex flex-nowrap gap-1 pl-1 overflow-hidden">
-            {selected.map((option) => {
-              return (
-                <>
-                  {type == "badge" ? (
-                    <Badge
-                      key={option.value}
-                      className={cn(
-                        "data-[disabled]:bg-muted-foreground data-[disabled]:text-muted data-[disabled]:hover:bg-muted-foreground",
-                        "data-[fixed]:bg-muted-foreground data-[fixed]:text-muted data-[fixed]:hover:bg-muted-foreground",
-                        badgeClassName
-                      )}
-                      data-fixed={option.fixed}
-                      data-disabled={disabled || undefined}
-                      variant={"badgeColor"}
-                    >
-                      {option.label}
-                      <button
-                        className={cn(
-                          "ml-1 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2",
-                          (disabled || option.fixed) && "hidden"
-                        )}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") {
-                            handleUnselect(option);
-                          }
-                        }}
-                        onMouseDown={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                        }}
-                        onClick={() => handleUnselect(option)}
-                      >
-                        <Cross2Icon
-                          width="10"
-                          height="10"
-                          className="text-fg-quinary"
-                        />
-                      </button>
-                    </Badge>
-                  ) : (
-                    <p className="text-text-md font-medium text-primary">
-                      {option.label}
-                    </p>
+          <div className={`overflow-hidden`}>
+            {renderSelectedItems ? (
+              <div
+                className={`flex ${
+                  wrapSelectedItem ? "flex-wrap" : "flex-nowrap"
+                }`}
+              >
+                {renderSelectedItems(selected, handleUnselect)}
+                {/* Avoid having the "Search" Icon */}
+                <CommandPrimitive.Input
+                  {...inputProps}
+                  ref={inputRef}
+                  value={inputValue}
+                  disabled={disabled}
+                  onValueChange={(value) => {
+                    setInputValue(value);
+                    inputProps?.onValueChange?.(value);
+                  }}
+                  onBlur={(event) => {
+                    if (!onScrollbar) {
+                      setOpen(false);
+                    }
+                    inputProps?.onBlur?.(event);
+                  }}
+                  onFocus={(event) => {
+                    setOpen(true);
+                    triggerSearchOnFocus && onSearch?.(debouncedSearchTerm);
+                    inputProps?.onFocus?.(event);
+                  }}
+                  placeholder={
+                    hidePlaceholderWhenSelected && selected.length !== 0
+                      ? ""
+                      : placeholder
+                  }
+                  className={cn(
+                    "flex-1 bg-transparent outline-none  text-placeholder ",
+                    `${disabled ? "cursor-not-allowed opacity-50 " : ""}`,
+                    {
+                      "w-full": hidePlaceholderWhenSelected,
+                      "px-3 py-2": selected.length === 0,
+                      "ml-1": selected.length !== 0,
+                    },
+                    inputProps?.className
                   )}
-                </>
-              );
-            })}
-            {/* Avoid having the "Search" Icon */}
-            <CommandPrimitive.Input
-              {...inputProps}
-              ref={inputRef}
-              value={inputValue}
-              disabled={disabled}
-              onValueChange={(value) => {
-                setInputValue(value);
-                inputProps?.onValueChange?.(value);
-              }}
-              onBlur={(event) => {
-                if (!onScrollbar) {
-                  setOpen(false);
-                }
-                inputProps?.onBlur?.(event);
-              }}
-              onFocus={(event) => {
-                setOpen(true);
-                triggerSearchOnFocus && onSearch?.(debouncedSearchTerm);
-                inputProps?.onFocus?.(event);
-              }}
-              placeholder={
-                hidePlaceholderWhenSelected && selected.length !== 0
-                  ? ""
-                  : placeholder
-              }
-              className={cn(
-                "flex-1 bg-transparent outline-none  text-placeholder ",
-                `${disabled ? "cursor-not-allowed opacity-50 " : ""}`,
-                {
-                  "w-full": hidePlaceholderWhenSelected,
-                  "px-3 py-2": selected.length === 0,
-                  "ml-1": selected.length !== 0,
-                },
-                inputProps?.className
-              )}
-            />
-            <button
-              type="button"
-              onClick={() => {
-                setSelected(selected.filter((s) => s.fixed));
-                onChange?.(selected.filter((s) => s.fixed));
-              }}
-              className={cn(
-                "absolute right-0 h-6 w-6 p-0",
-                (hideClearAllButton ||
-                  disabled ||
-                  selected.length < 1 ||
-                  selected.filter((s) => s.fixed).length === selected.length) &&
-                  "hidden"
-              )}
-            >
-              {/* <Cross2Icon /> */}
-            </button>
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelected(selected.filter((s) => s.fixed));
+                    onChange?.(selected.filter((s) => s.fixed));
+                  }}
+                  className={cn(
+                    "absolute right-0 h-6 w-6 p-0",
+                    (hideClearAllButton ||
+                      disabled ||
+                      selected.length < 1 ||
+                      selected.filter((s) => s.fixed).length ===
+                        selected.length) &&
+                      "hidden"
+                  )}
+                >
+                  {/* <Cross2Icon /> */}
+                </button>
+              </div>
+            ) : (
+              <div
+                className={` flex ${
+                  wrapSelectedItem
+                    ? "flex-wrap gap-y-1"
+                    : "flex-nowrap overflow-x-auto scroll-h-small"
+                } gap-x-2 pl-1 `}
+              >
+                {selected?.map((option) => {
+                  return (
+                    <>
+                      {type == "badge" ? (
+                        <Badge
+                          size={"sm"}
+                          key={option.value}
+                          className={cn(
+                            "py-xxs px-xs data-[disabled]:bg-muted-foreground data-[disabled]:text-muted data-[disabled]:hover:bg-muted-foreground",
+                            "data-[fixed]:bg-muted-foreground data-[fixed]:text-muted data-[fixed]:hover:bg-muted-foreground",
+
+                            badgeClassName
+                          )}
+                          data-fixed={option.fixed}
+                          data-disabled={disabled || undefined}
+                          variant={"badgeColor"}
+                        >
+                          {renderItem ? renderItem(option) : option.label}
+                          <button
+                            className={cn(
+                              "rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2",
+                              (disabled || option.fixed) && "hidden"
+                            )}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                handleUnselect(option);
+                              }
+                            }}
+                            onMouseDown={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                            }}
+                            onClick={() => handleUnselect(option)}
+                          >
+                            <Cross2Icon
+                              width="10"
+                              height="10"
+                              className="text-fg-quinary"
+                            />
+                          </button>
+                        </Badge>
+                      ) : renderItem ? (
+                        renderItem(option)
+                      ) : (
+                        <p className="text-text-md font-medium text-primary">
+                          {option.label}
+                        </p>
+                      )}
+                    </>
+                  );
+                })}
+                {/* Avoid having the "Search" Icon */}
+                <CommandPrimitive.Input
+                  {...inputProps}
+                  ref={inputRef}
+                  value={inputValue}
+                  disabled={disabled}
+                  onValueChange={(value) => {
+                    setInputValue(value);
+                    inputProps?.onValueChange?.(value);
+                  }}
+                  onBlur={(event) => {
+                    if (!onScrollbar) {
+                      setOpen(false);
+                    }
+                    inputProps?.onBlur?.(event);
+                  }}
+                  onFocus={(event) => {
+                    setOpen(true);
+                    triggerSearchOnFocus && onSearch?.(debouncedSearchTerm);
+                    inputProps?.onFocus?.(event);
+                  }}
+                  placeholder={
+                    hidePlaceholderWhenSelected && selected.length !== 0
+                      ? ""
+                      : placeholder
+                  }
+                  className={cn(
+                    "flex-1 outline-none  text-placeholder ",
+                    `${disabled ? "cursor-not-allowed opacity-50 " : ""}`,
+
+                    {
+                      "w-full": hidePlaceholderWhenSelected,
+                      "px-3 py-xxs": selected.length === 0,
+                      "ml-1": selected.length !== 0,
+                    },
+                    inputProps?.className
+                  )}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelected(selected.filter((s) => s.fixed));
+                    onChange?.(selected.filter((s) => s.fixed));
+                  }}
+                  className={cn(
+                    "absolute right-0 h-6 w-6 p-0",
+                    (hideClearAllButton ||
+                      disabled ||
+                      selected.length < 1 ||
+                      selected.filter((s) => s.fixed).length ===
+                        selected.length) &&
+                      "hidden"
+                  )}
+                >
+                  {/* <Cross2Icon /> */}
+                </button>
+              </div>
+            )}
           </div>
         </div>
-        <div className="relative">
+        <div className="relative ">
           {open && (
             <CommandList
               className="absolute top-1 z-10 w-full rounded-md border bg-primary text-popover-foreground shadow-md outline-none animate-in"
@@ -622,6 +730,7 @@ const MultipleSelector = React.forwardRef<
                         {dropdowns.map((option) => {
                           return (
                             <CommandItem
+                              node={option?.node}
                               key={option.value}
                               value={option.value}
                               disabled={option.disable}
@@ -635,17 +744,25 @@ const MultipleSelector = React.forwardRef<
                                   return;
                                 }
                                 setInputValue("");
-                                const newOptions = [...selected, option];
-                                setSelected(newOptions);
-                                onChange?.(newOptions);
+                                if (!isInSelected(option)) {
+                                  const newOptions = [...selected, option];
+                                  setSelected(newOptions);
+                                  onChange?.(newOptions);
+                                }
                               }}
                               className={cn(
-                                "cursor-pointer",
+                                `cursor-pointer flex items-center justify-between my-1 ${
+                                  isInSelected(option) &&
+                                  "bg-active pointer-events-none text-muted-foreground opacity-50"
+                                }`,
                                 option.disable &&
-                                  "cursor-default text-muted-foreground"
+                                  "cursor-default text-muted-foreground pointer-events-none opacity-50"
                               )}
                             >
-                              {option.label}
+                              {renderItem ? renderItem(option) : option?.label}
+                              {isInSelected(option) && (
+                                <CheckIcon className="h-4 w-4" />
+                              )}
                             </CommandItem>
                           );
                         })}

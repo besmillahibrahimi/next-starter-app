@@ -34,3 +34,25 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #ffffff;
 }
+/* width */
+.scroll-h-small::-webkit-scrollbar {
+  height: 6px;
+  cursor: pointer;
+}
+
+/* Track */
+.scroll-h-small::-webkit-scrollbar-track {
+  background: hsl(var(--bg-primary));
+  border-radius: 5px;
+}
+
+/* Handle */
+.scroll-h-small::-webkit-scrollbar-thumb {
+  background: hsl(var(--border-primary));
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}

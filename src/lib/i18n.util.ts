@@ -1,4 +1,4 @@
-import _ from "lodash-es";
+import * as _ from "lodash-es";
 
 export function importI18nNamespace(
   language: string,

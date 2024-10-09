@@ -1,3 +1,4 @@
+import MySelect from "@/components/molecules/select/MySelect";
 import ThemeToggler from "@/components/molecules/ThemeToggler";
 import { Input } from "@/components/ui/input";
 import {
@@ -9,10 +10,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { SelectItemType } from "@/lib/types/ui/ui.types";
 import { DividerVerticalIcon } from "@radix-ui/react-icons";
 import { CgMoon, CgSun } from "react-icons/cg";
 
 export default function InputPage() {
+  const options: SelectItemType[] = [
+    { label: <CgMoon />, value: "moon" },
+    { label: <CgSun />, value: "sun" },
+    { label: "Select", value: "select" },
+    {
+      label: <p>Your select p with long text is here and continue</p>,
+      value: "your_select",
+    },
+  ];
+
   return (
     <div className="flex flex-col space-y-5 p-8">
       <div className="flex flex-col w-1/5 space-y-5">
@@ -65,21 +77,14 @@ export default function InputPage() {
           placeholder="disabled"
           useLeadingDivider={true}
           Leading={
-            <Select>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select a fruit" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Fruits</SelectLabel>
-                  <SelectItem value="apple">Apple</SelectItem>
-                  <SelectItem value="banana">Banana</SelectItem>
-                  <SelectItem value="blueberry">Blueberry</SelectItem>
-                  <SelectItem value="grapes">Grapes</SelectItem>
-                  <SelectItem value="pineapple">Pineapple</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <MySelect
+              size="md"
+              options={options}
+              classes={{
+                trigger:
+                  "border-none outline-none focus:border-none focus:ring-0",
+              }}
+            />
           }
         />
       </div>

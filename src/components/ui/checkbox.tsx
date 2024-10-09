@@ -29,6 +29,8 @@ const Checkbox = React.forwardRef<
     shape?: "square" | "circle";
     title?: string;
     desc?: string;
+    onChange?: (e: any) => void;
+    value?: any;
   }
 >(
   (
@@ -63,6 +65,8 @@ const Checkbox = React.forwardRef<
             className
           )}
           {...props}
+          onCheckedChange={props.onCheckedChange ?? props.onChange}
+          checked={props.checked ?? props.value}
         >
           <CheckboxPrimitive.CheckboxIndicator
             className={cn("flex items-center justify-center text-current")}

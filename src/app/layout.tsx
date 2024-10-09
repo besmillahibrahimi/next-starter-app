@@ -4,6 +4,8 @@ import { Lato } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import { GlobalLayout } from "@/contexts/GlobalLayout";
+import { Navbar } from "@/components/molecules/navbar/Navbar";
+import { INavMenu } from "@/lib/types/navbar";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -24,6 +26,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   console.log("global layout");
+  const menus: INavMenu[] = [
+    {
+      key: "category",
+      menus: [
+        {
+          key: "Marble",
+          href: "/stone/marble",
+        },
+        {
+          key: "Marmar",
+          href: "/stone/marmar",
+        },
+        {
+          key: "Granite",
+          href: "/stone/granite",
+        },
+      ],
+    },
+  ];
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -38,6 +59,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar menus={menus} />
           <GlobalLayout>{children}</GlobalLayout>
         </ThemeProvider>
       </body>

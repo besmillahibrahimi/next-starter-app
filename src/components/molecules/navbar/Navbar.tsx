@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
+import * as React from "react";
+import Link from "next/link";
 
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
+import { cn } from "@/lib/utils";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,7 +13,9 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
+} from "@/components/ui/navigation-menu";
+import { INavMenu } from "@/lib/types/navbar";
+import { isEmpty } from "lodash-es";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -51,12 +53,38 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
-]
-
-export function NavigationMenuDemo() {
+];
+interface IProps {
+  menus: INavMenu[];
+}
+export const Navbar: React.FC<IProps> = ({ menus }) => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
+        {menus.map((menu: INavMenu, index) => (
+          <NavigationMenuItem key={menu.key}>
+            {menu.href && !["#", "/#"].includes(menu.href) ? (
+              <Link href={menu.href}>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  {menu.key}
+                </NavigationMenuLink>
+              </Link>
+            ) : (
+              <>
+                <NavigationMenuTrigger>{menu.key}</NavigationMenuTrigger>
+                {!isEmpty(menu.menus) && (
+                  <NavigationMenuContent>
+                    {menu.menus?.map((subMenu: INavMenu, index) => (
+                      <NavigationMenuLink asChild key={subMenu.key}>
+                        <Link href={subMenu.href!}>{subMenu.key}</Link>
+                      </NavigationMenuLink>
+                    ))}
+                  </NavigationMenuContent>
+                )}
+              </>
+            )}
+          </NavigationMenuItem>
+        ))}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -67,7 +95,7 @@ export function NavigationMenuDemo() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
-                    <Icons.logo className="h-6 w-6" />
+                    <p>Logo Here</p>
                     <div className="mb-2 mt-4 text-lg font-medium">
                       shadcn/ui
                     </div>
@@ -116,8 +144,8 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
-  )
-}
+  );
+};
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
@@ -141,6 +169,6 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";

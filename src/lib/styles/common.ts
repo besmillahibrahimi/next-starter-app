@@ -1,4 +1,4 @@
-export const InputClasses = {
+export const InputClasses: Record<string, any> = {
   size: {
     sm: {
       default: "px-lg py-md",

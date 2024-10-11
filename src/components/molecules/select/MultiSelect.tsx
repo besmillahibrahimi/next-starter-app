@@ -61,7 +61,8 @@ interface MultipleSelectorProps {
    * i.e.: creatable, groupBy, delay.
    **/
   onSearchSync?: (value: string) => Option[];
-  onChange?: (options: Option[]) => void;
+  onChange?: (options: Option[] | string[] | unknown[]) => void;
+
   /** Limit the maximum number of selected options. */
   maxSelected?: number;
   /** When the number of selected options exceeds the limit, the onMaxSelected will be called. */
@@ -98,6 +99,8 @@ interface MultipleSelectorProps {
     unselectItem?: (item: SelectItemType | any) => void
   ) => React.ReactNode;
   getItemValue?: (item: SelectItemType | any) => string;
+  onChangeValue?: (item: SelectItemType | any) => any;
+
   wrapSelectedItem?: boolean;
   size?: "sm" | "md";
 }
@@ -226,6 +229,7 @@ const MultipleSelector = React.forwardRef<
       renderItem,
       getItemValue,
       renderSelectedItems,
+      onChangeValue,
       wrapSelectedItem = false,
       type = "text",
       size = "sm",
@@ -238,7 +242,26 @@ const MultipleSelector = React.forwardRef<
     const [isLoading, setIsLoading] = React.useState(false);
     const dropdownRef = React.useRef<HTMLDivElement>(null); // Added this
 
-    const [selected, setSelected] = React.useState<Option[]>(value || []);
+    const getValue = (option: any) =>
+      getItemValue
+        ? getItemValue(option)
+        : typeof option === "object"
+        ? option.value
+        : option;
+
+    const mapValueToOption = React.useCallback(
+      (value: string[] | any[]) =>
+        typeof value[0] === "string"
+          ? arrayOptions!.filter((o) =>
+              value.includes(onChangeValue ? onChangeValue(o) : getValue(o))
+            )
+          : value,
+      [value, arrayOptions]
+    );
+
+    const [selected, setSelected] = React.useState<Option[] | any[]>(
+      value ?? []
+    );
     const [options, setOptions] = React.useState<GroupOption>(
       transToGroupOption(arrayDefaultOptions, groupBy)
     );
@@ -268,11 +291,16 @@ const MultipleSelector = React.forwardRef<
       }
     };
 
+    const handleOnChangeOptions = React.useCallback(
+      (options: Option[] | any[]) => options?.map(onChangeValue ?? getValue),
+      [options]
+    );
+
     const handleUnselect = React.useCallback(
       (option: Option) => {
         const newOptions = selected.filter((s) => s.value !== option.value);
         setSelected(newOptions);
-        onChange?.(newOptions);
+        onChange?.(handleOnChangeOptions(newOptions));
       },
       [onChange, selected]
     );
@@ -316,7 +344,7 @@ const MultipleSelector = React.forwardRef<
 
     useEffect(() => {
       if (value) {
-        setSelected(value);
+        setSelected(mapValueToOption(value));
       }
     }, [value]);
 
@@ -406,7 +434,7 @@ const MultipleSelector = React.forwardRef<
             setInputValue("");
             const newOptions = [...selected, { value, label: value }];
             setSelected(newOptions);
-            onChange?.(newOptions);
+            onChange?.(handleOnChangeOptions(newOptions));
           }}
         >
           {`Create "${inputValue}"`}
@@ -462,11 +490,7 @@ const MultipleSelector = React.forwardRef<
     }, [creatable, commandProps?.filter]);
 
     const isInSelected = (candidate: SelectItemType | any) =>
-      selected.some((o) =>
-        getItemValue
-          ? getItemValue(o) === getItemValue(candidate)
-          : o.value === candidate.value
-      );
+      selected.some((o) => getValue(o) === getValue(candidate));
 
     return (
       <Command
@@ -563,7 +587,9 @@ const MultipleSelector = React.forwardRef<
                   type="button"
                   onClick={() => {
                     setSelected(selected.filter((s) => s.fixed));
-                    onChange?.(selected.filter((s) => s.fixed));
+                    onChange?.(
+                      handleOnChangeOptions(selected.filter((s) => s.fixed))
+                    );
                   }}
                   className={cn(
                     "absolute right-0 h-6 w-6 p-0",
@@ -679,7 +705,9 @@ const MultipleSelector = React.forwardRef<
                   type="button"
                   onClick={() => {
                     setSelected(selected.filter((s) => s.fixed));
-                    onChange?.(selected.filter((s) => s.fixed));
+                    onChange?.(
+                      handleOnChangeOptions(selected.filter((s) => s.fixed))
+                    );
                   }}
                   className={cn(
                     "absolute right-0 h-6 w-6 p-0",
@@ -747,7 +775,7 @@ const MultipleSelector = React.forwardRef<
                                 if (!isInSelected(option)) {
                                   const newOptions = [...selected, option];
                                   setSelected(newOptions);
-                                  onChange?.(newOptions);
+                                  onChange?.(handleOnChangeOptions(newOptions));
                                 }
                               }}
                               className={cn(

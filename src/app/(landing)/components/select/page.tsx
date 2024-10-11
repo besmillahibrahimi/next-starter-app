@@ -51,7 +51,7 @@ export default function InputPage() {
       <div className="flex flex-col w-1/5 space-y-5">
         <ThemeToggler />
         <MySelect
-          size="sm"
+          selectSize="sm"
           placeholder="sm"
           options={countries}
           renderItem={(item) => (
@@ -65,12 +65,12 @@ export default function InputPage() {
           getItemValue={(item) => item.code}
         />
 
-        <MySelect size="md" options={options} Leading={<CgCamera />} />
-        <MySelect size="md" disabled options={options} />
-        <MySelect size="md" options={options} />
-        <MySelect size="md" options={options} />
-        <MySelect size="md" options={options} />
-        <MySelect size="md" options={options} />
+        <MySelect selectSize="md" options={options} Leading={<CgCamera />} />
+        <MySelect selectSize="md" disabled options={options} />
+        <MySelect selectSize="md" options={options} />
+        <MySelect selectSize="md" options={options} />
+        <MySelect selectSize="md" options={options} />
+        <MySelect selectSize="md" options={options} />
       </div>
 
       <div className="w-2/5">

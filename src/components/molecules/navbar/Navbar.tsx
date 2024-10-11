@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { INavMenu } from "@/lib/types/navbar";
 import { isEmpty } from "lodash-es";
+import { NavigationContent } from "./NavigationContent";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -73,12 +74,8 @@ export const Navbar: React.FC<IProps> = ({ menus }) => {
               <>
                 <NavigationMenuTrigger>{menu.key}</NavigationMenuTrigger>
                 {!isEmpty(menu.menus) && (
-                  <NavigationMenuContent>
-                    {menu.menus?.map((subMenu: INavMenu, index) => (
-                      <NavigationMenuLink asChild key={subMenu.key}>
-                        <Link href={subMenu.href!}>{subMenu.key}</Link>
-                      </NavigationMenuLink>
-                    ))}
+                  <NavigationMenuContent >
+                    <NavigationContent menus={menu.menus!} />
                   </NavigationMenuContent>
                 )}
               </>

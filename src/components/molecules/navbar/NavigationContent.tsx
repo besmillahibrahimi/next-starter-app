@@ -1,74 +1,60 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+"use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { INavMenu } from "@/lib/types/navbar";
+import Link from "next/link";
+import { useState } from "react";
 
 interface IProps {
   menus: INavMenu[];
 }
 
 export const NavigationContent: React.FC<IProps> = ({ menus }) => {
+  const [activeTab, setActiveTab] = useState(menus[0].key);
   return (
-    <Tabs defaultValue="account" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
+    <Tabs
+      defaultValue={menus[0].key}
+      value={activeTab}
+      onValueChange={setActiveTab}
+      className="h-[500px] flex pt-8"
+    >
+      <TabsList className="flex flex-col">
+        {menus.map((menu, index) => (
+          <TabsTrigger
+            value={menu.key}
+            key={menu.key}
+            onMouseEnter={() => setActiveTab(menu.key)}
+          >
+            {menu.key}
+          </TabsTrigger>
+        ))}
       </TabsList>
-      <TabsContent value="account">
-        <Card>
-          <CardHeader>
-            <CardTitle>Account</CardTitle>
-            <CardDescription>
-              Make changes to your account here. Click save when you're done.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="@peduarte" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
-        </Card>
-      </TabsContent>
-      <TabsContent value="password">
-        <Card>
-          <CardHeader>
-            <CardTitle>Password</CardTitle>
-            <CardDescription>
-              Change your password here. After saving, you'll be logged out.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save password</Button>
-          </CardFooter>
-        </Card>
-      </TabsContent>
+      {menus.map((menu, index) => (
+        <TabsContent value={menu.key} key={menu.key}>
+          {menu?.menus?.map((subMenu: INavMenu, indx) => (
+            <SubNavigation menu={subMenu} key={subMenu.key + indx} />
+          ))}
+        </TabsContent>
+      ))}
     </Tabs>
+  );
+};
+
+interface ISubMenuProps {
+  menu: INavMenu;
+}
+
+const SubNavigation: React.FC<ISubMenuProps> = ({ menu }) => {
+  return (
+    <div className="flex flex-col">
+      <Link href={menu.href ?? "#"}>{menu.key}</Link>
+
+      <ul className="ps-3">
+        {menu?.menus?.map((sub, index) => (
+          <li key={sub.key + index}>
+            <SubNavigation menu={sub} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };

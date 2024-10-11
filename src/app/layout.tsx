@@ -1,12 +1,11 @@
+import { Navbar } from "@/components/molecules/navbar/Navbar";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { GlobalLayout } from "@/contexts/GlobalLayout";
+import { INavMenu } from "@/lib/types/navbar";
+import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { cn } from "@/lib/utils";
-import { GlobalLayout } from "@/contexts/GlobalLayout";
-import { Navbar } from "@/components/molecules/navbar/Navbar";
-import { INavMenu } from "@/lib/types/navbar";
-import { NavigationContent } from "@/components/molecules/navbar/NavigationContent";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -32,10 +31,6 @@ export default function RootLayout({
       key: "category",
       menus: [
         {
-          key: "Marble",
-          href: "/stone/marble",
-        },
-        {
           key: "Marmar",
           href: "/stone/marmar",
           menus: [
@@ -46,6 +41,10 @@ export default function RootLayout({
             { key: "marmar 5", href: "/marmar/1" },
             { key: "marmar 6", href: "/marmar/1" },
           ],
+        },
+        {
+          key: "Marble",
+          href: "/stone/marble",
         },
         {
           key: "Granite",
@@ -85,7 +84,6 @@ export default function RootLayout({
   return (
     <html lang="en" dir="rtl" suppressHydrationWarning>
       <body
-        dir="rtl"
         className={cn(
           "min-h-screen bg-primary text-fg-primary font-lato antialiased",
           lato.variable

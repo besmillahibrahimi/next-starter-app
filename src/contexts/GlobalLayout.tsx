@@ -1,11 +1,10 @@
 "use client";
-import AlertWrapper, {
-  IAlertOptions,
-} from "@/components/molecules/AlertWrapper";
 import Loading from "@/components/molecules/LoadingWrapper";
+import i18n from "@/configs/i18next/i18n";
 import { DialogBase as Modal } from "@/lib/types/dialogs";
 import { isEmpty } from "lodash-es";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { I18nextProvider } from "react-i18next";
 
 interface ContextData {
   dialogs: Record<string, Modal>;
@@ -81,15 +80,17 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
         showLoading,
       }}
     >
-      {!isEmpty(dialogs)
-        ? Object.entries(dialogs).map(([_, value]) => {
-            return value.render();
-          })
-        : null}
+      <I18nextProvider i18n={i18n}>
+        {!isEmpty(dialogs)
+          ? Object.entries(dialogs).map(([_, value]) => {
+              return value.render();
+            })
+          : null}
 
-      {isLoading ? <Loading /> : null}
+        {isLoading ? <Loading /> : null}
 
-      {children}
+        {children}
+      </I18nextProvider>
     </GlobalContext.Provider>
   );
 }

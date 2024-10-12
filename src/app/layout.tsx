@@ -4,6 +4,7 @@ import { Lato } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import { GlobalLayout } from "@/contexts/GlobalLayout";
+import { Toaster } from "@/components/ui/toaster";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -39,6 +40,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <GlobalLayout>{children}</GlobalLayout>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

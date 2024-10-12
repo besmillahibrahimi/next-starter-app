@@ -131,7 +131,7 @@ export default function Components() {
       </h1>
 
       <div className="flex space-x-8">
-        <Input
+        {/* <Input
           variant="default"
           placeholder="Enter text"
           label="Default Input"
@@ -149,7 +149,7 @@ export default function Components() {
           variant="file"
           placeholder="FILE :)"
           label="choose file"
-        />
+        /> */}
         <Input disabled placeholder="Disabled :(" />
       </div>
 

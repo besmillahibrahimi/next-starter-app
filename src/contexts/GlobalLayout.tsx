@@ -8,8 +8,6 @@ import { isEmpty } from "lodash-es";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface ContextData {
-  alertData: IAlertOptions[] | [];
-  showAlert: (options: IAlertOptions) => void;
   dialogs: Record<string, Modal>;
   showDialog: (options: Modal) => void;
   closeDialog: (key: string) => void;
@@ -17,8 +15,6 @@ interface ContextData {
 }
 
 const defaultValue: ContextData = {
-  alertData: [],
-  showAlert: (options) => {},
   dialogs: {},
   showDialog: (dialog: Modal) => {},
   closeDialog: (key: string) => {},
@@ -30,15 +26,8 @@ const GlobalContext = createContext<ContextData>(defaultValue);
 export const useGlobal = () => useContext(GlobalContext);
 
 export function GlobalLayout({ children }: { children: React.ReactNode }) {
-  const [alertData, setAlertData] = useState<IAlertOptions[] | any[]>([]);
   const [dialogs, setDialogs] = useState<Record<string, Modal>>({}); // max 10
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const showAlert = (options: IAlertOptions | null | undefined) => {
-    Array.isArray(alertData)
-      ? setAlertData([...alertData, options])
-      : setAlertData([]);
-  };
 
   const showDialog = (dialog: Modal | null | undefined) => {
     console.log(" mm 10 - -  dialog - showDialog()  -    ", dialog);
@@ -80,34 +69,18 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    if (alertData) {
-      alertData.forEach((item: IAlertOptions) => {
-        setTimeout(() => {
-          setAlertData((prevAlerts) =>
-            prevAlerts.filter((alert) => alert.key !== item.key)
-          );
-        }, (item?.timeout ?? 3) * 1000);
-      });
-    }
-  }, [alertData]);
-
-  useEffect(() => {
     setTimeout(() => setIsLoading(false), 5000);
   }, [isLoading]);
 
   return (
     <GlobalContext.Provider
       value={{
-        showAlert,
-        alertData,
         showDialog,
         dialogs,
         closeDialog,
         showLoading,
       }}
     >
-      {!isEmpty(alertData) ? <AlertWrapper alertData={alertData} /> : null}
-
       {!isEmpty(dialogs)
         ? Object.entries(dialogs).map(([_, value]) => {
             return value.render();

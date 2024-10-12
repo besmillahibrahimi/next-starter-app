@@ -30,6 +30,25 @@ export default function SignInPage() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     router.replace("/");
+
+    try {
+      fetch("http://localhost:3000/api/auth/sign-in", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "post",
+        body: JSON.stringify(values),
+      }).then(async (re) => {
+        const data = await re.json();
+        const { user, sessionToken } = data;
+        setCookie("session-token", sessionToken);
+        console.log("LOggedldsjkf ", data);
+        alert(`Logged in as ${user.get("username")}`);
+      });
+    } catch (error) {
+      console.error("Error while logging in:", error);
+    }
+
     // const res = fetch("http://localhost:3000/api/auth/sign-in", {
     //   headers: {
     //     "Content-Type": "application/json",

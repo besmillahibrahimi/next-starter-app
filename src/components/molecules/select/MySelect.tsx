@@ -11,9 +11,9 @@ import {
 } from "@/components/ui/select";
 import { InputClasses } from "@/lib/styles/common";
 import { SelectItemType } from "@/lib/types/ui/ui.types";
-import { SelectProps } from "@radix-ui/react-select";
 import { cn } from "@/lib/utils";
-import { Input } from "@/components/ui/input";
+import * as SelectPrimitive from "@radix-ui/react-select";
+import { SelectProps } from "@radix-ui/react-select";
 
 interface ISelectClassName {
   trigger?: string;
@@ -23,9 +23,11 @@ interface ISelectClassName {
   item?: string;
 }
 
-interface ISelect {
+interface ISelect
+  extends React.SelectHTMLAttributes<HTMLSelectElement>,
+    SelectProps {
   classes?: ISelectClassName;
-  size?: "sm" | "md";
+  selectSize?: "sm" | "md";
   placeholder?: React.ReactNode;
   selectLabel?: React.ReactNode;
   Leading?: React.ReactNode;
@@ -33,21 +35,24 @@ interface ISelect {
   className?: string;
   onChange?: (e: any) => void;
 
-  options: SelectItemType[] | any[];
+  options?: SelectItemType[] | any[];
   renderItem?: (item: SelectItemType | any) => React.ReactNode;
   getItemValue?: (item: SelectItemType | any) => string;
 }
 
-const MySelect = React.forwardRef<HTMLSelectElement, ISelect & SelectProps>(
+const MySelect = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  ISelect
+>(
   (
     {
       selectLabel,
       placeholder,
-      options,
+      options = [],
       classes,
       renderItem,
       getItemValue,
-      size = "md",
+      selectSize = "sm",
       Leading,
       value,
       onChange,
@@ -62,7 +67,12 @@ const MySelect = React.forwardRef<HTMLSelectElement, ISelect & SelectProps>(
       {...props}
     >
       <SelectTrigger
-        className={cn("", InputClasses.size[size].default, classes?.trigger)}
+        ref={ref}
+        className={cn(
+          "",
+          InputClasses.size[selectSize].default,
+          classes?.trigger
+        )}
       >
         {Leading ? (
           <div className="flex space-x-3 items-center">

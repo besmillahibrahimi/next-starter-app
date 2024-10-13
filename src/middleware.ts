@@ -2,7 +2,6 @@ import acceptLanguage from "accept-language";
 import { NextRequest, NextResponse } from "next/server";
 import { I18N } from "./configs/i18next/settings";
 import { AppContants } from "./lib/constants";
-import ParseNode from "./configs/parse/parse-node";
 
 acceptLanguage.languages(I18N.supportedLngs);
 
@@ -19,7 +18,9 @@ export async function middleware(request: NextRequest) {
       AppContants.ParseSessionCookieName
     )?.value;
 
-  const response = NextResponse.next();
+  const response = sessionToken
+    ? NextResponse.next()
+    : NextResponse.redirect(new URL("/auth/sign-in", request.url));
   response.headers.set("Accept-Language", lng);
 
   response.cookies.set(I18N.cookieName, lng);
@@ -30,6 +31,8 @@ export async function middleware(request: NextRequest) {
     } catch (error) {
       console.error("error", error);
     }
+  } else {
+    response.cookies.delete(AppContants.ParseSessionCookieName);
   }
   return response;
 }
@@ -37,7 +40,7 @@ export async function middleware(request: NextRequest) {
 // See "Matching Paths" below to learn more
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.icosw.js|site.webmanifest).*)",
+    "/((?!api|_next/static|_next/image|favicon.icosw.js|site.webmanifest|auth|test).*)",
     "/dashboard/:path*",
   ],
 };

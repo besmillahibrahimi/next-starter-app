@@ -13,5 +13,8 @@
     "error": {
       "101": "There is no account with the provided crendentials."
     }
-  }
+  },
+  "yes": "Yes",
+  "no": "No",
+  "logout_permission": "Are you sure to log out?"
 }

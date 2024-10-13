@@ -9,6 +9,8 @@ import { useTranslation } from "react-i18next";
 
 import { useGlobal } from "@/contexts/GlobalLayout";
 import ParseBrowser from "@/configs/parse/parse-browser";
+import LogOutButton from "@/components/atoms/logOutButtom";
+import { LanguageSwitcher } from "@/components/languageSwitcher";
 
 const colors = [
   "primary",
@@ -49,8 +51,10 @@ export default function Home() {
           <p>user name is: {ParseBrowser.User.current()?.get("username")}</p>
           <p>user name is: {ParseBrowser.User.current()?.get("email")}</p>
           {/* <h1>user name: {Parse.User.current()?.get('fullName')}</h1> */}
+          <LanguageSwitcher />
           <ThemeToggler />
           <ThemeToggler useSwitch={false} />
+          <LogOutButton />
         </div>
 
         <div>
@@ -111,7 +115,7 @@ export default function Home() {
             <Button
             //onClick={showMyAlert}
             >
-              aaa
+              {t("appName")}
             </Button>
           </div>
         </div>

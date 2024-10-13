@@ -6,6 +6,8 @@ import { cn } from "@/lib/utils";
 import { GlobalLayout } from "@/contexts/GlobalLayout";
 import { Toaster } from "@/components/ui/toaster";
 import { Suspense } from "react";
+import { DirectionProvider } from "@radix-ui/react-direction";
+import i18n from "@/configs/i18next/i18n-server";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],

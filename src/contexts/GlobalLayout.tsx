@@ -12,6 +12,7 @@ import React, {
   useState,
 } from "react";
 import { I18nextProvider } from "react-i18next";
+import { DirectionProvider } from "@radix-ui/react-direction";
 
 interface ContextData {
   dialogs: Record<string, Modal>;
@@ -94,15 +95,17 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
       }}
     >
       <I18nextProvider i18n={i18n}>
-        {!isEmpty(dialogs)
-          ? Object.entries(dialogs).map(([_, value]) => {
-              return value.render();
-            })
-          : null}
+        <DirectionProvider dir={"rtl"}>
+          {!isEmpty(dialogs)
+            ? Object.entries(dialogs).map(([_, value]) => {
+                return value.render();
+              })
+            : null}
 
-        {isLoading ? <Loading /> : null}
+          {isLoading ? <Loading /> : null}
 
-        {children}
+          {children}
+        </DirectionProvider>
       </I18nextProvider>
     </GlobalContext.Provider>
   );

@@ -1,9 +1,15 @@
 "use client";
-import Loading from "@/components/molecules/LoadingWrapper";
 import i18n from "@/configs/i18next/i18n";
+import Loading from "@/components/molecules/LoadingWrapper";
 import { DialogBase as Modal } from "@/lib/types/dialogs";
 import { isEmpty } from "lodash-es";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  Suspense,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { I18nextProvider } from "react-i18next";
 
 interface ContextData {
@@ -11,6 +17,8 @@ interface ContextData {
   showDialog: (options: Modal) => void;
   closeDialog: (key: string) => void;
   showLoading: (show: boolean) => void;
+  isLoading: boolean;
+  setIsLoading: (value: boolean) => void;
 }
 
 const defaultValue: ContextData = {
@@ -18,6 +26,8 @@ const defaultValue: ContextData = {
   showDialog: (dialog: Modal) => {},
   closeDialog: (key: string) => {},
   showLoading: (show: boolean) => {},
+  isLoading: true,
+  setIsLoading: (value: boolean) => {},
 };
 
 const GlobalContext = createContext<ContextData>(defaultValue);
@@ -78,6 +88,8 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
         dialogs,
         closeDialog,
         showLoading,
+        isLoading,
+        setIsLoading,
       }}
     >
       <I18nextProvider i18n={i18n}>

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 import { GlobalLayout } from "@/contexts/GlobalLayout";
 import { Toaster } from "@/components/ui/toaster";
+import { Suspense } from "react";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -12,12 +13,6 @@ const lato = Lato({
   display: "swap",
   variable: "--lato-font-family",
 });
-
-export const metadata: Metadata = {
-  title: "Next Start App",
-  description:
-    "This started app is created to help you not configure theming, i18n, and others from scratch.",
-};
 
 export default function RootLayout({
   children,
@@ -33,15 +28,17 @@ export default function RootLayout({
           lato.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <GlobalLayout>{children}</GlobalLayout>
-          <Toaster />
-        </ThemeProvider>
+        <GlobalLayout>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <Toaster />
+          </ThemeProvider>
+        </GlobalLayout>
       </body>
     </html>
   );

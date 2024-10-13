@@ -1,6 +1,5 @@
 import acceptLanguage from "accept-language";
 import { NextRequest, NextResponse } from "next/server";
-import { PRIVATE_ROUTES } from "./lib/http/contants";
 import { I18N } from "./configs/i18next/settings";
 
 acceptLanguage.languages(I18N.supportedLngs);
@@ -23,6 +22,6 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/((?!api|_next/static|_next/image|favicon.icosw.js|site.webmanifest).*)",
-    ...PRIVATE_ROUTES,
+    "/dashboard/:path*",
   ],
 };

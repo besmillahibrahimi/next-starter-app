@@ -1,4 +1,3 @@
-// import ParseNode from "parse/node";
 import ParseNode from "parse/node";
 
 ParseNode.initialize(
@@ -7,5 +6,6 @@ ParseNode.initialize(
 );
 
 ParseNode.serverURL = process.env.NEXT_PUBLIC_PARSE_ADDRESS!;
+ParseNode.User.enableUnsafeCurrentUser();
 
 export default ParseNode;

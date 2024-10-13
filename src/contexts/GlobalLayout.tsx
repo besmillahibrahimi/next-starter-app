@@ -1,4 +1,5 @@
 "use client";
+import "@/configs/parse/parse-browser";
 import i18n from "@/configs/i18next/i18n";
 import Loading from "@/components/molecules/LoadingWrapper";
 import { DialogBase as Modal } from "@/lib/types/dialogs";

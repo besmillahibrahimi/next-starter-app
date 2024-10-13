@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 import { useGlobal } from "@/contexts/GlobalLayout";
+import ParseBrowser from "@/configs/parse/parse-browser";
 
 const colors = [
   "primary",
@@ -40,21 +41,13 @@ export default function Home() {
     //   .catch((err: any) => alert(err));
   };
 
-  const { showAlert, alertData } = useGlobal();
-
-  // const showMyAlert = () => {
-  //   showAlert({
-  //     title: "MY Alert test",
-  //     body: "This is a test alert",
-  //     type: AlertType.Success,
-  //   });
-  // };
-
   return (
     <main className="container">
       <div className="py-8">
         <h1 className="text-center text-3xl bg-brand">{t("test")}</h1>
         <div className="w-full flex justify-end space-x-5">
+          <p>user name is: {ParseBrowser.User.current()?.get("username")}</p>
+          <p>user name is: {ParseBrowser.User.current()?.get("email")}</p>
           {/* <h1>user name: {Parse.User.current()?.get('fullName')}</h1> */}
           <ThemeToggler />
           <ThemeToggler useSwitch={false} />

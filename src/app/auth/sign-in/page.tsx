@@ -5,13 +5,16 @@ import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import ParseBrowser from "@/configs/parse/parse-browser";
 import { useGlobal } from "@/contexts/GlobalLayout";
+import { useRedirectQuery } from "@/hooks/use-redirect";
 import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Suspense } from "react";
-
+import { setCookie } from "cookies-next";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { z } from "zod";
+import { AppContants } from "@/lib/constants";
+import { Session } from "parse";
 
 export const formSchema = z.object({
   username: z.string(),
@@ -21,6 +24,7 @@ export const formSchema = z.object({
 export default function SignInPage() {
   const { t } = useTranslation("translation");
   const { setIsLoading } = useGlobal();
+  const [redirect] = useRedirectQuery();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -32,19 +36,19 @@ export default function SignInPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      console.log("===== loged in");
       setIsLoading(true);
+
       const user = await ParseBrowser.User.logIn(
         values.username,
         values.password
       );
-      console.log("===== loged in", user);
-      // Do stuff after successful login.
+      const token = user.getSessionToken();
+      setCookie(AppContants.ParseSessionCookieName, token);
+      redirect();
     } catch (err: any) {
-      console.log("Error while logging in:", err.code);
       toast({ description: t(`auth.error.${err.code}`), variant: "error" });
     } finally {
-      setIsLoading(true);
+      setIsLoading(false);
     }
   }
 
@@ -58,7 +62,7 @@ export default function SignInPage() {
                 name="username"
                 control={form.control}
                 Input={Input}
-                label={"auth.username"}
+                label={t("auth.username")}
               />
               <Field<"input">
                 name={"password"}

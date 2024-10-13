@@ -5,6 +5,11 @@
     "username_hint": "Enter your Username",
     "password": "Password",
     "password_hint": "Enter your password",
+    "email": "Email",
+    "email_hint": "Enter your email here",
+    "fullName": "Fullname",
+    "fullName_hint": "Enter your fullname here",
+    "signup_success": "Your account created successfully!",
     "error": {
       "101": "There is no account with the provided crendentials."
     }

@@ -1,17 +1,17 @@
 "use client";
 import ParseBrowser from "@/configs/parse/parse-browser";
+import { useDialog } from "@/hooks/use-dialogs";
 import { useRedirectQuery } from "@/hooks/use-redirect";
 import { AppContants } from "@/lib/constants";
+import { TagDialog } from "@/lib/types/dialogs";
 import { ExitIcon } from "@radix-ui/react-icons";
 import { deleteCookie } from "cookies-next";
-import { Button } from "../ui/button";
-import { useGlobal } from "@/contexts/GlobalLayout";
-import { TagDialog } from "@/lib/types/dialogs";
 import { useTranslation } from "react-i18next";
+import { Button } from "../ui/button";
 
 const LogOutButton = () => {
   const [redirect] = useRedirectQuery();
-  const { showDialog, closeDialog } = useGlobal();
+  const { showDialog, closeDialog } = useDialog();
 
   const { t } = useTranslation("translation");
 

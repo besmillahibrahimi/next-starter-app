@@ -2,12 +2,11 @@
 import ThemeToggler from "@/components/molecules/ThemeToggler";
 import { Button } from "@/components/ui/button";
 
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import LogOutButton from "@/components/atoms/logOutButtom";
 import { LanguageSwitcher } from "@/components/languageSwitcher";
-import Loading from "@/components/molecules/LoadingWrapper";
+import { withDialog } from "@/hooks/use-dialogs";
 
 const colors = [
   "primary",
@@ -26,14 +25,9 @@ const buttonVariants = {
   size: ["default", "lg", "sm", "icon"],
 };
 
-export default function Home() {
+function Home() {
   //const { t } = useTranslation("error-codes");
   const { t, i18n } = useTranslation();
-
-  const [localeReady, setLocaleReady] = useState(false);
-  // useEffect(() => {
-  //   if (!isAuthenticated()) router.replace("/auth/sign-in");
-  // }, [router]);
 
   const logOut = () => {
     // LogOutAPI()
@@ -41,11 +35,7 @@ export default function Home() {
     //   .catch((err: any) => alert(err));
   };
 
-  useEffect(() => {
-    setLocaleReady(true);
-  }, []);
-
-  return localeReady ? (
+  return (
     <main className="container">
       <div className="py-8">
         <h1 className="text-center text-3xl bg-brand">{t("test")}</h1>
@@ -121,7 +111,7 @@ export default function Home() {
         </div>
       </div>
     </main>
-  ) : (
-    <Loading />
   );
 }
+
+export default withDialog(Home);

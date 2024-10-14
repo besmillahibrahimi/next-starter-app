@@ -2,15 +2,12 @@
 import ThemeToggler from "@/components/molecules/ThemeToggler";
 import { Button } from "@/components/ui/button";
 
-import { isAuthenticated, LogOutAPI } from "@/lib/http/auth";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { useGlobal } from "@/contexts/GlobalLayout";
-import ParseBrowser from "@/configs/parse/parse-browser";
 import LogOutButton from "@/components/atoms/logOutButtom";
 import { LanguageSwitcher } from "@/components/languageSwitcher";
+import Loading from "@/components/molecules/LoadingWrapper";
 
 const colors = [
   "primary",
@@ -31,8 +28,9 @@ const buttonVariants = {
 
 export default function Home() {
   //const { t } = useTranslation("error-codes");
-  const { t } = useTranslation();
-  const router = useRouter();
+  const { t, i18n } = useTranslation();
+
+  const [localeReady, setLocaleReady] = useState(false);
   // useEffect(() => {
   //   if (!isAuthenticated()) router.replace("/auth/sign-in");
   // }, [router]);
@@ -43,13 +41,15 @@ export default function Home() {
     //   .catch((err: any) => alert(err));
   };
 
-  return (
+  useEffect(() => {
+    setLocaleReady(true);
+  }, []);
+
+  return localeReady ? (
     <main className="container">
       <div className="py-8">
         <h1 className="text-center text-3xl bg-brand">{t("test")}</h1>
         <div className="w-full flex justify-end space-x-5">
-          <p>user name is: {ParseBrowser.User.current()?.get("username")}</p>
-          <p>user name is: {ParseBrowser.User.current()?.get("email")}</p>
           {/* <h1>user name: {Parse.User.current()?.get('fullName')}</h1> */}
           <LanguageSwitcher />
           <ThemeToggler />
@@ -121,5 +121,7 @@ export default function Home() {
         </div>
       </div>
     </main>
+  ) : (
+    <Loading />
   );
 }

@@ -13,6 +13,7 @@ import React, {
 } from "react";
 import { I18nextProvider } from "react-i18next";
 import { DirectionProvider } from "@radix-ui/react-direction";
+import { I18N } from "@/configs/i18next/settings";
 
 interface ContextData {
   dialogs: Record<string, Modal>;
@@ -37,6 +38,7 @@ const GlobalContext = createContext<ContextData>(defaultValue);
 export const useGlobal = () => useContext(GlobalContext);
 
 export function GlobalLayout({ children }: { children: React.ReactNode }) {
+  const [localeReady, setLocaleReady] = useState<boolean>(false); // max 10
   const [dialogs, setDialogs] = useState<Record<string, Modal>>({}); // max 10
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -83,6 +85,8 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
     setTimeout(() => setIsLoading(false), 5000);
   }, [isLoading]);
 
+  useEffect(() => {}, []);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -95,17 +99,19 @@ export function GlobalLayout({ children }: { children: React.ReactNode }) {
       }}
     >
       <I18nextProvider i18n={i18n}>
-        <DirectionProvider dir={"rtl"}>
-          {!isEmpty(dialogs)
-            ? Object.entries(dialogs).map(([_, value]) => {
-                return value.render();
-              })
-            : null}
+        <Suspense fallback={<p>Loading..</p>}>
+          <DirectionProvider dir={i18n.dir(i18n.resolvedLanguage)}>
+            {!isEmpty(dialogs)
+              ? Object.entries(dialogs).map(([_, value]) => {
+                  return value.render();
+                })
+              : null}
 
-          {isLoading ? <Loading /> : null}
+            {isLoading ? <Loading /> : null}
 
-          {children}
-        </DirectionProvider>
+            {children}
+          </DirectionProvider>
+        </Suspense>
       </I18nextProvider>
     </GlobalContext.Provider>
   );

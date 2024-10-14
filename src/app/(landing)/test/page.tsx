@@ -1,27 +1,11 @@
-import ParseNode from "@/configs/parse/parse-node";
-import { AppContants } from "@/lib/constants";
-import { cookies } from "next/headers";
+import ParseBrowser from "@/configs/parse/parse-browser";
+import UserName from "./UserName";
 
-export default async function Home() {
-  const token = cookies().get(AppContants.ParseSessionCookieName)?.value;
-  let user;
-  try {
-    if (token) {
-      user = await ParseNode.User.become(token!);
-      // user = ParseNode.User.?current();
-      console.log(
-        "sldfj username is",
-        user?.get("username"),
-        user?.get("email")
-      );
-    }
-  } catch (err) {
-    console.log("00sdfsdf", err);
-  }
+export default function Home() {
+  console.log("---0 user email", ParseBrowser.User.current()?.get("email"));
   return (
     <main className="container">
-      <p>username: {user?.get("username")}</p>
-      <p>username: {user?.get("email")}</p>
+      <UserName />
     </main>
   );
 }

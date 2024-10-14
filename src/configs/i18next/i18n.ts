@@ -15,16 +15,14 @@ i18n
   .use(initReactI18next) // Passes i18n instance to react-i18next
   .init({
     fallbackLng: I18N.fallbackLng,
-    debug: true,
+    debug: false,
 
     interpolation: {
       escapeValue: false, // React already protects from XSS
     },
-    backend: {
-      loadPath: "/locales/{{lng}}/{{ns}}.json", // Path to translation files
-    },
+
     react: {
-      useSuspense: false, // Disable suspense mode for SSR
+      useSuspense: true, // Disable suspense mode for SSR
     },
   });
 

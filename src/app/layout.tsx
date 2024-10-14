@@ -1,13 +1,14 @@
-import "@/styles/globals.css";
-import type { Metadata } from "next";
-import { Lato } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { cn } from "@/lib/utils";
-import { GlobalLayout } from "@/contexts/GlobalLayout";
 import { Toaster } from "@/components/ui/toaster";
-import { Suspense } from "react";
-import { DirectionProvider } from "@radix-ui/react-direction";
-import i18n from "@/configs/i18next/i18n-server";
+import { I18N } from "@/configs/i18next/settings";
+
+import { GlobalLayout } from "@/contexts/GlobalLayout";
+import { cn } from "@/lib/utils";
+import "@/styles/globals.css";
+import { getCookie } from "cookies-next";
+import { dir } from "i18next";
+import { Lato } from "next/font/google";
+import { cookies } from "next/headers";
 
 const lato = Lato({
   weight: ["100", "300", "400", "700", "900"],
@@ -21,9 +22,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log("global layout");
+  const lang = cookies().get(I18N.cookieName)?.value;
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning dir={dir(lang)} lang={lang}>
       <body
         className={cn(
           "min-h-screen bg-primary text-fg-primary font-lato antialiased",

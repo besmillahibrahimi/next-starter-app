@@ -30,7 +30,7 @@ const LogOutButton = () => {
 
   function onSubmit(values: any) {
     console.log("mm 100 - - - ", values);
-    //logOut()
+    logOut();
   }
 
   return (
@@ -42,14 +42,14 @@ const LogOutButton = () => {
           </Button>
         }
         dialogTitle="DialogTitle"
-        dialogDes="Dialog Description"
-        body={
-          <FormProvider {...methods}>
-            <form onSubmit={methods.handleSubmit(onSubmit)}>
-              <Field name={"input1"} Input={Input} label="Input Label" />
-            </form>
-          </FormProvider>
-        }
+        dialogDes="Are you sure you want to logout ?"
+        // body={
+        //   <FormProvider {...methods}>
+        //     <form onSubmit={methods.handleSubmit(onSubmit)}>
+        //       <Field name={"input1"} Input={Input} label="Input Label" />
+        //     </form>
+        //   </FormProvider>
+        // }
         footer={
           <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>

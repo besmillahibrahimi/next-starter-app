@@ -28,7 +28,7 @@ export default function Dashboard() {
   const { toast } = useToast();
 
   const showMyAlert = () => {
-    // setCountState(countState + 1);
+    setCountState(countState + 1);
     toast({
       title: `----------         hiii  ${countState}     ----------- `,
       variant: "error",

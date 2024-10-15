@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "@/components/ui/toaster";
+import { Toaster as SoonerToaster } from "@/components/ui/sonner";
 import { I18N } from "@/configs/i18next/settings";
 
 import { GlobalLayout } from "@/contexts/GlobalLayout";
@@ -40,6 +41,7 @@ export default function RootLayout({
           >
             {children}
             <Toaster />
+            <SoonerToaster />
           </ThemeProvider>
         </GlobalLayout>
       </body>

@@ -1,7 +1,13 @@
 "use client";
 
 import isEmpty from "lodash-es/isEmpty";
-import React, { createContext, useContext, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 import { DialogBase as Modal } from "@/lib/types/dialogs";
 
 interface IProps {
@@ -14,7 +20,7 @@ const defaultValue: IProps = {
   closeDialog: (key: string) => {},
 };
 
-const DialogContext = createContext<IProps>(defaultValue);
+export const DialogContext = createContext<IProps>(defaultValue);
 export const useDialog = () => useContext<IProps>(DialogContext);
 
 export const withDialog = (Page: React.ComponentType) => {
@@ -22,6 +28,7 @@ export const withDialog = (Page: React.ComponentType) => {
     const [dialogs, setDialogs] = useState<Record<string, Modal>>({}); // max 10
 
     const closeDialog = (key: string) => {
+      console.log("-----", key);
       setDialogs((m) => {
         const temp = { ...m };
         const dialog = temp[key]!;
@@ -43,21 +50,25 @@ export const withDialog = (Page: React.ComponentType) => {
       if (!dialog) return;
 
       setDialogs((m) => {
-        const base =
-          dialog instanceof Modal
-            ? dialog
-            : new Modal((key) => closeDialog(key), dialog);
+        const base = dialog instanceof Modal ? dialog : new Modal(dialog);
         const n = { ...m, [base.key]: base };
         return n;
       });
     };
+
+    const renderDialogs = useMemo(() => {
+      return Object.entries(dialogs).map(([_, value]) => {
+        return value.render();
+      });
+    }, [dialogs]);
     return (
       <DialogContext.Provider value={{ showDialog, closeDialog }}>
-        {!isEmpty(dialogs)
+        {/* {!isEmpty(dialogs)
           ? Object.entries(dialogs).map(([_, value]) => {
               return value.render();
             })
-          : null}
+          : null} */}
+        {renderDialogs}
         <Page {...props} />
       </DialogContext.Provider>
     );

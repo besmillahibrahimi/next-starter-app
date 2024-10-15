@@ -1,12 +1,15 @@
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
+  DialogTrigger,
 } from "@/components/ui/dialog";
-import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { DialogContext } from "@/hooks/use-dialogs";
+import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 import { DetailedHTMLProps, HTMLAttributes, InputHTMLAttributes } from "react";
 
 interface Callback {
@@ -19,8 +22,8 @@ export interface Dialog {
 
 export interface IDialog {
   header?: {
-    title?: string | React.ReactNode; // dialog title
-    desc?: string | React.ReactNode;
+    title?: React.ReactNode; // dialog title
+    desc?: React.ReactNode;
   };
   content?: React.ReactNode;
   footer?: React.ReactNode;
@@ -28,40 +31,54 @@ export interface IDialog {
 
 export class DialogBase {
   body?: IDialog;
-  close: Callback;
+
   public key: string;
   public open: boolean;
+  public close?: Callback;
 
-  constructor(close: Callback, body?: IDialog) {
+  constructor(body?: IDialog) {
     this.body = body;
-    this.close = close;
+
     this.key = Math.random().toString(36);
     this.open = true;
   }
 
   render() {
+    // this.close = closeDialog;
     return (
-      <Dialog
-        key={this.key}
-        open={this.open}
-        onOpenChange={() => this.close(this.key!)}
-        //closeDialog(item?.key)
-      >
-        <DialogContent className="sm:max-w-[425px]">
-          {this.body?.header ? (
-            <DialogHeader>
-              <DialogTitle>{this.body.header.title}</DialogTitle>
-              <DialogDescription>{this.body.header.desc}</DialogDescription>
-            </DialogHeader>
-          ) : null}
+      <DialogContext.Consumer>
+        {({ closeDialog }) => {
+          this.close = closeDialog;
+          return (
+            <Dialog
+              key={this.key}
+              open={this.open}
+              onOpenChange={() => {
+                console.log("clicked close");
+                closeDialog(this.key!);
+              }}
+              //closeDialog(item?.key)
+            >
+              <DialogContent className="sm:max-w-[425px]">
+                {this.body?.header ? (
+                  <DialogHeader>
+                    <DialogTitle>{this.body.header.title}</DialogTitle>
+                    <DialogDescription>
+                      {this.body.header.desc}
+                    </DialogDescription>
+                  </DialogHeader>
+                ) : null}
 
-          {this.body?.content}
+                {this.body?.content}
 
-          {this.body?.footer ? (
-            <DialogFooter>{this.body?.footer}</DialogFooter>
-          ) : null}
-        </DialogContent>
-      </Dialog>
+                {this.body?.footer ? (
+                  <DialogFooter>{this.body?.footer}</DialogFooter>
+                ) : null}
+              </DialogContent>
+            </Dialog>
+          );
+        }}
+      </DialogContext.Consumer>
     );
   }
 }
@@ -69,8 +86,6 @@ export class DialogBase {
 export class PromptDialog extends DialogBase {
   value?: string;
   constructor(
-    close: Callback,
-
     btnTitle: string,
     callback: (value?: string) => void,
     InputProps: DetailedHTMLProps<
@@ -78,7 +93,7 @@ export class PromptDialog extends DialogBase {
       HTMLInputElement
     >
   ) {
-    super(close);
+    super();
 
     this.body = {
       content: (
@@ -96,7 +111,7 @@ export class PromptDialog extends DialogBase {
           <Button
             onClick={() => {
               callback(this.value);
-              close(this.key);
+              this.close && this.close(this.key);
             }}
           >
             {btnTitle}
@@ -110,7 +125,6 @@ export class PromptDialog extends DialogBase {
 export class TagDialog extends DialogBase {
   value?: string;
   constructor(
-    close: Callback,
     content: React.ReactNode,
     Positive: React.ReactNode,
     Negative: React.ReactNode,
@@ -120,7 +134,7 @@ export class TagDialog extends DialogBase {
       HTMLDivElement
     >
   ) {
-    super(close);
+    super();
 
     this.body = {
       content,
@@ -129,7 +143,7 @@ export class TagDialog extends DialogBase {
           <div
             onClick={() => {
               callback(true);
-              close(this.key);
+              this.close && this.close(this.key);
             }}
           >
             {Positive}
@@ -138,7 +152,7 @@ export class TagDialog extends DialogBase {
           <div
             onClick={() => {
               callback(false);
-              close(this.key);
+              this.close && this.close(this.key);
             }}
           >
             {Negative}

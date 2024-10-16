@@ -20,15 +20,7 @@ const config = {
     // textColor: TextColor,
     //borderColor: BorderColor,
     // backgroundColor: BackgroundColor,
-    screens: {
-      // => @media (min-width: 640px and max-width: 767px) { ... }
-      xs: { min: "0px", max: "479px" },
-      sm: { min: "480px", max: "779px" },
-      md: { min: "780px", max: "899px" },
-      lg: { min: "900px", max: "1023px" },
-      xl: { min: "1024px", max: "1535px" },
-      "2xl": { min: "1536px" },
-    },
+
     container: {
       center: true,
       padding: {
@@ -37,6 +29,14 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        xs: "0px",
+        sm: "480px",
+        md: "780px",
+        lg: "900px",
+        xl: "1024px",
+        "2xl": "1536px",
+      },
       fontFamily: {
         lato: ["var(--lato-font-family)", ...fontFamily.sans],
       },

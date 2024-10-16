@@ -1,8 +1,3 @@
-import { useGlobal } from "@/contexts/GlobalLayout";
-import { toast } from "@/hooks/use-toast";
-import { AppContants } from "@/lib/constants";
-import { getCookie } from "cookies-next";
-
 type cacheTypes =
   | "default"
   | "no-store"
@@ -17,20 +12,22 @@ interface IFetch {
   body?: Object;
   cache?: cacheTypes;
   next?: NextFetchRequestConfig;
+  token?: string;
 }
 
 const Fetch = async ({
   url,
   method,
-  body = {},
+  body,
   cache = "default",
   next,
+  token,
 }: IFetch) => {
   //   try {
   const myHeaders = {
     "X-Parse-Application-Id": process.env.NEXT_PUBLIC_PARSE_APP_ID,
     "X-Parse-REST-API-Key": process.env.NEXT_PUBLIC_PARSE_REST_API_KEY,
-    "X-Parse-Session-Token": getCookie(AppContants.ParseSessionCookieName),
+    "X-Parse-Session-Token": token,
     "Content-Type": "application/json",
   };
   const response = await fetch(
@@ -45,20 +42,20 @@ const Fetch = async ({
     }
   );
 
-  console.log(" reeees ---   ", response);
+  //console.log(" reeees ---   ", response);
 
-  if (!response.ok) {
-    // toast({
-    //   description:
-    //     "Network response was not ok : " +
-    //     response.status +
-    //     response.statusText,
-    //   variant: "error",
-    // });
-    throw new Error(
-      "Network response was not ok : " + response.status + response.statusText
-    );
-  }
+  //   if (!response.ok) {
+  // toast({
+  //   description:
+  //     "Network response was not ok : " +
+  //     response.status +
+  //     response.statusText,
+  //   variant: "error",
+  // });
+  //     throw new Error(
+  //       "Network response was not ok : " + response.status + response.statusText
+  //     );
+  //   }
 
   return response.json();
   //   } catch (err: any) {

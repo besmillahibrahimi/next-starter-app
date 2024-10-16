@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import LogOutButton from "@/components/atoms/logOutButtom";
 import { LanguageSwitcher } from "@/components/languageSwitcher";
 import { withDialog } from "@/hooks/use-dialogs";
+import { useRedirectQuery } from "@/hooks/use-redirect";
 
 const colors = [
   "primary",
@@ -28,6 +29,8 @@ const buttonVariants = {
 function Home() {
   //const { t } = useTranslation("error-codes");
   const { t, i18n } = useTranslation();
+
+  const [redirect] = useRedirectQuery();
 
   const logOut = () => {
     // LogOutAPI()
@@ -99,7 +102,14 @@ function Home() {
           </div> */}
 
           <div className="flex justify-center mt-8">
-            <Button onClick={logOut}>LogOut</Button>
+            <Button onClick={() => redirect("/auth/testFetch")}>
+              Test Fetch
+            </Button>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Button onClick={() => redirect("/auth/testParse")}>
+              Test Parse
+            </Button>
           </div>
           <div className="flex justify-center mt-8">
             <Button

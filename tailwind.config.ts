@@ -22,12 +22,12 @@ const config = {
     // backgroundColor: BackgroundColor,
     screens: {
       // => @media (min-width: 640px and max-width: 767px) { ... }
-      mobile: { min: "0px", max: "479px" },
-      mobileLS: { min: "480px", max: "779px" },
-      tablet: { min: "780px", max: "899px" },
-      tabletLS: { min: "900px", max: "1023px" },
-      desktop: { min: "1024px", max: "1535px" },
-      extra: { min: "1536px" },
+      xs: { min: "0px", max: "479px" },
+      sm: { min: "480px", max: "779px" },
+      md: { min: "780px", max: "899px" },
+      lg: { min: "900px", max: "1023px" },
+      xl: { min: "1024px", max: "1535px" },
+      "2xl": { min: "1536px" },
     },
     container: {
       center: true,
